@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>labor — Laboratorio di progettazione e produzione multidisciplinare</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="assets/js/slideshow.js" defer></script>
+</head>
+
+<body class="home">
+
+  <header class="logo-box">
+    <div class="logo">
+      laboratorio di progettazione e produzione multidisciplinare<br>
+      <strong class="labor-word">L A B O R</strong>
+    </div>
+  </header>
+
+  <div class="slideshow"></div>
+
+  <a href="menu.html" class="menu-button">menu</a>
+
+</body>
+</html>
