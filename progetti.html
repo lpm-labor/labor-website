@@ -1,70 +1,83 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>progetti – LABOR</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progetti — LABOR</title>
+
     <style>
         body {
             margin: 0;
             padding: 40px;
+            font-family: "Courier New", monospace;
             background: white;
             color: black;
-            font-family: "Courier New", monospace;
         }
 
-        /* Logo */
+        /* LOGO IDENTICO ALL'HOMEPAGE */
         .logo {
             position: fixed;
-            top: 40px;
-            left: 40px;
-            line-height: 1.1;
-            z-index: 1000;
-        }
-        .logo .line { font-size: 14px; }
-        .logo .labor {
-            font-size: 40px;
-            letter-spacing: 18px;
-            font-weight: bold;
-            margin-top: 8px;
+            top: 20px;
+            left: 20px;
+            line-height: 0.8em;
+            font-size: 18px;
+            text-transform: lowercase;
+            white-space: pre-line;
+            z-index: 10;
         }
 
-        /* Link progetti */
+        .logo strong {
+            text-transform: uppercase;
+            font-size: 18px;
+            display: block;
+            margin-top: 4px;
+            letter-spacing: 13px;
+        }
+
+        .logo a {
+            color: black;
+            text-decoration: none;
+        }
+
+        /* LINK PROGETTI */
         .menu {
             position: fixed;
-            top: 40px;
-            right: 40px;
-            font-size: 16px;
-        }
-        .menu a {
-            text-decoration: none;
-            color: black;
+            top: 20px;
+            right: 20px;
+            font-size: 18px;
+            text-transform: lowercase;
+            z-index: 10;
         }
 
-        /* Grid progetti */
-        .grid {
-            margin-top: 180px;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 40px;
+        .menu a {
+            color: black;
+            text-decoration: none;
+        }
+
+        /* CONTENUTO PAGINA */
+        .content {
+            margin-top: 140px;
+            max-width: 900px;
         }
 
         .project {
-            border: 1px solid black;
-            padding: 20px;
-            min-height: 180px;
-            transition: background 0.2s;
+            margin-bottom: 50px;
         }
-        .project:hover {
-            background: #f2f2f2;
-        }
+
         .project-title {
-            font-weight: bold;
+            font-size: 20px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .project-year {
+            font-size: 14px;
             margin-bottom: 10px;
         }
+
         .project-desc {
-            font-size: 14px;
-            line-height: 1.4;
+            font-size: 16px;
+            line-height: 1.4em;
         }
     </style>
 </head>
@@ -73,38 +86,44 @@
 
     <!-- LOGO -->
     <div class="logo">
-        <div class="line">laboratorio di</div>
-        <div class="line">progettazione e produzione</div>
-        <div class="line">multidisciplinare</div>
-        <div class="labor">LABOR</div>
+        <a href="info.html">
+            laboratorio di<br>
+            progettazione e produzione<br>
+            multidisciplinare<br>
+            <strong>LABOR</strong>
+        </a>
     </div>
 
-    <!-- MENU -->
+    <!-- LINK PROGETTI -->
     <div class="menu">
-        <a href="projects.html">progetti</a>
+        <a href="progetti.html">progetti</a>
     </div>
 
     <!-- CONTENUTO -->
-    <div class="grid">
+    <div class="content">
 
+        <!-- QUI ANDRANNO I PROGETTI REALI -->
         <div class="project">
-            <div class="project-title">Titolo progetto 01</div>
+            <div class="project-title">Titolo progetto 1</div>
+            <div class="project-year">2024</div>
             <div class="project-desc">
-                Breve descrizione del progetto. Testo segnaposto per presentare il contenuto.
+                Descrizione breve del progetto. Testo di esempio.
             </div>
         </div>
 
         <div class="project">
-            <div class="project-title">Titolo progetto 02</div>
+            <div class="project-title">Titolo progetto 2</div>
+            <div class="project-year">2023</div>
             <div class="project-desc">
-                Descrizione sintetica, massimo 3 righe, per mantenere la pagina ordinata.
+                Descrizione breve del progetto. Testo di esempio.
             </div>
         </div>
 
         <div class="project">
-            <div class="project-title">Titolo progetto 03</div>
+            <div class="project-title">Titolo progetto 3</div>
+            <div class="project-year">2022</div>
             <div class="project-desc">
-                Un altro progetto con descrizione di prova. Le card aumentano automaticamente.
+                Descrizione breve del progetto. Testo di esempio.
             </div>
         </div>
 
