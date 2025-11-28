@@ -21,17 +21,20 @@ const progetti = [
         titolo: "Innsbruck",
         sottotitolo: "Espositori per immagini",
         codice: "4.19_023-001",
-        anno: "2023",
-        status: "completato",
 
         temi: ["2023", "expo"],
 
-        immagini: ["img/progetti/1/4.19_023-001_axo.jpg", "img/progetti/1/4.19_023-001_proiez.jpg"],
+        immagini: [
+            "img/progetti/1/4.19_023-001_axo.jpg",
+            "img/progetti/1/4.19_023-001_proiez.jpg"
+        ],
 
         dettagli: {
+            design: "LABOR",
+            anno: "2023",
+            status: "completato",
             materiali: "MDF, legno d'acero",
-            tecnologia: "taglio laser",
-            energia: "3.2 kWh",
+            dimensioni: "variabili",
             quantità: "12 pezzi"
         }
     },
@@ -41,35 +44,32 @@ const progetti = [
         titolo: "progetto 2",
         sottotitolo: "installazione temporanea",
         codice: "EXP-014",
-        anno: "2023",
-        status: "in corso",
 
         temi: ["2023", "expo"],
 
         immagini: ["img/placeholder.jpg"],
 
         dettagli: {
+            design: "LABOR",
+            anno: "2023",
+            status: "in corso",
             materiali: "plexiglass",
-            tecnologia: "CNC",
-            energia: "1.8 kWh",
+            dimensioni: "120 × 60 cm",
             quantità: "4 moduli"
         }
     }
 ];
 
 /* ============================
-   GENERA LISTA
+   GENERA LISTA TEMI / PROGETTI
 ============================ */
 
 const lista = document.getElementById("listaTemi");
 
 temi.forEach(t => {
-
     const voce = document.createElement("a");
     voce.textContent = t.nome;
     voce.onclick = () => toggleSubmenu("sm_" + t.id);
-
-    const br = document.createElement("br");
 
     const submenu = document.createElement("div");
     submenu.id = "sm_" + t.id;
@@ -86,7 +86,7 @@ temi.forEach(t => {
         });
 
     lista.appendChild(voce);
-    lista.appendChild(br);
+    lista.appendChild(document.createElement("br"));
     lista.appendChild(submenu);
 });
 
@@ -102,7 +102,7 @@ function chiudiTutte() {
 let offset = 0;
 
 /* ============================
-   POPUP
+   APRI POPUP
 ============================ */
 
 function apriProgetto(id) {
@@ -113,9 +113,8 @@ function apriProgetto(id) {
 
     const scheda = document.createElement("div");
     scheda.className = "scheda";
-    scheda.style.left = (300 + offset) + "px";
-    scheda.style.top = (150 + offset) + "px";
-
+    scheda.style.left = (280 + offset) + "px";
+    scheda.style.top = (120 + offset) + "px";
     scheda.dataset.imgIndex = 0;
 
     scheda.innerHTML = `
@@ -123,21 +122,20 @@ function apriProgetto(id) {
 
         <div class="drag-area">
             <h3>${p.titolo}</h3>
-            <div class="sottotitolo">${p.sottotitolo || ""}</div>
-            <div class="meta">codice: ${p.codice} — anno: ${p.anno} — stato: ${p.status}</div>
+            <div class="sottotitolo">${p.sottotitolo}</div>
+            <div class="codice">codice: ${p.codice}</div>
         </div>
 
         <img class="popup-img" src="${p.immagini[0]}" onclick="nextImg(this, ${id})">
 
         <table class="dettagli-table">
-            ${Object.entries(p.dettagli).map(
-                ([k, v]) => `<tr><td>${k}</td><td>${v}</td></tr>`
-            ).join("")}
+            ${Object.entries(p.dettagli)
+                .map(([k, v]) => `<tr><td class="etichetta">${k}</td><td>${v}</td></tr>`)
+                .join("")}
         </table>
     `;
 
     document.body.appendChild(scheda);
-
     renderDraggable(scheda);
 }
 
