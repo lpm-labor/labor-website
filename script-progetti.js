@@ -26,7 +26,7 @@ const progetti = [
 
         temi: ["2023", "expo"],
 
-        immagini: ["img/progetti/1/4.19_023-001_axo.jpg", "img/placeholder.jpg"],
+        immagini: ["img/progetti/1/4.19_023-001_axo.jpg", "img/progetti/1/4.19_023-001_proiez.jpg"],
 
         dettagli: {
             materiali: "legno, acciaio",
