@@ -12,8 +12,8 @@
             height: 100%;
             width: 100%;
             font-family: "Courier New", monospace;
-            background: black;
-            color: white;
+            background: white;
+            color: black;
             overflow: hidden;
         }
 
@@ -34,7 +34,7 @@
             font-size: 18px;
             display: block;
             margin-top: 4px;
-            letter-spacing: 13px; /* LABOR ancora più largo (+40%) */
+            letter-spacing: 13px; /* LABOR allargato */
         }
 
         /* LINK PROGETTI (SEMPRE VISIBILE) */
@@ -48,7 +48,7 @@
         }
 
         .menu a {
-            color: white;
+            color: black;
             text-decoration: none;
         }
 
@@ -60,28 +60,28 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            display: none; /* niente dissolvenze */
+            display: none; /* nessuna dissolvenza */
         }
 
         .slideshow img.active {
             display: block;
         }
 
-        /* SCHERMATA INIZIALE LABOR */
+        /* SPLASH SCREEN INIZIALE */
         .splash {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: black;
-            color: white;
+            background: white;   /* sfondo bianco */
+            color: black;        /* testo nero */
             display: flex;
             align-items: center;
             justify-content: center;
             font-family: "Courier New", monospace;
             font-size: 70px;
-            letter-spacing: 20px; /* molto largo */
+            letter-spacing: 20px;
             text-transform: uppercase;
             z-index: 20;
         }
@@ -103,7 +103,7 @@
         <a href="progetti.html">progetti</a>
     </div>
 
-    <!-- SPLASH SCREEN INIZIALE -->
+    <!-- SPLASH SCREEN 4 SECONDI -->
     <div class="splash" id="splash">LABOR</div>
 
     <!-- SLIDESHOW -->
@@ -115,10 +115,10 @@
     </div>
 
     <script>
-        /* SPLASH 6 SECONDI */
+        /* SPLASH 4 SECONDI */
         setTimeout(() => {
             document.getElementById("splash").style.display = "none";
-        }, 6000);
+        }, 4000);
 
         /* SLIDESHOW 4 SECONDI */
         let current = 0;
