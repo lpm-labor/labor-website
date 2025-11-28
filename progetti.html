@@ -1,258 +1,258 @@
-<!DOCTYPE html> 
+<!-- Nuova versione con popup layout fisso, struttura dati e immagini cliccabili -->
+<!-- Ti preparo la struttura completa: base pronta, facile da modificare -->
+
+<!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>progetti — LABOR</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>progetti — LABOR</title>
 
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: "Courier New", monospace;
-            background: white;
-            color: black;
-        }
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Courier New", monospace;
+    background: white;
+    color: black;
+}
 
-        /* LOGO */
-        .logo {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            line-height: 0.8em;
-            font-size: 18px;
-            text-transform: lowercase;
-            white-space: pre-line;
-            z-index: 10;
-        }
-        .logo a { 
-            color: black; 
-            text-decoration: none; 
-        }
-        .logo strong {
-            text-transform: uppercase;
-            font-size: 18px;
-            display: block;
-            margin-top: 4px;
-            letter-spacing: 13px;
-        }
+/* LOGO */
+.logo {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    line-height: .8em;
+    font-size: 18px;
+    text-transform: lowercase;
+    white-space: pre-line;
+    z-index: 10;
+}
+.logo a { color:black; text-decoration:none; }
+.logo strong {
+    text-transform: uppercase;
+    font-size: 18px;
+    display:block;
+    margin-top:4px;
+    letter-spacing:13px;
+}
 
-        /* LINK PROGETTI */
-        .menu {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            font-size: 18px;
-            text-transform: lowercase;
-            z-index: 10;
-        }
-        .menu a {
-            color: black;
-            text-decoration: none;
-        }
+/* LINK DESTRO */
+.menu {
+    position: fixed;
+    top:20px;
+    right:20px;
+    font-size:18px;
+    text-transform:lowercase;
+    z-index:10;
+}
+.menu a { color:black; text-decoration:none; }
 
-        /* RESET */
-        .chiudi-tutte {
-            position: fixed;
-            top: 50px;
-            right: 20px;
-            font-size: 14px;
-            cursor: pointer;
-            text-decoration: underline;
-            text-transform: lowercase;
-            z-index: 10;
-        }
+/* RESET */
+.chiudi-tutte {
+    position:fixed;
+    top:50px;
+    right:20px;
+    font-size:14px;
+    cursor:pointer;
+    text-decoration:underline;
+    text-transform:lowercase;
+    z-index:10;
+}
 
-        /* LISTA PRINCIPALE */
-        .list-container {
-            margin-top: 185px;
-            margin-left: 25px;
-            font-size: 16px;
-            text-transform: lowercase;
-            line-height: 1.6em;
-        }
-        .list-container a {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-            display: inline-block;
-            margin-bottom: 6px; /* distanza uniforme tra tutte le voci */
-        }
-        .list-container a:hover { text-decoration: underline; }
+/* LISTA */
+.list-container {
+    margin-top:185px;
+    margin-left:25px;
+    font-size:16px;
+    text-transform:lowercase;
+    line-height:1.6em;
+}
+.list-container a {
+    color:black;
+    text-decoration:none;
+    cursor:pointer;
+}
+.list-container a:hover { text-decoration:underline; }
 
-        /* SOTTOMENU */
-        .submenu {
-            margin-left: 15px;
-            display: none;
-        }
-        .submenu a {
-            margin-bottom: 4px; /* distanza interna uniforme */
-        }
+/* SOTTOMENU */
+.submenu { margin-left:15px; display:none; }
 
-        /* POPUP */
-        .scheda {
-            position: absolute;
-            width: 420px;
-            height: 520px;
-            background: white;
-            border: 1px solid black;
-            padding: 20px;
-            padding-bottom: 40px;
-            box-sizing: border-box;
-            font-size: 14px;
-            z-index: 50;
-            box-shadow: 4px 4px 0px black;
-            user-select: none;
-            resize: both;
-            overflow: auto;
-        }
-        .close-btn {
-            position: absolute;
-            top: 5px;
-            right: 8px;
-            cursor: pointer;
-            font-size: 16px;
-        }
+/* POPUP */
+.scheda {
+    position:absolute;
+    width:550px;
+    height:650px;
+    background:white;
+    border:1px solid black;
+    box-shadow:4px 4px 0px black;
+    padding:0;
+    user-select:none;
+    resize:both;
+    overflow:hidden;
+    z-index:50;
+}
+.close-btn {
+    position:absolute;
+    top:6px;
+    right:10px;
+    cursor:pointer;
+}
+.drag-area {
+    cursor:move;
+    padding:15px;
+    border-bottom:1px solid black;
+    font-size:18px;
+    text-transform:lowercase;
+}
 
-        /* DRAG AREA */
-        .drag-area {
-            cursor: move;
-            padding-bottom: 10px;
-        }
-    </style>
+/* CONTENUTO */
+.popup-content {
+    padding:15px;
+    font-size:14px;
+    overflow:auto;
+    height:calc(100% - 70px);
+    box-sizing:border-box;
+}
+
+.img-frame {
+    width:100%;
+    height:260px;
+    border:1px solid black;
+    margin-bottom:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    cursor:pointer;
+}
+.img-frame img { width:100%; height:auto; }
+
+.descrizione { margin-bottom:12px; }
+
+table {
+    width:100%;
+    border-collapse:collapse;
+    font-size:13px;
+}
+td {
+    border-bottom:1px solid black;
+    padding:4px 0;
+}
+td:first-child { width:32%; font-weight:bold; }
+</style>
 </head>
 
 <body>
 
-    <!-- LOGO -->
-    <div class="logo">
-        <a href="info.html">
-            laboratorio di<br>
-            progettazione e produzione<br>
-            multidisciplinare<br>
-            <strong>LABOR</strong>
-        </a>
+<!-- LOGO -->
+<div class="logo">
+    <a href="info.html">
+        laboratorio di<br>
+        progettazione e produzione<br>
+        multidisciplinare<br>
+        <strong>LABOR</strong>
+    </a>
+</div>
+
+<!-- MENU -->
+<div class="menu"><a href="progetti.html" title="project">progetti</a></div>
+<div class="chiudi-tutte" onclick="chiudiTutte()">reset</div>
+
+<!-- LISTA -->
+<div class="list-container">
+    <a onclick="toggleSubmenu('s2023')">2023</a><br>
+    <div id="s2023" class="submenu">
+        <a onclick="apriProgetto(1)">progetto 1</a><br>
     </div>
-
-    <!-- LINK PROGETTI -->
-    <div class="menu">
-        <a href="progetti.html" title="project">progetti</a>
-    </div>
-
-    <!-- RESET -->
-    <div class="chiudi-tutte" onclick="chiudiTutte()">reset</div>
-
-    <!-- LISTA -->
-    <div class="list-container">
-
-        <!-- ANNI -->
-        <a onclick="toggleSubmenu('s2023')">2023</a><br>
-        <div id="s2023" class="submenu">
-            <a onclick="apriProgetto(1)">progetto 1</a><br>
-            <a onclick="apriProgetto(2)">progetto 2</a><br>
-            <a onclick="apriProgetto(3)">progetto 3</a><br>
-            <a onclick="apriProgetto(4)">progetto 4</a><br>
-        </div>
-
-        <a onclick="toggleSubmenu('s2024')">2024</a><br>
-        <div id="s2024" class="submenu">
-            <a onclick="apriProgetto(5)">progetto 5</a><br>
-            <a onclick="apriProgetto(6)">progetto 6</a><br>
-        </div>
-
-        <a onclick="toggleSubmenu('s2025')">2025</a><br>
-        <div id="s2025" class="submenu">
-            <a onclick="apriProgetto(7)">progetto 7</a><br>
-            <a onclick="apriProgetto(8)">progetto 8</a><br>
-            <a onclick="apriProgetto(9)">progetto 9</a><br>
-            <a onclick="apriProgetto(10)">progetto 10</a><br>
-            <a onclick="apriProgetto(11)">progetto 11</a><br>
-        </div>
-
-        <!-- TEMI (rimosso il <br> che creava il buco) -->
-        <a onclick="toggleSubmenu('sExpo')" title="exhibition">esposizione</a><br>
-        <div id="sExpo" class="submenu">
-            <a onclick="apriProgetto(2)">progetto 2</a><br>
-            <a onclick="apriProgetto(3)">progetto 3</a><br>
-            <a onclick="apriProgetto(4)">progetto 4</a><br>
-            <a onclick="apriProgetto(5)">progetto 5</a><br>
-            <a onclick="apriProgetto(6)">progetto 6</a><br>
-            <a onclick="apriProgetto(7)">progetto 7</a><br>
-        </div>
-
-        <a onclick="toggleSubmenu('sArredo')" title="interior design">arredamento</a><br>
-        <div id="sArredo" class="submenu">
-            <a onclick="apriProgetto(8)">progetto 8</a><br>
-        </div>
-
-        <a onclick="toggleSubmenu('sRiuso')" title="re-use">ri-uso</a><br>
-        <div id="sRiuso" class="submenu">
-            <a onclick="apriProgetto(9)">progetto 9</a><br>
-            <a onclick="apriProgetto(10)">progetto 10</a><br>
-        </div>
-
-        <a onclick="toggleSubmenu('sArch')" title="architecture">architettura</a><br>
-        <div id="sArch" class="submenu">
-            <a onclick="apriProgetto(11)">progetto 11</a><br>
-        </div>
-
-        <a onclick="toggleSubmenu('sRicerca')" title="research">ricerca</a><br>
-        <div id="sRicerca" class="submenu">
-            <a onclick="apriProgetto(1)">progetto 1</a><br>
-        </div>
-    </div>
+</div>
 
 <script>
-/* Mostra/Nasconde sezioni */
-function toggleSubmenu(id) {
+/* DATABASE PROGETTI ------------------------- */
+const progetti = {
+    1: {
+        titolo: "progetto 1",
+        descrizione: "descrizione di esempio, 3-4 righe, modificabile facilmente.",
+        immagini: ["img/p1-ortogonale.jpg", "img/p1-assonometria.jpg", "img/p1-foto.jpg"],
+        dettagli: {
+            oggetto: "—",
+            materiali: "—",
+            tecnica: "—",
+            tempo: "—",
+            numero: "—",
+            cliente: "—",
+            stato: "—",
+            prestazioni: "—"
+        }
+    }
+};
+
+/* MENU */
+function toggleSubmenu(id){
     const sm = document.getElementById(id);
     sm.style.display = sm.style.display === "block" ? "none" : "block";
 }
 
-/* Reset popup */
-function chiudiTutte() {
-    document.querySelectorAll(".scheda").forEach(s => s.remove());
-}
+/* RESET */
+function chiudiTutte(){ document.querySelectorAll('.scheda').forEach(s => s.remove()); }
 
 let offset = 0;
 
-/* Popup */
-function apriProgetto(num) {
+/* CREA POPUP */
+function apriProgetto(id){
+    const p = progetti[id];
+    if(!p) return;
+
     offset += 25;
 
-    const scheda = document.createElement("div");
-    scheda.className = "scheda";
-    scheda.style.left = (300 + offset) + "px";
-    scheda.style.top = (140 + offset) + "px";
+    const box = document.createElement('div');
+    box.className = 'scheda';
+    box.style.left = (300+offset)+"px";
+    box.style.top = (140+offset)+"px";
 
-    scheda.innerHTML = `
+    /* HTML popup */
+    box.innerHTML = `
         <div class="close-btn" onclick="this.parentElement.remove()">x</div>
-        <div class="drag-area">
-            <h3>progetto ${num}</h3>
-        </div>
-        <p>contenuto del progetto ${num} da definire.</p>
-    `;
+        <div class="drag-area">${p.titolo}</div>
+        <div class="popup-content">
+            <div class="img-frame" onclick="cambiaImmagine(this, ${id})">
+                <img src="${p.immagini[0]}" />
+            </div>
+            <div class="descrizione">${p.descrizione}</div>
+            <table>
+                ${Object.entries(p.dettagli).map(([k,v]) => `
+                    <tr>
+                        <td>${k}</td><td>${v}</td>
+                    </tr>`).join("")}
+            </table>
+        </div>`;
 
-    document.body.appendChild(scheda);
-
-    renderDraggable(scheda);
+    document.body.appendChild(box);
+    renderDraggable(box);
 }
 
-/* Trascinamento */
-function renderDraggable(element) {
-    const dragArea = element.querySelector(".drag-area");
-    let shiftX = 0, shiftY = 0;
+/* CAMBIO IMMAGINE */
+function cambiaImmagine(frame, id){
+    const p = progetti[id];
+    const img = frame.querySelector('img');
+    let i = p.immagini.indexOf(img.src.split('/').pop());
+    i = (i + 1) % p.immagini.length;
+    img.src = p.immagini[i];
+}
 
-    dragArea.onmousedown = function(event) {
-        shiftX = event.clientX - element.getBoundingClientRect().left;
-        shiftY = event.clientY - element.getBoundingClientRect().top;
+/* DRAG */
+function renderDraggable(el){
+    const drag = el.querySelector('.drag-area');
+    let dx=0, dy=0;
 
-        document.onmousemove = function(e) {
-            element.style.left = (e.clientX - shiftX) + "px";
-            element.style.top = (e.clientY - shiftY) + "px";
+    drag.onmousedown = e => {
+        dx = e.clientX - el.getBoundingClientRect().left;
+        dy = e.clientY - el.getBoundingClientRect().top;
+        document.onmousemove = ev => {
+            el.style.left = (ev.clientX - dx) + "px";
+            el.style.top = (ev.clientY - dy) + "px";
         };
-
-        document.onmouseup = function() {
+        document.onmouseup = () => {
             document.onmousemove = null;
             document.onmouseup = null;
         };
