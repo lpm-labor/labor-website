@@ -5,6 +5,7 @@
 const temi = [
     { id: "2023", nome: "2023" },
     { id: "2024", nome: "2024" },
+    { id: "2025", nome: "2025" },
     { id: "expo", nome: "esposizioni" },
     { id: "arredo", nome: "arredamento" },
     { id: "ricerca", nome: "ricerca" }
@@ -17,13 +18,13 @@ const temi = [
 const progetti = [
     {
         id: 1,
-        titolo: "progetto 1",
-        sottotitolo: "sottotitolo esempio",
-        codice: "PJT-001",
+        titolo: "Innsbruck Holzdisplays",
+        sottotitolo: "Espositori per immagini su DiBond",
+        codice: "4.19_023-001",
         anno: "2023",
         status: "completato",
 
-        temi: ["2023", "ricerca"],
+        temi: ["2023", "esposizioni"],
 
         immagini: ["img/placeholder.jpg", "img/placeholder.jpg"],
 
