@@ -24,7 +24,7 @@ const progetti = [
         anno: "2023",
         status: "completato",
 
-        temi: ["2023", "esposizioni"],
+        temi: ["2023", "expo"],
 
         immagini: ["img/placeholder.jpg", "img/placeholder.jpg"],
 
