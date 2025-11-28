@@ -1,25 +1,67 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>labor — Laboratorio di progettazione e produzione multidisciplinare</title>
-  <link rel="stylesheet" href="assets/css/styles.css">
-  <script src="assets/js/slideshow.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LABOR</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: white;
+            color: black;
+        }
+
+        /* Link progetti */
+        .menu {
+            position: fixed;
+            top: 20px;
+            right: 25px;
+            font-size: 18px;
+            cursor: pointer;
+            text-transform: lowercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            color: black;
+        }
+
+        .menu:hover {
+            opacity: 0.6;
+        }
+
+        /* Logo centrale su 4 righe */
+        .logo {
+            position: absolute;
+            top: 25%;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            font-size: 24px;
+            line-height: 1.4em;
+            text-transform: uppercase;
+            color: black;
+        }
+
+        .logo .bold {
+            font-weight: bold;
+            font-size: 40px;
+            letter-spacing: 2px;
+        }
+    </style>
 </head>
 
-<body class="home">
+<body>
 
-  <header class="logo-box">
+    <a href="progetti.html" class="menu">progetti</a>
+
     <div class="logo">
-      laboratorio di progettazione e produzione multidisciplinare<br>
-      <strong class="labor-word">L A B O R</strong>
+        laboratorio di<br>
+        progettazione e produzione<br>
+        multidisciplinare<br>
+        <span class="bold">LABOR</span>
     </div>
-  </header>
-
-  <div class="slideshow"></div>
-
-  <a href="menu.html" class="menu-button">menu</a>
 
 </body>
 </html>
