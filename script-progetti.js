@@ -18,8 +18,8 @@ const temi = [
 const progetti = [
     {
         id: 1,
-        titolo: "Innsbruck Holzdisplays",
-        sottotitolo: "Espositori per immagini su DiBond",
+        titolo: "Innsbruck",
+        sottotitolo: "Espositori per immagini",
         codice: "4.19_023-001",
         anno: "2023",
         status: "completato",
