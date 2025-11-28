@@ -6,7 +6,7 @@ const temi = [
     { id: "2023", nome: "2023" },
     { id: "2024", nome: "2024" },
     { id: "2025", nome: "2025" },
-    { id: "expo", nome: "esposizioni" },
+    { id: "expo", nome: "esposizione" },
     { id: "arredo", nome: "arredamento" },
     { id: "ricerca", nome: "ricerca" }
 ];
