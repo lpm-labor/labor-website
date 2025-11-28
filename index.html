@@ -17,33 +17,34 @@
             overflow: hidden;
         }
 
-      /* LOGO 4 RIGHE */
-.logo {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    line-height: 0.8em;   /* ← interlinea ancora ridotta */
-    font-size: 18px;
-    text-transform: lowercase;
-    white-space: pre-line;
-}
+        /* LOGO 4 RIGHE (SEMPRE VISIBILE) */
+        .logo {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            line-height: 0.8em;
+            font-size: 18px;
+            text-transform: lowercase;
+            white-space: pre-line;
+            z-index: 10;
+        }
 
-.logo strong {
-    text-transform: uppercase;
-    font-size: 18px;
-    display: block;
-    margin-top: 4px;
-    letter-spacing: 9px;   /* ← LABOR allargato del 50% */
-}
+        .logo strong {
+            text-transform: uppercase;
+            font-size: 18px;
+            display: block;
+            margin-top: 4px;
+            letter-spacing: 13px; /* LABOR ancora più largo (+40%) */
+        }
 
-
-        /* LINK PROGETTI */
+        /* LINK PROGETTI (SEMPRE VISIBILE) */
         .menu {
             position: fixed;
             top: 20px;
             right: 20px;
             font-size: 18px;
             text-transform: lowercase;
+            z-index: 10;
         }
 
         .menu a {
@@ -51,7 +52,7 @@
             text-decoration: none;
         }
 
-        /* SLIDESHOW */
+        /* SLIDESHOW (SOTTO AL LOGO) */
         .slideshow img {
             position: absolute;
             top: 0;
@@ -59,41 +60,67 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0;
-            transition: opacity 1.5s ease-in-out;
+            display: none; /* niente dissolvenze */
         }
 
         .slideshow img.active {
-            opacity: 1;
+            display: block;
+        }
+
+        /* SCHERMATA INIZIALE LABOR */
+        .splash {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "Courier New", monospace;
+            font-size: 70px;
+            letter-spacing: 20px; /* molto largo */
+            text-transform: uppercase;
+            z-index: 20;
         }
     </style>
-
 </head>
+
 <body>
 
-    <!-- LOGO -->
-   <div class="logo">
-    laboratorio di<br>
-    progettazione e produzione<br>
-    multidisciplinare<br>
-    <strong>LABOR</strong>
-</div>
+    <!-- LOGO (fisso) -->
+    <div class="logo">
+        laboratorio di<br>
+        progettazione e produzione<br>
+        multidisciplinare<br>
+        <strong>LABOR</strong>
+    </div>
 
-
-    <!-- LINK PROGETTI -->
+    <!-- LINK PROGETTI (fisso) -->
     <div class="menu">
         <a href="progetti.html">progetti</a>
     </div>
 
-    <!-- SLIDESHOW FULLSCREEN -->
+    <!-- SPLASH SCREEN INIZIALE -->
+    <div class="splash" id="splash">LABOR</div>
+
+    <!-- SLIDESHOW -->
     <div class="slideshow">
-        <img src="https://picsum.photos/seed/lab1/1600/900" class="active">
-        <img src="https://picsum.photos/seed/lab2/1600/900">
-        <img src="https://picsum.photos/seed/lab3/1600/900">
-        <img src="https://picsum.photos/seed/lab4/1600/900">
+        <img src="https://picsum.photos/seed/aaa/1600/900" class="active">
+        <img src="https://picsum.photos/seed/bbb/1600/900">
+        <img src="https://picsum.photos/seed/ccc/1600/900">
+        <img src="https://picsum.photos/seed/ddd/1600/900">
     </div>
 
     <script>
+        /* SPLASH 6 SECONDI */
+        setTimeout(() => {
+            document.getElementById("splash").style.display = "none";
+        }, 6000);
+
+        /* SLIDESHOW 4 SECONDI */
         let current = 0;
         const slides = document.querySelectorAll(".slideshow img");
 
@@ -101,7 +128,7 @@
             slides[current].classList.remove("active");
             current = (current + 1) % slides.length;
             slides[current].classList.add("active");
-        }, 3000);
+        }, 4000);
     </script>
 
 </body>
