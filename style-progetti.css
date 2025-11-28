@@ -1,0 +1,126 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Courier New", monospace;
+    background: white;
+    color: black;
+}
+
+/* LOGO */
+.logo {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    line-height: 0.8em;
+    font-size: 18px;
+    text-transform: lowercase;
+    white-space: pre-line;
+    z-index: 10;
+}
+.logo a { color: black; text-decoration: none; }
+.logo strong {
+    text-transform: uppercase;
+    font-size: 18px;
+    display: block;
+    margin-top: 4px;
+    letter-spacing: 13px;
+}
+
+/* MENU */
+.menu {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-size: 18px;
+    text-transform: lowercase;
+    z-index: 10;
+}
+.menu a { color: black; text-decoration: none; }
+
+/* RESET */
+.chiudi-tutte {
+    position: fixed;
+    top: 50px;
+    right: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: underline;
+    text-transform: lowercase;
+    z-index: 10;
+}
+
+/* LISTA */
+.list-container {
+    margin-top: 185px;
+    margin-left: 25px;
+    font-size: 16px;
+    text-transform: lowercase;
+    line-height: 1.6em;
+}
+.list-container a {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    margin-bottom: 6px;
+}
+.list-container a:hover { text-decoration: underline; }
+
+/* Submenu */
+.submenu {
+    margin-left: 15px;
+    display: none;
+}
+.submenu a { margin-bottom: 4px; }
+
+/* POPUP */
+.scheda {
+    position: absolute;
+    width: 450px;
+    height: 540px;
+    background: white;
+    border: 1px solid black;
+    padding: 20px;
+    padding-bottom: 40px;
+    box-sizing: border-box;
+    font-size: 14px;
+    z-index: 50;
+    box-shadow: 4px 4px 0px black;
+    user-select: none;
+    resize: both;
+    overflow: auto;
+}
+.close-btn {
+    position: absolute;
+    top: 5px;
+    right: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* DRAG AREA */
+.drag-area {
+    cursor: move;
+    padding-bottom: 10px;
+}
+
+/* IMMAGINI */
+.popup-img {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    margin-bottom: 10px;
+    border: 1px solid black;
+}
+
+/* TABELLA DETTAGLI */
+.dettagli-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+.dettagli-table td:first-child {
+    width: 120px;
+    font-weight: bold;
+    text-transform: lowercase;
+}
