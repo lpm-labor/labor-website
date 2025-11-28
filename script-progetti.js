@@ -1,5 +1,5 @@
 /* ============================
-   TEMI
+   DATI
 ============================ */
 
 const temi = [
@@ -11,30 +11,23 @@ const temi = [
     { id: "ricerca", nome: "ricerca" }
 ];
 
-/* ============================
-   PROGETTI
-============================ */
-
 const progetti = [
     {
         id: 1,
         titolo: "Innsbruck",
         sottotitolo: "Espositori per immagini",
         codice: "4.19_023-001",
-
+        anno: "2023",
+        status: "completato",
         temi: ["2023", "expo"],
-
         immagini: [
             "img/progetti/1/4.19_023-001_axo.jpg",
             "img/progetti/1/4.19_023-001_proiez.jpg"
         ],
-
         dettagli: {
-            design: "LABOR",
-            anno: "2023",
-            status: "completato",
             materiali: "MDF, legno d'acero",
-            dimensioni: "variabili",
+            tecnologia: "taglio laser",
+            energia: "3.2 kWh",
             quantità: "12 pezzi"
         }
     },
@@ -44,135 +37,168 @@ const progetti = [
         titolo: "progetto 2",
         sottotitolo: "installazione temporanea",
         codice: "EXP-014",
-
+        anno: "2023",
+        status: "in corso",
         temi: ["2023", "expo"],
-
         immagini: ["img/placeholder.jpg"],
-
         dettagli: {
-            design: "LABOR",
-            anno: "2023",
-            status: "in corso",
             materiali: "plexiglass",
-            dimensioni: "120 × 60 cm",
+            tecnologia: "CNC",
+            energia: "1.8 kWh",
             quantità: "4 moduli"
         }
     }
 ];
 
 /* ============================
-   GENERA LISTA TEMI / PROGETTI
+   GENERA LISTA TEMI
 ============================ */
 
 const lista = document.getElementById("listaTemi");
 
 temi.forEach(t => {
+    // voce principale
     const voce = document.createElement("a");
     voce.textContent = t.nome;
-    voce.onclick = () => toggleSubmenu("sm_" + t.id);
+    voce.dataset.target = "sm_" + t.id;
+    voce.className = "tema-link";
 
+    // submenu container
     const submenu = document.createElement("div");
     submenu.id = "sm_" + t.id;
     submenu.className = "submenu";
 
-    progetti
-        .filter(p => p.temi.includes(t.id))
-        .forEach(p => {
-            const linkP = document.createElement("a");
-            linkP.textContent = p.titolo;
-            linkP.onclick = () => apriProgetto(p.id);
-            submenu.appendChild(linkP);
-            submenu.appendChild(document.createElement("br"));
-        });
+    const correlati = progetti.filter(p => p.temi.includes(t.id));
+
+    correlati.forEach(p => {
+        const linkP = document.createElement("a");
+        linkP.textContent = p.titolo;
+        linkP.className = "progetto-link";
+        linkP.dataset.id = p.id;
+        submenu.appendChild(linkP);
+    });
 
     lista.appendChild(voce);
     lista.appendChild(document.createElement("br"));
     lista.appendChild(submenu);
 });
 
+/* ============================
+   EVENTI LISTA
+============================ */
+
+lista.addEventListener("click", e => {
+    const tema = e.target.closest(".tema-link");
+    const progetto = e.target.closest(".progetto-link");
+
+    if (tema) toggleSubmenu(tema.dataset.target);
+    if (progetto) apriProgetto(Number(progetto.dataset.id));
+});
+
+/* ============================
+   SUBMENU
+============================ */
+
 function toggleSubmenu(id) {
     const sm = document.getElementById(id);
     sm.style.display = sm.style.display === "block" ? "none" : "block";
 }
 
-function chiudiTutte() {
-    document.querySelectorAll(".scheda").forEach(s => s.remove());
-}
+/* ============================
+   CHIUDI TUTTE
+============================ */
 
-let offset = 0;
+document.querySelector(".chiudi-tutte")?.addEventListener("click", () => {
+    document.querySelectorAll(".scheda").forEach(s => s.remove());
+});
 
 /* ============================
-   APRI POPUP
+   POPUP
 ============================ */
+
+let popupOffset = 0;
 
 function apriProgetto(id) {
     const p = progetti.find(x => x.id === id);
     if (!p) return;
 
-    offset += 25;
+    popupOffset += 25;
 
     const scheda = document.createElement("div");
     scheda.className = "scheda";
-    scheda.style.left = (280 + offset) + "px";
-    scheda.style.top = (120 + offset) + "px";
-    scheda.dataset.imgIndex = 0;
+    scheda.style.left = `${300 + popupOffset}px`;
+    scheda.style.top = `${150 + popupOffset}px`;
 
-    scheda.innerHTML = `
-        <div class="close-btn" onclick="this.parentElement.remove()">×</div>
-
-        <div class="drag-area">
-            <h3>${p.titolo}</h3>
-            <div class="sottotitolo">${p.sottotitolo}</div>
-            <div class="codice">codice: ${p.codice}</div>
-        </div>
-
-        <img class="popup-img" src="${p.immagini[0]}" onclick="nextImg(this, ${id})">
-
-        <table class="dettagli-table">
-            ${Object.entries(p.dettagli)
-                .map(([k, v]) => `<tr><td class="etichetta">${k}</td><td>${v}</td></tr>`)
-                .join("")}
-        </table>
+    const header = document.createElement("div");
+    header.className = "drag-area";
+    header.innerHTML = `
+        <h3>${p.titolo}</h3>
+        <div class="sottotitolo">${p.sottotitolo || ""}</div>
+        <div class="meta">codice: ${p.codice} — anno: ${p.anno} — stato: ${p.status}</div>
     `;
 
+    const closeBtn = document.createElement("div");
+    closeBtn.className = "close-btn";
+    closeBtn.textContent = "×";
+    closeBtn.addEventListener("click", () => scheda.remove());
+
+    const img = document.createElement("img");
+    img.className = "popup-img";
+    img.src = p.immagini[0];
+    img.dataset.index = 0;
+
+    img.addEventListener("click", () => nextImg(img, p));
+
+    const table = document.createElement("table");
+    table.className = "dettagli-table";
+    table.innerHTML = Object.entries(p.dettagli)
+        .map(([k, v]) => `<tr><td>${k}</td><td>${v}</td></tr>`)
+        .join("");
+
+    scheda.appendChild(closeBtn);
+    scheda.appendChild(header);
+    scheda.appendChild(img);
+    scheda.appendChild(table);
+
     document.body.appendChild(scheda);
-    renderDraggable(scheda);
+
+    enableDrag(scheda);
 }
 
 /* ============================
-   CAMBIO IMMAGINE
+   IMMAGINI
 ============================ */
 
-function nextImg(img, id) {
-    const p = progetti.find(x => x.id === id);
-    let idx = Number(img.parentElement.dataset.imgIndex);
-
-    idx = (idx + 1) % p.immagini.length;
-
-    img.parentElement.dataset.imgIndex = idx;
-    img.src = p.immagini[idx];
+function nextImg(img, progetto) {
+    let i = Number(img.dataset.index);
+    i = (i + 1) % progetto.immagini.length;
+    img.dataset.index = i;
+    img.src = progetto.immagini[i];
 }
 
 /* ============================
-   DRAG
+   DRAG POPUP
 ============================ */
 
-function renderDraggable(el) {
+function enableDrag(el) {
     const drag = el.querySelector(".drag-area");
     let shiftX, shiftY;
 
-    drag.onmousedown = e => {
+    drag.addEventListener("mousedown", e => {
         shiftX = e.clientX - el.getBoundingClientRect().left;
         shiftY = e.clientY - el.getBoundingClientRect().top;
 
-        document.onmousemove = ev => {
-            el.style.left = (ev.clientX - shiftX) + "px";
-            el.style.top = (ev.clientY - shiftY) + "px";
-        };
+        function move(ev) {
+            el.style.left = `${ev.clientX - shiftX}px`;
+            el.style.top = `${ev.clientY - shiftY}px`;
+        }
 
-        document.onmouseup = () => {
-            document.onmousemove = null;
-            document.onmouseup = null;
-        };
-    };
+        function stop() {
+            document.removeEventListener("mousemove", move);
+            document.removeEventListener("mouseup", stop);
+        }
+
+        document.addEventListener("mousemove", move);
+        document.addEventListener("mouseup", stop);
+    });
 }
