@@ -1,5 +1,5 @@
 /* ============================
-   TEMI (modificabili liberamente)
+   TEMI (liberi)
 ============================ */
 
 const temi = [
@@ -14,43 +14,40 @@ const temi = [
 ];
 
 /* ============================
-   PROGETTI (modificabili liberamente)
-   -- qui aggiungi/modifichi i progetti --
+   PROGETTI (nuova struttura)
 ============================ */
 
 const progetti = [
     {
         id: 1,
         titolo: "progetto 1",
+        sottotitolo: "sottotitolo esempio",
+        codice: "P001",
+        anno: "2023",
+        status: "completato",
         temi: ["2023", "ricerca"],
-        descrizione: "descrizione breve del progetto 1.",
         immagini: ["img/placeholder.jpg"],
-        dettagli: {
-            oggetto: "—",
+        tecnica: {
             materiali: "—",
-            tecnica: "—",
-            tempo: "—",
-            numero: "—",
-            cliente: "—",
-            stato: "—",
-            prestazioni: "—"
+            tecnologia: "—",
+            energia: "—",
+            quantita: "—"
         }
     },
     {
         id: 2,
         titolo: "progetto 2",
+        sottotitolo: "installazione sperimentale",
+        codice: "P002",
+        anno: "2023",
+        status: "in corso",
         temi: ["2023", "expo"],
-        descrizione: "descrizione breve del progetto 2.",
         immagini: ["img/placeholder.jpg"],
-        dettagli: {
-            oggetto: "—",
+        tecnica: {
             materiali: "—",
-            tecnica: "—",
-            tempo: "—",
-            numero: "—",
-            cliente: "—",
-            stato: "—",
-            prestazioni: "—"
+            tecnologia: "—",
+            energia: "—",
+            quantita: "—"
         }
     }
 ];
@@ -88,13 +85,11 @@ temi.forEach(t => {
     lista.appendChild(submenu);
 });
 
-/* Mostra/nasconde */
 function toggleSubmenu(id) {
     const sm = document.getElementById(id);
     sm.style.display = sm.style.display === "block" ? "none" : "block";
 }
 
-/* Reset */
 function chiudiTutte() {
     document.querySelectorAll(".scheda").forEach(s => s.remove());
 }
@@ -102,7 +97,7 @@ function chiudiTutte() {
 let offset = 0;
 
 /* ============================
-   APERTURA POPUP DINAMICO
+   APERTURA SCHEDA
 ============================ */
 
 function apriProgetto(id) {
@@ -118,16 +113,26 @@ function apriProgetto(id) {
 
     scheda.innerHTML = `
         <div class="close-btn" onclick="this.parentElement.remove()">x</div>
-        <div class="drag-area"><h3>${p.titolo}</h3></div>
 
-        <img class="popup-img" src="${p.immagini[0] || 'img/placeholder.jpg'}" onclick="nextImg(this, ${id})">
+        <div class="drag-area">
+            <h1>${p.titolo}</h1>
+            <h2>${p.sottotitolo || ""}</h2>
 
-        <p>${p.descrizione}</p>
+            <div class="info-tech">
+                codice: <strong>${p.codice}</strong><br>
+                anno: ${p.anno} — stato: ${p.status}
+            </div>
+        </div>
 
-        <table class="dettagli-table">
-            ${Object.entries(p.dettagli).map(
-                ([k, v]) => `<tr><td>${k}</td><td>${v}</td></tr>`
-            ).join("")}
+        <img class="popup-img" 
+            src="${p.immagini[0] || 'img/placeholder.jpg'}"
+            onclick="nextImg(this, ${id})">
+
+        <table class="tab-tecnica">
+            <tr><td>materiali</td><td>${p.tecnica.materiali}</td></tr>
+            <tr><td>tecnologia</td><td>${p.tecnica.tecnologia}</td></tr>
+            <tr><td>energia impiegata</td><td>${p.tecnica.energia}</td></tr>
+            <tr><td>quantità prodotte</td><td>${p.tecnica.quantita}</td></tr>
         </table>
     `;
 
@@ -138,37 +143,35 @@ function apriProgetto(id) {
     renderDraggable(scheda);
 }
 
-/* CAMBIO IMMAGINE */
-function nextImg(imgElement, id) {
+/* cambio immagine */
+function nextImg(img, id) {
     const p = progetti.find(x => x.id === id);
-    if (!p || !p.immagini || p.immagini.length === 0) return;
+    if (!p) return;
 
-    const parent = imgElement.parentElement;
-    let index = Number(parent.dataset.imgIndex || 0);
+    let i = Number(img.parentElement.dataset.imgIndex || 0);
+    i = (i + 1) % p.immagini.length;
+    img.parentElement.dataset.imgIndex = i;
 
-    index = (index + 1) % p.immagini.length;
-
-    parent.dataset.imgIndex = index;
-    imgElement.src = p.immagini[index];
+    img.src = p.immagini[i];
 }
 
-/* DRAG */
-function renderDraggable(element) {
-    const dragArea = element.querySelector(".drag-area");
-    if (!dragArea) return;
+/* Drag */
+function renderDraggable(el) {
+    const drag = el.querySelector(".drag-area");
+    if (!drag) return;
 
-    let shiftX = 0, shiftY = 0;
+    let sx = 0, sy = 0;
 
-    dragArea.onmousedown = function(event) {
-        shiftX = event.clientX - element.getBoundingClientRect().left;
-        shiftY = event.clientY - element.getBoundingClientRect().top;
+    drag.onmousedown = e => {
+        sx = e.clientX - el.getBoundingClientRect().left;
+        sy = e.clientY - el.getBoundingClientRect().top;
 
-        document.onmousemove = function(e) {
-            element.style.left = (e.clientX - shiftX) + "px";
-            element.style.top = (e.clientY - shiftY) + "px";
+        document.onmousemove = ev => {
+            el.style.left = (ev.clientX - sx) + "px";
+            el.style.top = (ev.clientY - sy) + "px";
         };
 
-        document.onmouseup = function() {
+        document.onmouseup = () => {
             document.onmousemove = null;
             document.onmouseup = null;
         };
