@@ -1,6 +1,3 @@
-<!-- Nuova versione con popup layout fisso, struttura dati e immagini cliccabili -->
-<!-- Ti preparo la struttura completa: base pronta, facile da modificare -->
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -161,8 +158,61 @@ td:first-child { width:32%; font-weight:bold; }
 
 <!-- LISTA -->
 <div class="list-container">
+    <!-- ANNI -->
     <a onclick="toggleSubmenu('s2023')">2023</a><br>
     <div id="s2023" class="submenu">
+        <a onclick="apriProgetto(1)">progetto 1</a><br>
+        <a onclick="apriProgetto(2)">progetto 2</a><br>
+        <a onclick="apriProgetto(3)">progetto 3</a><br>
+        <a onclick="apriProgetto(4)">progetto 4</a><br>
+    </div>
+
+    <a onclick="toggleSubmenu('s2024')">2024</a><br>
+    <div id="s2024" class="submenu">
+        <a onclick="apriProgetto(5)">progetto 5</a><br>
+        <a onclick="apriProgetto(6)">progetto 6</a><br>
+    </div>
+
+    <a onclick="toggleSubmenu('s2025')">2025</a><br>
+    <div id="s2025" class="submenu">
+        <a onclick="apriProgetto(7)">progetto 7</a><br>
+        <a onclick="apriProgetto(8)">progetto 8</a><br>
+        <a onclick="apriProgetto(9)">progetto 9</a><br>
+        <a onclick="apriProgetto(10)">progetto 10</a><br>
+        <a onclick="apriProgetto(11)">progetto 11</a><br>
+    </div>
+
+    <br>
+
+    <!-- TEMI -->
+    <a onclick="toggleSubmenu('sExpo')" title="exhibition">esposizione</a><br>
+    <div id="sExpo" class="submenu">
+        <a onclick="apriProgetto(2)">progetto 2</a><br>
+        <a onclick="apriProgetto(3)">progetto 3</a><br>
+        <a onclick="apriProgetto(4)">progetto 4</a><br>
+        <a onclick="apriProgetto(5)">progetto 5</a><br>
+        <a onclick="apriProgetto(6)">progetto 6</a><br>
+        <a onclick="apriProgetto(7)">progetto 7</a><br>
+    </div>
+
+    <a onclick="toggleSubmenu('sArredo')" title="interior design">arredamento</a><br>
+    <div id="sArredo" class="submenu">
+        <a onclick="apriProgetto(8)">progetto 8</a><br>
+    </div>
+
+    <a onclick="toggleSubmenu('sRiuso')" title="re-use">ri-uso</a><br>
+    <div id="sRiuso" class="submenu">
+        <a onclick="apriProgetto(9)">progetto 9</a><br>
+        <a onclick="apriProgetto(10)">progetto 10</a><br>
+    </div>
+
+    <a onclick="toggleSubmenu('sArch')" title="architecture">architettura</a><br>
+    <div id="sArch" class="submenu">
+        <a onclick="apriProgetto(11)">progetto 11</a><br>
+    </div>
+
+    <a onclick="toggleSubmenu('sRicerca')" title="research">ricerca</a><br>
+    <div id="sRicerca" class="submenu">
         <a onclick="apriProgetto(1)">progetto 1</a><br>
     </div>
 </div>
@@ -191,74 +241,3 @@ const progetti = {
 function toggleSubmenu(id){
     const sm = document.getElementById(id);
     sm.style.display = sm.style.display === "block" ? "none" : "block";
-}
-
-/* RESET */
-function chiudiTutte(){ document.querySelectorAll('.scheda').forEach(s => s.remove()); }
-
-let offset = 0;
-
-/* CREA POPUP */
-function apriProgetto(id){
-    const p = progetti[id];
-    if(!p) return;
-
-    offset += 25;
-
-    const box = document.createElement('div');
-    box.className = 'scheda';
-    box.style.left = (300+offset)+"px";
-    box.style.top = (140+offset)+"px";
-
-    /* HTML popup */
-    box.innerHTML = `
-        <div class="close-btn" onclick="this.parentElement.remove()">x</div>
-        <div class="drag-area">${p.titolo}</div>
-        <div class="popup-content">
-            <div class="img-frame" onclick="cambiaImmagine(this, ${id})">
-                <img src="${p.immagini[0]}" />
-            </div>
-            <div class="descrizione">${p.descrizione}</div>
-            <table>
-                ${Object.entries(p.dettagli).map(([k,v]) => `
-                    <tr>
-                        <td>${k}</td><td>${v}</td>
-                    </tr>`).join("")}
-            </table>
-        </div>`;
-
-    document.body.appendChild(box);
-    renderDraggable(box);
-}
-
-/* CAMBIO IMMAGINE */
-function cambiaImmagine(frame, id){
-    const p = progetti[id];
-    const img = frame.querySelector('img');
-    let i = p.immagini.indexOf(img.src.split('/').pop());
-    i = (i + 1) % p.immagini.length;
-    img.src = p.immagini[i];
-}
-
-/* DRAG */
-function renderDraggable(el){
-    const drag = el.querySelector('.drag-area');
-    let dx=0, dy=0;
-
-    drag.onmousedown = e => {
-        dx = e.clientX - el.getBoundingClientRect().left;
-        dy = e.clientY - el.getBoundingClientRect().top;
-        document.onmousemove = ev => {
-            el.style.left = (ev.clientX - dx) + "px";
-            el.style.top = (ev.clientY - dy) + "px";
-        };
-        document.onmouseup = () => {
-            document.onmousemove = null;
-            document.onmouseup = null;
-        };
-    };
-}
-</script>
-
-</body>
-</html>
