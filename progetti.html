@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Progetti — LABOR</title>
+    <title>progetti — LABOR</title>
 
     <style>
         body {
             margin: 0;
-            padding: 40px;
+            padding: 0;
             font-family: "Courier New", monospace;
             background: white;
             color: black;
         }
 
-        /* LOGO IDENTICO ALL'HOMEPAGE */
+        /* LOGO */
         .logo {
             position: fixed;
             top: 20px;
@@ -34,11 +34,6 @@
             letter-spacing: 13px;
         }
 
-        .logo a {
-            color: black;
-            text-decoration: none;
-        }
-
         /* LINK PROGETTI */
         .menu {
             position: fixed;
@@ -54,30 +49,22 @@
             text-decoration: none;
         }
 
-        /* CONTENUTO PAGINA */
-        .content {
-            margin-top: 140px;
-            max-width: 900px;
-        }
-
-        .project {
-            margin-bottom: 50px;
-        }
-
-        .project-title {
-            font-size: 20px;
-            text-transform: uppercase;
-            margin-bottom: 5px;
-        }
-
-        .project-year {
-            font-size: 14px;
-            margin-bottom: 10px;
-        }
-
-        .project-desc {
+        /* LISTA */
+        .list-container {
+            margin-top: 150px;
+            margin-left: 120px; /* rientro a destra del logo */
             font-size: 16px;
-            line-height: 1.4em;
+            text-transform: lowercase;
+            line-height: 1.6em;
+        }
+
+        .list-container a {
+            color: black;
+            text-decoration: none;
+        }
+
+        .list-container a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -86,12 +73,10 @@
 
     <!-- LOGO -->
     <div class="logo">
-        <a href="info.html">
-            laboratorio di<br>
-            progettazione e produzione<br>
-            multidisciplinare<br>
-            <strong>LABOR</strong>
-        </a>
+        laboratorio di<br>
+        progettazione e produzione<br>
+        multidisciplinare<br>
+        <strong>LABOR</strong>
     </div>
 
     <!-- LINK PROGETTI -->
@@ -99,33 +84,25 @@
         <a href="progetti.html">progetti</a>
     </div>
 
-    <!-- CONTENUTO -->
-    <div class="content">
+    <!-- LISTA PROGETTI / ANNI / TEMI -->
+    <div class="list-container">
 
-        <!-- QUI ANDRANNO I PROGETTI REALI -->
-        <div class="project">
-            <div class="project-title">Titolo progetto 1</div>
-            <div class="project-year">2024</div>
-            <div class="project-desc">
-                Descrizione breve del progetto. Testo di esempio.
-            </div>
-        </div>
+        <!-- PROGETTI -->
+        <a href="#">blocco</a><br>
+        <a href="#">cantando</a><br>
+        <a href="#">mari</a><br>
+        <a href="#">khi</a><br>
+        <a href="#">mani</a><br><br>
 
-        <div class="project">
-            <div class="project-title">Titolo progetto 2</div>
-            <div class="project-year">2023</div>
-            <div class="project-desc">
-                Descrizione breve del progetto. Testo di esempio.
-            </div>
-        </div>
+        <!-- ANNI -->
+        <a href="#">2023</a><br>
+        <a href="#">2024</a><br>
+        <a href="#">2025</a><br><br>
 
-        <div class="project">
-            <div class="project-title">Titolo progetto 3</div>
-            <div class="project-year">2022</div>
-            <div class="project-desc">
-                Descrizione breve del progetto. Testo di esempio.
-            </div>
-        </div>
+        <!-- TEMI -->
+        <a href="#">esposizione</a><br>
+        <a href="#">ricerca</a><br>
+        <a href="#">arte</a><br>
 
     </div>
 
