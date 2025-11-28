@@ -43,7 +43,22 @@
             text-transform: lowercase;
             z-index: 10;
         }
-        .menu a { color: black; text-decoration: none; }
+        .menu a { 
+            color: black; 
+            text-decoration: none;
+        }
+
+        /* Pulsante CHIUDI TUTTE */
+        .chiudi-tutte {
+            position: fixed;
+            top: 50px;
+            right: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: underline;
+            z-index: 10;
+            text-transform: lowercase;
+        }
 
         /* LISTA PRINCIPALE */
         .list-container {
@@ -78,6 +93,7 @@
             font-size: 14px;
             z-index: 50;
             box-shadow: 4px 4px 0px black;
+            user-select: none;
         }
         .close-btn {
             position: absolute;
@@ -85,6 +101,12 @@
             right: 8px;
             cursor: pointer;
             font-size: 16px;
+        }
+
+        /* Area per trascinamento */
+        .drag-area {
+            cursor: move;
+            padding-bottom: 10px;
         }
     </style>
 </head>
@@ -101,10 +123,13 @@
         </a>
     </div>
 
-    <!-- LINK PROGETTI -->
+    <!-- LINK PROGETTI (con tooltip) -->
     <div class="menu">
-        <a href="progetti.html">progetti</a>
+        <a href="progetti.html" title="project">progetti</a>
     </div>
+
+    <!-- CHIUDI TUTTE -->
+    <div class="chiudi-tutte" onclick="chiudiTutte()">chiudi tutte</div>
 
     <!-- LISTA ANNI + TEMI -->
     <div class="list-container">
@@ -136,7 +161,7 @@
         <br>
 
         <!-- TEMI -->
-        <a onclick="toggleSubmenu('sMostre')">esposizione</a><br>
+        <a onclick="toggleSubmenu('sMostre')" title="exhibition">esposizione</a><br>
         <div id="sMostre" class="submenu">
             <a onclick="apriProgetto(2)">progetto 2</a><br>
             <a onclick="apriProgetto(3)">progetto 3</a><br>
@@ -146,23 +171,23 @@
             <a onclick="apriProgetto(7)">progetto 7</a><br>
         </div>
 
-        <a onclick="toggleSubmenu('sArredo')">arredamento</a><br>
+        <a onclick="toggleSubmenu('sArredo')" title="interior design">arredamento</a><br>
         <div id="sArredo" class="submenu">
             <a onclick="apriProgetto(8)">progetto 8</a><br>
         </div>
 
-        <a onclick="toggleSubmenu('sDesign')">design</a><br>
-        <div id="sDesign" class="submenu">
+        <a onclick="toggleSubmenu('sRiuso')" title="re-use">ri-uso</a><br>
+        <div id="sRiuso" class="submenu">
             <a onclick="apriProgetto(9)">progetto 9</a><br>
             <a onclick="apriProgetto(10)">progetto 10</a><br>
         </div>
 
-        <a onclick="toggleSubmenu('sArch')">architettura</a><br>
+        <a onclick="toggleSubmenu('sArch')" title="architecture">architettura</a><br>
         <div id="sArch" class="submenu">
             <a onclick="apriProgetto(11)">progetto 11</a><br>
         </div>
 
-        <a onclick="toggleSubmenu('sRicerca')">ricerca</a><br>
+        <a onclick="toggleSubmenu('sRicerca')" title="research">ricerca</a><br>
         <div id="sRicerca" class="submenu">
             <a onclick="apriProgetto(1)">progetto 1</a><br>
         </div>
@@ -175,7 +200,12 @@ function toggleSubmenu(id) {
     sm.style.display = sm.style.display === "block" ? "none" : "block";
 }
 
-/* Apertura popup interni */
+/* Chiudi tutte le schede */
+function chiudiTutte() {
+    document.querySelectorAll(".scheda").forEach(s => s.remove());
+}
+
+/* Apertura popup interni + drag */
 let offset = 0;
 
 function apriProgetto(num) {
@@ -188,11 +218,36 @@ function apriProgetto(num) {
 
     scheda.innerHTML = `
         <div class="close-btn" onclick="this.parentElement.remove()">x</div>
-        <h3>progetto ${num}</h3>
+        <div class="drag-area">
+            <h3>progetto ${num}</h3>
+        </div>
         <p>contenuto del progetto ${num} da definire.</p>
     `;
 
     document.body.appendChild(scheda);
+
+    renderDraggable(scheda);
+}
+
+/* DRAG & DROP */
+function renderDraggable(element) {
+    const dragArea = element.querySelector(".drag-area");
+    let shiftX = 0, shiftY = 0;
+
+    dragArea.onmousedown = function(event) {
+        shiftX = event.clientX - element.getBoundingClientRect().left;
+        shiftY = event.clientY - element.getBoundingClientRect().top;
+
+        document.onmousemove = function(e) {
+            element.style.left = (e.clientX - shiftX) + "px";
+            element.style.top = (e.clientY - shiftY) + "px";
+        };
+
+        document.onmouseup = function() {
+            document.onmousemove = null;
+            document.onmouseup = null;
+        };
+    };
 }
 </script>
 
