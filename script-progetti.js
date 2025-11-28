@@ -29,7 +29,7 @@ const progetti = [
         immagini: ["img/progetti/1/4.19_023-001_axo.jpg", "img/progetti/1/4.19_023-001_proiez.jpg"],
 
         dettagli: {
-            materiali: "legno, acciaio",
+            materiali: "MDF, legno d'acero",
             tecnologia: "taglio laser",
             energia: "3.2 kWh",
             quantità: "12 pezzi"
