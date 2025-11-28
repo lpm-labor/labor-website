@@ -1,104 +1,112 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Progetti – LABOR</title>
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>progetti – LABOR</title>
     <style>
         body {
             margin: 0;
             padding: 40px;
-            font-family: Arial, sans-serif;
             background: white;
             color: black;
+            font-family: "Courier New", monospace;
         }
 
-        a {
-            color: black;
-            text-decoration: none;
-        }
-
-        .back {
+        /* Logo */
+        .logo {
             position: fixed;
-            top: 20px;
-            left: 20px;
-            font-size: 18px;
-            text-transform: lowercase;
+            top: 40px;
+            left: 40px;
+            line-height: 1.1;
+            z-index: 1000;
+        }
+        .logo .line { font-size: 14px; }
+        .logo .labor {
+            font-size: 40px;
+            letter-spacing: 18px;
+            font-weight: bold;
+            margin-top: 8px;
         }
 
+        /* Link progetti */
+        .menu {
+            position: fixed;
+            top: 40px;
+            right: 40px;
+            font-size: 16px;
+        }
+        .menu a {
+            text-decoration: none;
+            color: black;
+        }
+
+        /* Grid progetti */
         .grid {
+            margin-top: 180px;
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 60px;
+            gap: 40px;
         }
 
-        /* Scheda stile schedario */
-        .card {
+        .project {
             border: 1px solid black;
             padding: 20px;
-            border-radius: 6px;
-            background: #f7f7f7;
-            box-shadow: 0 0 0 2px black inset;
-            cursor: pointer;
-            transition: 0.2s ease;
+            min-height: 180px;
+            transition: background 0.2s;
         }
-
-        .card:hover {
-            background: #ececec;
+        .project:hover {
+            background: #f2f2f2;
         }
-
-        .card-title {
-            font-size: 20px;
-            text-transform: uppercase;
-            margin-bottom: 10px;
+        .project-title {
             font-weight: bold;
+            margin-bottom: 10px;
         }
-
-        .card-desc {
+        .project-desc {
             font-size: 14px;
-            line-height: 1.4em;
+            line-height: 1.4;
         }
     </style>
 </head>
 
 <body>
 
-    <a class="back" href="index.html">← home</a>
+    <!-- LOGO -->
+    <div class="logo">
+        <div class="line">laboratorio di</div>
+        <div class="line">progettazione e produzione</div>
+        <div class="line">multidisciplinare</div>
+        <div class="labor">LABOR</div>
+    </div>
 
-    <h1 style="text-transform: uppercase; letter-spacing: 2px; margin-bottom: 30px;">
-        Progetti
-    </h1>
+    <!-- MENU -->
+    <div class="menu">
+        <a href="projects.html">progetti</a>
+    </div>
 
+    <!-- CONTENUTO -->
     <div class="grid">
 
-        <a href="progetto1.html">
-            <div class="card">
-                <div class="card-title">Progetto 1</div>
-                <div class="card-desc">
-                    Installazione spaziale sperimentale, moduli e geometrie tecniche.
-                </div>
+        <div class="project">
+            <div class="project-title">Titolo progetto 01</div>
+            <div class="project-desc">
+                Breve descrizione del progetto. Testo segnaposto per presentare il contenuto.
             </div>
-        </a>
+        </div>
 
-        <a href="progetto2.html">
-            <div class="card">
-                <div class="card-title">Progetto 2</div>
-                <div class="card-desc">
-                    Struttura in acciaio, assonometrie fil di ferro, produzione custom.
-                </div>
+        <div class="project">
+            <div class="project-title">Titolo progetto 02</div>
+            <div class="project-desc">
+                Descrizione sintetica, massimo 3 righe, per mantenere la pagina ordinata.
             </div>
-        </a>
+        </div>
 
-        <a href="progetto3.html">
-            <div class="card">
-                <div class="card-title">Progetto 3</div>
-                <div class="card-desc">
-                    Ricerca materiale, prototipazione e componenti multidisciplinari.
-                </div>
+        <div class="project">
+            <div class="project-title">Titolo progetto 03</div>
+            <div class="project-desc">
+                Un altro progetto con descrizione di prova. Le card aumentano automaticamente.
             </div>
-        </a>
+        </div>
 
     </div>
 
