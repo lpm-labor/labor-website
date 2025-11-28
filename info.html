@@ -1,85 +1,104 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Info – Laboratorio Multidisciplinare</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LABOR – Info</title>
+
     <style>
-        body {
+        body, html {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
+            width: 100%;
+            font-family: "Courier New", monospace;
             background: white;
             color: black;
         }
 
-        /* Header */
-        header {
-            width: 100%;
-            padding: 40px 50px;
-            box-sizing: border-box;
-        }
-
+        /* LOGO identico a index.html */
         .logo {
-            line-height: 0.82;
-            font-weight: 600;
-            font-size: 48px;
-        }
-
-        .logo a {
-            color: black;
-            text-decoration: none;
-        }
-
-        .logo-top {
-            letter-spacing: 0.08em;
-        }
-
-        .logo-bottom {
-            letter-spacing: 0.18em; /* esteso come sull'index */
-        }
-
-        nav {
-            margin-top: 25px;
-        }
-
-        nav a {
-            margin-right: 25px;
-            text-decoration: none;
-            color: black;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            line-height: 0.8em;
             font-size: 18px;
-            letter-spacing: 0.05em;
+            text-transform: lowercase;
+            white-space: pre-line;
+            z-index: 10;
         }
 
+        .logo strong {
+            text-transform: uppercase;
+            font-size: 18px;
+            display: block;
+            margin-top: 4px;
+            letter-spacing: 13px;
+        }
+
+        /* LINK PROGETTI identico a index.html */
+        .menu {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            font-size: 18px;
+            text-transform: lowercase;
+            z-index: 10;
+        }
+
+        .menu a {
+            color: black;
+            text-decoration: none;
+        }
+
+        /* CONTENUTO DELLA PAGINA */
         .content {
-            padding: 50px;
-            max-width: 900px;
-            font-size: 20px;
-            line-height: 1.5;
+            margin-top: 180px; /* così non si sovrappone al logo */
+            padding: 20px;
+            max-width: 800px;
+            font-size: 18px;
+            line-height: 1.4em;
         }
     </style>
 </head>
+
 <body>
-    <header>
-        <div class="logo">
-            <a href="info.html">
-                <div class="logo-top">LABORATORIO</div>
-                <div class="logo-bottom">MULTIDISCIPLINARE</div>
-            </a>
-        </div>
 
-        <nav>
-            <a href="info.html">info</a>
-            <a href="progetti.html">progetti</a>
-        </nav>
-    </header>
+    <!-- LOGO come homepage -->
+    <div class="logo">
+        <a href="index.html" style="color:black; text-decoration:none;">
+            laboratorio di<br>
+            progettazione e produzione<br>
+            multidisciplinare<br>
+            <strong>LABOR</strong>
+        </a>
+    </div>
 
+    <!-- LINK PROGETTI -->
+    <div class="menu">
+        <a href="progetti.html">progetti</a>
+    </div>
+
+    <!-- CONTENUTO -->
     <div class="content">
-        <h1>Studio Laboratorio Multidisciplinare</h1>
+        <h2>Informazioni</h2>
         <p>
-            Qui inseriremo testo descrittivo dello studio, metodologia, filosofia progettuale,
-            contatti e tutto ciò che vorrai aggiungere.
+            LABOR è un laboratorio di progettazione e produzione multidisciplinare attivo nei campi del design,
+            della comunicazione, della ricerca e della cultura visiva.
+        </p>
+
+        <h3>Contatti</h3>
+        <p>
+            email: <a href="mailto:info@labor.it">info@labor.it</a><br>
+            telefono: +39 000 0000000<br>
+            indirizzo: Via Esempio 12, Milano
+        </p>
+
+        <h3>Orari</h3>
+        <p>
+            Lunedì – Venerdì<br>
+            9:00 – 18:00
         </p>
     </div>
+
 </body>
 </html>
