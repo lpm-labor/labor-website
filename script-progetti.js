@@ -1,5 +1,5 @@
 /* ============================
-   DATI: temi + progetti (mantieni / modifica come preferisci)
+   TEMI
 ============================ */
 
 const temi = [
@@ -11,105 +11,100 @@ const temi = [
     { id: "ricerca", nome: "ricerca" }
 ];
 
+/* ============================
+   PROGETTI
+============================ */
+
 const progetti = [
     {
         id: 1,
         titolo: "Innsbruck",
         sottotitolo: "Espositori per immagini",
         codice: "4.19_023-001",
+        anno: "2023",
+        status: "completato",
+
         temi: ["2023", "expo"],
+
         immagini: [
             "img/progetti/1/4.19_023-001_axo.jpg",
             "img/progetti/1/4.19_023-001_proiez.jpg"
         ],
+
         dettagli: {
-            design: "LABOR",
-            anno: "2023",
-            status: "completato",
             materiali: "MDF, legno d'acero",
-            dimensioni: "variabili",
+            dimensioni: "—",
             quantità: "12 pezzi"
         }
     },
+
     {
         id: 2,
         titolo: "progetto 2",
         sottotitolo: "installazione temporanea",
         codice: "EXP-014",
+        anno: "2023",
+        status: "in corso",
+
         temi: ["2023", "expo"],
+
         immagini: ["img/placeholder.jpg"],
+
         dettagli: {
-            design: "LABOR",
-            anno: "2023",
-            status: "in corso",
             materiali: "plexiglass",
-            dimensioni: "120 × 60 cm",
+            dimensioni: "—",
             quantità: "4 moduli"
         }
     }
 ];
 
 /* ============================
-   GENERA LISTA (temi e progetti)
+   GENERA LISTA TEMI + PROGETTI
 ============================ */
 
 const lista = document.getElementById("listaTemi");
-if (!lista) throw new Error("Elemento #listaTemi non trovato in pagina");
 
 temi.forEach(t => {
+
     const voce = document.createElement("a");
     voce.textContent = t.nome;
-    voce.href = "javascript:void(0)";
-    voce.dataset.target = "sm_" + t.id;
-    voce.className = "tema-link";
+    voce.onclick = () => toggleSubmenu("sm_" + t.id);
+
+    const br = document.createElement("br");
 
     const submenu = document.createElement("div");
     submenu.id = "sm_" + t.id;
     submenu.className = "submenu";
 
     progetti
-        .filter(p => Array.isArray(p.temi) && p.temi.includes(t.id))
+        .filter(p => p.temi.includes(t.id))
         .forEach(p => {
-            const linkP = document.createElement("a");
+            const linkP = document.createElement("div");
+            linkP.className = "submenu-item";
             linkP.textContent = p.titolo;
-            linkP.href = "javascript:void(0)";
-            linkP.dataset.id = p.id;
-            linkP.className = "progetto-link";
+            linkP.onclick = () => apriProgetto(p.id);
             submenu.appendChild(linkP);
-            submenu.appendChild(document.createElement("br"));
         });
 
     lista.appendChild(voce);
-    lista.appendChild(document.createElement("br"));
+    lista.appendChild(br);
     lista.appendChild(submenu);
 });
 
-/* gestione click delegato su lista */
-lista.addEventListener("click", (ev) => {
-    const tema = ev.target.closest(".tema-link");
-    const progetto = ev.target.closest(".progetto-link");
+function toggleSubmenu(id) {
+    const sm = document.getElementById(id);
+    sm.style.display = sm.style.display === "block" ? "none" : "block";
+}
 
-    if (tema) {
-        const target = document.getElementById(tema.dataset.target);
-        if (target) target.style.display = target.style.display === "block" ? "none" : "block";
-    }
-
-    if (progetto) {
-        const id = Number(progetto.dataset.id);
-        apriProgetto(id);
-    }
-});
-
-/* reset "chiudi tutte" */
-document.querySelector(".chiudi-tutte")?.addEventListener("click", () => {
+function chiudiTutte() {
     document.querySelectorAll(".scheda").forEach(s => s.remove());
-});
-
-/* ============================
-   FUNZIONE APRI POPUP (crea scheda)
-============================ */
+}
 
 let offset = 0;
+
+/* ============================
+   POPUP PROGETTO
+============================ */
 
 function apriProgetto(id) {
     const p = progetti.find(x => x.id === id);
@@ -119,111 +114,73 @@ function apriProgetto(id) {
 
     const scheda = document.createElement("div");
     scheda.className = "scheda";
-    scheda.style.left = (280 + offset) + "px";
-    scheda.style.top = (120 + offset) + "px";
+    scheda.style.left = (300 + offset) + "px";
+    scheda.style.top = (150 + offset) + "px";
+
     scheda.dataset.imgIndex = 0;
 
-    // recupera valori tabella con fallback
-    const getVal = (key) => {
-        if (p.dettagli && p.dettagli[key] !== undefined) return p.dettagli[key];
-        if (p[key] !== undefined) return p[key];
-        return "—";
-    };
-
-    // costruzione markup (titolo + img + tabella ordinata)
-    const imgSrc = (p.immagini && p.immagini.length) ? p.immagini[0] : "img/placeholder.jpg";
-
     scheda.innerHTML = `
-        <div class="close-btn" role="button" aria-label="chiudi">×</div>
+        <div class="close-btn" onclick="this.parentElement.remove()">×</div>
 
         <div class="drag-area">
-            <h3>${escapeHtml(p.titolo)}</h3>
-            <div class="sottotitolo">${escapeHtml(p.sottotitolo || "")}</div>
-            <div class="codice">codice: ${escapeHtml(p.codice || "—")}</div>
+            <h3>${p.titolo}</h3>
+            <div class="sottotitolo">${p.sottotitolo || ""}</div>
+            <div class="meta">
+                codice: ${p.codice}
+            </div>
         </div>
 
-        <img class="popup-img" src="${escapeHtml(imgSrc)}" alt="${escapeHtml(p.titolo)}">
+        <img class="popup-img" src="${p.immagini[0]}" onclick="nextImg(this, ${id})">
 
         <table class="dettagli-table">
-            <tr><td>design</td><td>${escapeHtml(getVal("design"))}</td></tr>
-            <tr><td>anno</td><td>${escapeHtml(getVal("anno"))}</td></tr>
-            <tr><td>status</td><td>${escapeHtml(getVal("status"))}</td></tr>
-            <tr><td>materiali</td><td>${escapeHtml(getVal("materiali"))}</td></tr>
-            <tr><td>dimensioni</td><td>${escapeHtml(getVal("dimensioni"))}</td></tr>
-            <tr><td>quantità</td><td>${escapeHtml(getVal("quantità"))}</td></tr>
+            <tr><td>design</td><td>${p.titolo}</td></tr>
+            <tr><td>anno</td><td>${p.anno}</td></tr>
+            <tr><td>status</td><td>${p.status}</td></tr>
+            <tr><td>materiali</td><td>${p.dettagli.materiali || "-"}</td></tr>
+            <tr><td>dimensioni</td><td>${p.dettagli.dimensioni || "-"}</td></tr>
+            <tr><td>quantità</td><td>${p.dettagli.quantità || "-"}</td></tr>
         </table>
     `;
 
     document.body.appendChild(scheda);
 
-    // popola funzionalità: chiudi, cambio immagini, drag
-    const closeBtn = scheda.querySelector(".close-btn");
-    closeBtn.addEventListener("click", () => scheda.remove());
-
-    const imgEl = scheda.querySelector(".popup-img");
-    imgEl.addEventListener("click", () => cycleImage(imgEl, p));
-
-    enableDrag(scheda);
+    renderDraggable(scheda);
 }
 
 /* ============================
-   CICLO IMMAGINE
+   CAMBIO IMMAGINE
 ============================ */
 
-function cycleImage(imgEl, progetto) {
-    if (!progetto.immagini || progetto.immagini.length === 0) return;
-    let idx = Number(imgEl.parentElement.dataset.imgIndex || 0);
-    idx = (idx + 1) % progetto.immagini.length;
-    imgEl.parentElement.dataset.imgIndex = idx;
-    imgEl.src = progetto.immagini[idx];
+function nextImg(img, id) {
+    const p = progetti.find(x => x.id === id);
+    let idx = Number(img.parentElement.dataset.imgIndex);
+
+    idx = (idx + 1) % p.immagini.length;
+
+    img.parentElement.dataset.imgIndex = idx;
+    img.src = p.immagini[idx];
 }
 
 /* ============================
-   DRAG (semplice e robusto)
+   DRAG
 ============================ */
 
-function enableDrag(el) {
+function renderDraggable(el) {
     const drag = el.querySelector(".drag-area");
-    if (!drag) return;
+    let shiftX, shiftY;
 
-    let startX = 0, startY = 0, origX = 0, origY = 0;
+    drag.onmousedown = e => {
+        shiftX = e.clientX - el.getBoundingClientRect().left;
+        shiftY = e.clientY - el.getBoundingClientRect().top;
 
-    const onMouseDown = (e) => {
-        e.preventDefault();
-        startX = e.clientX;
-        startY = e.clientY;
-        const rect = el.getBoundingClientRect();
-        origX = rect.left;
-        origY = rect.top;
+        document.onmousemove = ev => {
+            el.style.left = (ev.clientX - shiftX) + "px";
+            el.style.top = (ev.clientY - shiftY) + "px";
+        };
 
-        document.addEventListener("mousemove", onMouseMove);
-        document.addEventListener("mouseup", onMouseUp);
+        document.onmouseup = () => {
+            document.onmousemove = null;
+            document.onmouseup = null;
+        };
     };
-
-    const onMouseMove = (e) => {
-        const dx = e.clientX - startX;
-        const dy = e.clientY - startY;
-        el.style.left = (origX + dx) + "px";
-        el.style.top = (origY + dy) + "px";
-    };
-
-    const onMouseUp = () => {
-        document.removeEventListener("mousemove", onMouseMove);
-        document.removeEventListener("mouseup", onMouseUp);
-    };
-
-    drag.addEventListener("mousedown", onMouseDown);
-}
-
-/* ============================
-   ESCAPE HTML (sicurezza minima)
-============================ */
-
-function escapeHtml(str) {
-    if (str === null || str === undefined) return "";
-    return String(str)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;");
 }
