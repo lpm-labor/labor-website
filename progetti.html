@@ -48,7 +48,7 @@
             text-decoration: none;
         }
 
-        /* Pulsante CHIUDI TUTTE */
+        /* RESET */
         .chiudi-tutte {
             position: fixed;
             top: 50px;
@@ -75,7 +75,7 @@
         }
         .list-container a:hover { text-decoration: underline; }
 
-        /* SOTTOMENU PROGETTI */
+        /* SOTTOMENU */
         .submenu {
             margin-left: 15px;
             display: none;
@@ -89,11 +89,14 @@
             background: white;
             border: 1px solid black;
             padding: 20px;
+            padding-bottom: 40px;
             box-sizing: border-box;
             font-size: 14px;
             z-index: 50;
             box-shadow: 4px 4px 0px black;
             user-select: none;
+            resize: both;
+            overflow: auto;
         }
         .close-btn {
             position: absolute;
@@ -103,10 +106,15 @@
             font-size: 16px;
         }
 
-        /* Area per trascinamento */
+        /* DRAG AREA */
         .drag-area {
             cursor: move;
             padding-bottom: 10px;
+        }
+
+        /* RESIZE HANDLE (invisibile ma attivo) */
+        .scheda::-webkit-resizer {
+            background: transparent;
         }
     </style>
 </head>
@@ -123,15 +131,15 @@
         </a>
     </div>
 
-    <!-- LINK PROGETTI (con tooltip) -->
+    <!-- LINK PROGETTI -->
     <div class="menu">
         <a href="progetti.html" title="project">progetti</a>
     </div>
 
-    <!-- CHIUDI TUTTE -->
-    <div class="chiudi-tutte" onclick="chiudiTutte()">chiudi tutte</div>
+    <!-- RESET -->
+    <div class="chiudi-tutte" onclick="chiudiTutte()">reset</div>
 
-    <!-- LISTA ANNI + TEMI -->
+    <!-- LISTA -->
     <div class="list-container">
 
         <!-- ANNI -->
@@ -194,18 +202,18 @@
     </div>
 
 <script>
-/* Toggle sottomenu */
+/* Toggle submenu */
 function toggleSubmenu(id) {
     const sm = document.getElementById(id);
     sm.style.display = sm.style.display === "block" ? "none" : "block";
 }
 
-/* Chiudi tutte le schede */
+/* Reset: chiude tutte le schede */
 function chiudiTutte() {
     document.querySelectorAll(".scheda").forEach(s => s.remove());
 }
 
-/* Apertura popup interni + drag */
+/* Apre popup drag + resize */
 let offset = 0;
 
 function apriProgetto(num) {
@@ -229,7 +237,7 @@ function apriProgetto(num) {
     renderDraggable(scheda);
 }
 
-/* DRAG & DROP */
+/* DRAG */
 function renderDraggable(element) {
     const dragArea = element.querySelector(".drag-area");
     let shiftX = 0, shiftY = 0;
