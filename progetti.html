@@ -1,242 +1,36 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>progetti — LABOR</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>progetti — LABOR</title>
 
-<style>
-body {
-    margin: 0;
-    padding: 0;
-    font-family: "Courier New", monospace;
-    background: white;
-    color: black;
-}
-
-/* LOGO */
-.logo {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    line-height: .8em;
-    font-size: 18px;
-    text-transform: lowercase;
-    white-space: pre-line;
-    z-index: 10;
-}
-.logo a { color:black; text-decoration:none; }
-.logo strong {
-    text-transform: uppercase;
-    font-size: 18px;
-    display:block;
-    margin-top:4px;
-    letter-spacing:13px;
-}
-
-/* LINK DESTRO */
-.menu {
-    position: fixed;
-    top:20px;
-    right:20px;
-    font-size:18px;
-    text-transform:lowercase;
-    z-index:10;
-}
-.menu a { color:black; text-decoration:none; }
-
-/* RESET */
-.chiudi-tutte {
-    position:fixed;
-    top:50px;
-    right:20px;
-    font-size:14px;
-    cursor:pointer;
-    text-decoration:underline;
-    text-transform:lowercase;
-    z-index:10;
-}
-
-/* LISTA */
-.list-container {
-    margin-top:185px;
-    margin-left:25px;
-    font-size:16px;
-    text-transform:lowercase;
-    line-height:1.6em;
-}
-.list-container a {
-    color:black;
-    text-decoration:none;
-    cursor:pointer;
-    display:inline-block;
-    margin-bottom:6px;
-}
-.list-container a:hover { text-decoration:underline; }
-
-/* SOTTOMENU */
-.submenu {
-    margin-left:15px;
-    display:none;
-}
-.submenu a {
-    margin-bottom:4px;
-}
-
-/* POPUP BASE (vuoto per ora) */
-.scheda {
-    position:absolute;
-    width:420px;
-    height:520px;
-    background:white;
-    border:1px solid black;
-    padding:20px;
-    padding-bottom:40px;
-    box-sizing:border-box;
-    font-size:14px;
-    z-index:50;
-    box-shadow:4px 4px 0px black;
-    user-select:none;
-    resize:both;
-    overflow:auto;
-}
-.close-btn {
-    position:absolute;
-    top:5px;
-    right:8px;
-    cursor:pointer;
-    font-size:16px;
-}
-
-/* DRAG AREA */
-.drag-area {
-    cursor:move;
-    padding-bottom:10px;
-}
-</style>
+    <link rel="stylesheet" href="style-progetti.css">
 </head>
 
 <body>
 
-<!-- LOGO -->
-<div class="logo">
-    <a href="info.html">
-        laboratorio di<br>
-        progettazione e produzione<br>
-        multidisciplinare<br>
-        <strong>LABOR</strong>
-    </a>
-</div>
-
-<!-- MENU -->
-<div class="menu">
-    <a href="progetti.html" title="project">progetti</a>
-</div>
-
-<!-- RESET -->
-<div class="chiudi-tutte" onclick="chiudiTutte()">reset</div>
-
-<!-- LISTA UNIFICATA -->
-<div class="list-container">
-
-    <a onclick="toggleSubmenu('s2023')">2023</a><br>
-    <div id="s2023" class="submenu">
-        <a onclick="apriProgetto(1)">progetto 1</a><br>
+    <!-- LOGO -->
+    <div class="logo">
+        <a href="info.html">
+            laboratorio di<br>
+            progettazione e produzione<br>
+            multidisciplinare<br>
+            <strong>LABOR</strong>
+        </a>
     </div>
 
-    <a onclick="toggleSubmenu('s2024')">2024</a><br>
-    <div id="s2024" class="submenu">
-        <a onclick="apriProgetto(2)">progetto 2</a><br>
+    <!-- LINK PROGETTI -->
+    <div class="menu">
+        <a href="progetti.html" title="project">progetti</a>
     </div>
 
-    <a onclick="toggleSubmenu('s2025')">2025</a><br>
-    <div id="s2025" class="submenu">
-        <a onclick="apriProgetto(3)">progetto 3</a><br>
-        <a onclick="apriProgetto(4)">progetto 4</a><br>
-        <a onclick="apriProgetto(5)">progetto 5</a><br>
-    </div>
+    <!-- RESET -->
+    <div class="chiudi-tutte" onclick="chiudiTutte()">reset</div>
 
-    <a onclick="toggleSubmenu('sExp')" title="exhibition">esposizioni</a><br>
-    <div id="sExp" class="submenu">
-        <a onclick="apriProgetto(2)">progetto 2</a><br>
-        <a onclick="apriProgetto(3)">progetto 3</a><br>
-        <a onclick="apriProgetto(4)">progetto 4</a><br>
-        <a onclick="apriProgetto(5)">progetto 5</a><br>
-    </div>
+    <!-- LISTA TEMI E PROGETTI (GENERATA DA JS) -->
+    <div class="list-container" id="listaTemi"></div>
 
-    <a onclick="toggleSubmenu('sArredo')" title="interior design">arredamento</a><br>
-    <div id="sArredo" class="submenu">
-        <a onclick="apriProgetto(6)">progetto 6</a><br>
-    </div>
-
-    <a onclick="toggleSubmenu('sRiuso')" title="re-use">ri-uso</a><br>
-    <div id="sRiuso" class="submenu">
-        <a onclick="apriProgetto(7)">progetto 7</a><br>
-        <a onclick="apriProgetto(8)">progetto 8</a><br>
-    </div>
-
-    <a onclick="toggleSubmenu('sArch')" title="architecture">architettura</a><br>
-    <div id="sArch" class="submenu">
-        <a onclick="apriProgetto(9)">progetto 9</a><br>
-    </div>
-
-    <a onclick="toggleSubmenu('sRicerca')" title="research">ricerca</a><br>
-    <div id="sRicerca" class="submenu">
-        <a onclick="apriProgetto(1)">progetto 1</a><br>
-    </div>
-
-</div>
-
-<script>
-function toggleSubmenu(id){
-    const sm = document.getElementById(id);
-    sm.style.display = sm.style.display === "block" ? "none" : "block";
-}
-
-function chiudiTutte(){
-    document.querySelectorAll(".scheda").forEach(s => s.remove());
-}
-
-let offset = 0;
-
-function apriProgetto(num){
-    offset += 25;
-
-    const box = document.createElement("div");
-    box.className = "scheda";
-    box.style.left = (300+offset) + "px";
-    box.style.top = (140+offset) + "px";
-
-    box.innerHTML = `
-        <div class="close-btn" onclick="this.parentElement.remove()">x</div>
-        <div class="drag-area"><h3>progetto ${num}</h3></div>
-        <p>contenuto del progetto ${num} da definire.</p>
-    `;
-
-    document.body.appendChild(box);
-    renderDraggable(box);
-}
-
-function renderDraggable(el){
-    const drag = el.querySelector(".drag-area");
-    let dx=0, dy=0;
-
-    drag.onmousedown = e =>{
-        dx = e.clientX - el.getBoundingClientRect().left;
-        dy = e.clientY - el.getBoundingClientRect().top;
-
-        document.onmousemove = ev =>{
-            el.style.left = (ev.clientX - dx) + "px";
-            el.style.top = (ev.clientY - dy) + "px";
-        };
-
-        document.onmouseup = () =>{
-            document.onmousemove = null;
-            document.onmouseup = null;
-        };
-    };
-}
-</script>
-
+    <script src="script-progetti.js"></script>
 </body>
 </html>
