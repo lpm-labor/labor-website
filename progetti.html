@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="it">
 <head>
     <meta charset="UTF-8">
@@ -75,6 +75,8 @@
             color: black;
             text-decoration: none;
             cursor: pointer;
+            display: inline-block;
+            margin-bottom: 6px; /* distanza uniforme tra tutte le voci */
         }
         .list-container a:hover { text-decoration: underline; }
 
@@ -82,6 +84,9 @@
         .submenu {
             margin-left: 15px;
             display: none;
+        }
+        .submenu a {
+            margin-bottom: 4px; /* distanza interna uniforme */
         }
 
         /* POPUP */
@@ -164,9 +169,7 @@
             <a onclick="apriProgetto(11)">progetto 11</a><br>
         </div>
 
-        <br>
-
-        <!-- TEMI -->
+        <!-- TEMI (rimosso il <br> che creava il buco) -->
         <a onclick="toggleSubmenu('sExpo')" title="exhibition">esposizione</a><br>
         <div id="sExpo" class="submenu">
             <a onclick="apriProgetto(2)">progetto 2</a><br>
