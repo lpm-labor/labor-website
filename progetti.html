@@ -25,12 +25,10 @@
             white-space: pre-line;
             z-index: 10;
         }
-
-        .logo a {
-            color: black;
-            text-decoration: none;
+        .logo a { 
+            color: black; 
+            text-decoration: none; 
         }
-
         .logo strong {
             text-transform: uppercase;
             font-size: 18px;
@@ -48,34 +46,73 @@
             text-transform: lowercase;
             z-index: 10;
         }
-
         .menu a {
             color: black;
             text-decoration: none;
         }
 
-        /* LISTA */
+        /* RESET */
+        .chiudi-tutte {
+            position: fixed;
+            top: 50px;
+            right: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: underline;
+            text-transform: lowercase;
+            z-index: 10;
+        }
+
+        /* LISTA PRINCIPALE */
         .list-container {
             margin-top: 185px;
             margin-left: 25px;
             font-size: 16px;
             text-transform: lowercase;
-            line-height: 1.4em;
+            line-height: 1.6em;
         }
-
-        /* Spaziatura uniforme */
-        .list-container > a {
-            display: inline-block;
-            margin-top: 12px;
-        }
-
         .list-container a {
             color: black;
             text-decoration: none;
+            cursor: pointer;
+        }
+        .list-container a:hover { text-decoration: underline; }
+
+        /* SOTTOMENU */
+        .submenu {
+            margin-left: 15px;
+            display: none;
         }
 
-        .list-container a:hover {
-            text-decoration: underline;
+        /* POPUP */
+        .scheda {
+            position: absolute;
+            width: 420px;
+            height: 520px;
+            background: white;
+            border: 1px solid black;
+            padding: 20px;
+            padding-bottom: 40px;
+            box-sizing: border-box;
+            font-size: 14px;
+            z-index: 50;
+            box-shadow: 4px 4px 0px black;
+            user-select: none;
+            resize: both;
+            overflow: auto;
+        }
+        .close-btn {
+            position: absolute;
+            top: 5px;
+            right: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        /* DRAG AREA */
+        .drag-area {
+            cursor: move;
+            padding-bottom: 10px;
         }
     </style>
 </head>
@@ -97,39 +134,128 @@
         <a href="progetti.html" title="project">progetti</a>
     </div>
 
-    <!-- LISTA CONTINUA -->
+    <!-- RESET -->
+    <div class="chiudi-tutte" onclick="chiudiTutte()">reset</div>
+
+    <!-- LISTA -->
     <div class="list-container">
 
-        <a href="javascript:apriScheda('blocco')">blocco</a><br>
-        <a href="javascript:apriScheda('cantando')">cantando</a><br>
-        <a href="javascript:apriScheda('mari')">mari</a><br>
-        <a href="javascript:apriScheda('khi')">khi</a><br>
-        <a href="javascript:apriScheda('mani')">mani</a><br>
+        <!-- ANNI -->
+        <a onclick="toggleSubmenu('s2023')">2023</a><br>
+        <div id="s2023" class="submenu">
+            <a onclick="apriProgetto(1)">progetto 1</a><br>
+            <a onclick="apriProgetto(2)">progetto 2</a><br>
+            <a onclick="apriProgetto(3)">progetto 3</a><br>
+            <a onclick="apriProgetto(4)">progetto 4</a><br>
+        </div>
 
-        <a href="javascript:apriScheda('2023')">2023</a><br>
-        <a href="javascript:apriScheda('2024')">2024</a><br>
-        <a href="javascript:apriScheda('2025')">2025</a><br>
+        <a onclick="toggleSubmenu('s2024')">2024</a><br>
+        <div id="s2024" class="submenu">
+            <a onclick="apriProgetto(5)">progetto 5</a><br>
+            <a onclick="apriProgetto(6)">progetto 6</a><br>
+        </div>
 
-        <a href="javascript:apriScheda('esposizione')" title="exhibition">esposizione</a><br>
-        <a href="javascript:apriScheda('ricerca')" title="research">ricerca</a><br>
-        <a href="javascript:apriScheda('arredamento')" title="interior design">arredamento</a><br>
-        <a href="javascript:apriScheda('ri-uso')" title="re-use">ri-uso</a><br>
-        <a href="javascript:apriScheda('architettura')" title="architecture">architettura</a><br>
+        <a onclick="toggleSubmenu('s2025')">2025</a><br>
+        <div id="s2025" class="submenu">
+            <a onclick="apriProgetto(7)">progetto 7</a><br>
+            <a onclick="apriProgetto(8)">progetto 8</a><br>
+            <a onclick="apriProgetto(9)">progetto 9</a><br>
+            <a onclick="apriProgetto(10)">progetto 10</a><br>
+            <a onclick="apriProgetto(11)">progetto 11</a><br>
+        </div>
 
+        <br>
+
+        <!-- TEMI -->
+        <a onclick="toggleSubmenu('sExpo')" title="exhibition">esposizione</a><br>
+        <div id="sExpo" class="submenu">
+            <a onclick="apriProgetto(2)">progetto 2</a><br>
+            <a onclick="apriProgetto(3)">progetto 3</a><br>
+            <a onclick="apriProgetto(4)">progetto 4</a><br>
+            <a onclick="apriProgetto(5)">progetto 5</a><br>
+            <a onclick="apriProgetto(6)">progetto 6</a><br>
+            <a onclick="apriProgetto(7)">progetto 7</a><br>
+        </div>
+
+        <a onclick="toggleSubmenu('sArredo')" title="interior design">arredamento</a><br>
+        <div id="sArredo" class="submenu">
+            <a onclick="apriProgetto(8)">progetto 8</a><br>
+        </div>
+
+        <a onclick="toggleSubmenu('sRiuso')" title="re-use">ri-uso</a><br>
+        <div id="sRiuso" class="submenu">
+            <a onclick="apriProgetto(9)">progetto 9</a><br>
+            <a onclick="apriProgetto(10)">progetto 10</a><br>
+        </div>
+
+        <a onclick="toggleSubmenu('sArch')" title="architecture">architettura</a><br>
+        <div id="sArch" class="submenu">
+            <a onclick="apriProgetto(11)">progetto 11</a><br>
+        </div>
+
+        <a onclick="toggleSubmenu('sRicerca')" title="research">ricerca</a><br>
+        <div id="sRicerca" class="submenu">
+            <a onclick="apriProgetto(1)">progetto 1</a><br>
+        </div>
     </div>
 
-    <script>
-    let offset = 0;
+<script>
+/* Mostra/Nasconde sezioni */
+function toggleSubmenu(id) {
+    const sm = document.getElementById(id);
+    sm.style.display = sm.style.display === "block" ? "none" : "block";
+}
 
-    function apriScheda(nome) {
-        offset += 25;
-        window.open(
-            nome + ".html",
-            "_blank",
-            `width=650,height=900,left=${100 + offset},top=${80 + offset},menubar=no,toolbar=no,location=no,status=no,resizable=yes`
-        );
-    }
-    </script>
+/* Reset popup */
+function chiudiTutte() {
+    document.querySelectorAll(".scheda").forEach(s => s.remove());
+}
+
+let offset = 0;
+
+/* Popup */
+function apriProgetto(num) {
+    offset += 25;
+
+    const scheda = document.createElement("div");
+    scheda.className = "scheda";
+    scheda.style.left = (300 + offset) + "px";
+    scheda.style.top = (140 + offset) + "px";
+
+    scheda.innerHTML = `
+        <div class="close-btn" onclick="this.parentElement.remove()">x</div>
+        <div class="drag-area">
+            <h3>progetto ${num}</h3>
+        </div>
+        <p>contenuto del progetto ${num} da definire.</p>
+    `;
+
+    document.body.appendChild(scheda);
+
+    renderDraggable(scheda);
+}
+
+/* Trascinamento */
+function renderDraggable(element) {
+    const dragArea = element.querySelector(".drag-area");
+    let shiftX = 0, shiftY = 0;
+
+    dragArea.onmousedown = function(event) {
+        shiftX = event.clientX - element.getBoundingClientRect().left;
+        shiftY = event.clientY - element.getBoundingClientRect().top;
+
+        document.onmousemove = function(e) {
+            element.style.left = (e.clientX - shiftX) + "px";
+            element.style.top = (e.clientY - shiftY) + "px";
+        };
+
+        document.onmouseup = function() {
+            document.onmousemove = null;
+            document.onmouseup = null;
+        };
+    };
+}
+</script>
 
 </body>
 </html>
