@@ -162,6 +162,10 @@ body{
 .dettagli-table td:last-child {
     padding: 8px 6px;
 }
+/* viewer immagini + tabella: mantiene dimensione costante */
+.viewer {
+    min-height: 300px;
+}
 
 /* piccoli aggiustamenti responsivi */
 @media (max-width:520px){
