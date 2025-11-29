@@ -126,8 +126,9 @@ function apriProgetto(id) {
             <h3>${p.titolo}</h3>
             <div class="sottotitolo">${p.sottotitolo || ""}</div>
             <div class="meta">
-                codice: ${p.codice}
+            ${p.codice}
             </div>
+
         </div>
 
         <img class="popup-img" src="${p.immagini[0]}" onclick="nextImg(this, ${id})">
