@@ -89,12 +89,13 @@ body{
 .submenu-item:hover{text-decoration:underline}
 
 /* ======================================
-   POPUP
+   POPUP PROGETTO
 ====================================== */
 
 .scheda{
     position:absolute;
-    width:480px;
+    width:960px;
+    max-width:100%;
     background:var(--bg);
     border:1px solid var(--fg);
     box-shadow:4px 4px 0px var(--fg);
@@ -115,7 +116,7 @@ body{
     cursor:pointer;
 }
 
-/* DRAG */
+/* DRAG AREA */
 .drag-area{
     cursor:move;
     padding-bottom:10px;
@@ -143,6 +144,9 @@ body{
     cursor:pointer;
 }
 
+/* SLIDES */
+.slide{display:none}
+
 /* IMMAGINI */
 .popup-img{
     width:100%;
@@ -151,17 +155,17 @@ body{
     cursor:pointer;
 }
 
-/* SLIDE */
-.slide{display:none}
-
 /* ======================================
-   TABELLA TECNICA (VARIANTE B)
+   TABELLA TECNICA CLASSICA (VARIANTE B)
 ====================================== */
 
+/* bordo verticale sinistra/destra */
 .table-grid{
     width:100%;
     border-collapse:collapse;
     margin-top:10px;
+    border-left:1px solid #dcdcdc;
+    border-right:1px solid #dcdcdc;
 }
 
 .table-row{
@@ -170,10 +174,10 @@ body{
 }
 
 .table-row.cols-1{
-    grid-template-columns: 1fr;
+    grid-template-columns:1fr;
 }
 .table-row.cols-2{
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns:1fr 1fr;
 }
 
 .info-cell{
@@ -211,8 +215,12 @@ body{
     text-align:right;
 }
 
-/* RESPONSIVE */
+/* ======================================
+   RESPONSIVE
+====================================== */
+
 @media(max-width:520px){
+
     .scheda{
         width:calc(100% - 40px);
         left:10px!important;
@@ -221,12 +229,10 @@ body{
     .logo{left:12px;top:12px}
     .menu{right:12px;top:12px}
     .chiudi-tutte{left:12px;bottom:12px}
-}
-/* --- Responsive per tabella tecnica --- */
-@media(max-width:520px){
 
+    /* Tabella tecnica adattata al mobile */
     .table-row.cols-2{
-        grid-template-columns: 1fr;   /* da 2 colonne a 1 colonna */
+        grid-template-columns:1fr;
     }
 
     .info-cell{
