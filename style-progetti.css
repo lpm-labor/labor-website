@@ -166,6 +166,70 @@ body{
 .viewer {
     min-height: 300px;
 }
+/* ---------------------------------
+   STILE B — Box con griglia sottile
+   pulito, elegante, "scheda grafica"
+   --------------------------------- */
+
+.viewer {
+    min-height: 320px;      /* mantiene la stessa altezza tra tabella e immagini */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* contenitore della tabella con background leggero */
+.table-slide {
+    border: 1px solid #e9e9ea;
+    background: #fafafa;
+    padding: 12px;
+    border-radius: 6px;
+    box-shadow: none;
+}
+
+/* adattiamo la tabella alle esigenze visive */
+.dettagli-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+    font-size: 14px;
+}
+
+/* righe divise con linea sottile */
+.dettagli-table tr {
+    border-bottom: 1px solid #eee;
+}
+
+/* celle: etichetta / valore */
+.dettagli-table td {
+    padding: 10px 8px;
+    vertical-align: middle;
+}
+
+/* colonna etichette: più sottile e meno prominente */
+.dettagli-table td:first-child {
+    width: 140px;
+    color: #6b6b6b;      /* etichetta più chiara */
+    font-size: 13px;
+    font-weight: 400;
+    text-transform: lowercase;
+}
+
+/* colonna valori: più evidente */
+.dettagli-table td:last-child {
+    font-weight: 600;
+    color: #111;
+}
+
+/* se vuoi che l'ultima riga non abbia linea inferiore */
+.dettagli-table tr:last-child { border-bottom: none; }
+
+/* contatore sotto viewer */
+.contatore {
+    font-size: 12px;
+    opacity: 0.6;
+    margin-top: 8px;
+    text-align: right;
+}
 
 /* piccoli aggiustamenti responsivi */
 @media (max-width:520px){
