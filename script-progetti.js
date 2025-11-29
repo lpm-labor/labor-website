@@ -12,7 +12,7 @@ const temi = [
 ];
 
 /* ============================================================
-   PROGETTI (TUTTI I CAMPI OPZIONALI)
+   PROGETTI (ESEMPIO - aggiungerai tu)
 ============================================================ */
 
 const progetti = [
@@ -36,26 +36,29 @@ const progetti = [
             materiali:"MDF, acero",
             dimensioni:"—",
             quantità:"12 pezzi",
-            energia:"—",
+            tecnica_lavorazione:"—",
+            energia_produzione:"—",
             link:"—"
         }
     }
 ];
 
 /* ============================================================
-   SCHEMA TABELLA (1–2–3–1–1)
+   SCHEMA TABELLA TECNICA (VARIANTE B)
 ============================================================ */
 
 const schemaTabella = [
     { colonne:["design"] },
     { colonne:["anno","status"] },
-    { colonne:["materiali","dimensioni","quantità"] },
-    { colonne:["energia"] },
+    { colonne:["materiali"] },
+    { colonne:["dimensioni","quantità"] },
+    { colonne:["tecnica_lavorazione"] },
+    { colonne:["energia_produzione"] },
     { colonne:["link"] }
 ];
 
 /* ============================================================
-   GENERA TABELLINA ELEGANTE
+   GENERA TABELLA TECNICA
 ============================================================ */
 
 function generaTabella(dettagli){
@@ -73,9 +76,9 @@ function generaTabella(dettagli){
             }
 
             html += `
-            <div class="info-card">
-                <div class="info-label">${key}</div>
-                <div class="info-value">${value}</div>
+            <div class="info-cell">
+                <span class="info-label">${key}</span>
+                <span class="info-value">${value}</span>
             </div>`;
         });
 
@@ -87,7 +90,7 @@ function generaTabella(dettagli){
 }
 
 /* ============================================================
-   GENERA LISTA TEMI E PROGETTI
+   LISTA TEMI
 ============================================================ */
 
 const lista = document.getElementById("listaTemi");
@@ -118,18 +121,18 @@ temi.forEach(t=>{
 });
 
 function toggleSubmenu(id){
-    const e = document.getElementById(id);
-    e.style.display = e.style.display==="block" ? "none":"block";
+    const el = document.getElementById(id);
+    el.style.display = (el.style.display==="block" ? "none" : "block");
 }
 
 function chiudiTutte(){
-    document.querySelectorAll(".scheda").forEach(s=>s.remove());
+    document.querySelectorAll(".scheda").forEach(x=>x.remove());
 }
 
-let offset=0;
+let offset = 0;
 
 /* ============================================================
-   APERTURA POPUP PROGETTO
+   APRI POPUP
 ============================================================ */
 
 function apriProgetto(id){
@@ -141,8 +144,7 @@ function apriProgetto(id){
     const scheda = document.createElement("div");
     scheda.className="scheda";
     scheda.style.left = (300+offset)+"px";
-    scheda.style.top  = (150+offset)+"px";
-
+    scheda.style.top = (150+offset)+"px";
     scheda.dataset.slideIndex = 0;
 
     const tabella = generaTabella(p.dettagli);
@@ -187,7 +189,7 @@ function apriProgetto(id){
 
 function nextSlide(scheda,id){
     const p = progetti.find(x=>x.id===id);
-    const total = p.immagini.length+1;
+    const total = p.immagini.length + 1;
 
     let index = Number(scheda.dataset.slideIndex);
     index = (index+1)%total;
@@ -200,7 +202,7 @@ function nextSlide(scheda,id){
 function mostraSlide(scheda,index){
     const slides = scheda.querySelectorAll(".viewer .slide");
     slides.forEach((s,i)=>{
-        s.style.display = (i===index?"block":"none");
+        s.style.display = (i===index ? "block" : "none");
     });
 }
 
@@ -216,7 +218,7 @@ function aggiornaContatore(scheda,n){
 
 function renderDraggable(el){
     const drag = el.querySelector(".drag-area");
-    let shiftX,shiftY;
+    let shiftX, shiftY;
 
     drag.onmousedown = e=>{
         e.preventDefault();
@@ -224,8 +226,8 @@ function renderDraggable(el){
         shiftY = e.clientY - el.getBoundingClientRect().top;
 
         document.onmousemove = ev=>{
-            el.style.left = (ev.clientX-shiftX)+"px";
-            el.style.top  = (ev.clientY-shiftY)+"px";
+            el.style.left = (ev.clientX - shiftX)+"px";
+            el.style.top  = (ev.clientY - shiftY)+"px";
         };
         document.onmouseup = ()=>{
             document.onmousemove=null;
