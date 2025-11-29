@@ -169,3 +169,17 @@ body{
     .logo { left: 12px; top: 12px; }
     .menu { right: 12px; top: 12px; }
 }
+.viewer {
+    cursor: pointer;
+    width: 100%;
+}
+
+.slide {
+    display: none;
+}
+
+.contatore {
+    font-size: 12px;
+    opacity: 0.6;
+    margin-top: 5px;
+}
