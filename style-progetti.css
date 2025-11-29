@@ -222,3 +222,21 @@ body{
     .menu{right:12px;top:12px}
     .chiudi-tutte{left:12px;bottom:12px}
 }
+/* --- Responsive per tabella tecnica --- */
+@media(max-width:520px){
+
+    .table-row.cols-2{
+        grid-template-columns: 1fr;   /* da 2 colonne a 1 colonna */
+    }
+
+    .info-cell{
+        padding:10px 8px;
+        flex-direction:column;
+        gap:4px;
+        text-align:left;
+    }
+
+    .info-value{
+        text-align:left;
+    }
+}
