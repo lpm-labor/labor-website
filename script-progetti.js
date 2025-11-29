@@ -131,8 +131,9 @@ function apriProgetto(id) {
 
         </div>
 
-        <img class="popup-img" src="${p.immagini[0]}" onclick="nextImg(this, ${id})">
+       <div class="viewer" onclick="nextImg(this, ${id})">
 
+    <div class="slide table-slide">
         <table class="dettagli-table">
             <tr><td>design</td><td>${p.titolo}</td></tr>
             <tr><td>anno</td><td>${p.anno}</td></tr>
@@ -141,7 +142,21 @@ function apriProgetto(id) {
             <tr><td>dimensioni</td><td>${p.dettagli.dimensioni || "-"}</td></tr>
             <tr><td>quantità</td><td>${p.dettagli.quantità || "-"}</td></tr>
         </table>
+    </div>
+
+    ${p.immagini
+        .map(src => `<img class="slide popup-img" src="${src}">`)
+        .join("")}
+
+</div>
+
+<div class="contatore"></div>
+
     `;
+scheda.dataset.slideIndex = 0;
+
+aggiornaContatore(scheda, p.immagini.length);
+mostraSlide(scheda, 0);
 
     document.body.appendChild(scheda);
 
@@ -152,14 +167,36 @@ function apriProgetto(id) {
    CAMBIO IMMAGINE
 ============================ */
 
-function nextImg(img, id) {
+function nextImg(viewerContainer, id) {
+    const scheda = viewerContainer.closest(".scheda");
     const p = progetti.find(x => x.id === id);
-    let idx = Number(img.parentElement.dataset.imgIndex);
 
-    idx = (idx + 1) % p.immagini.length;
+    let idx = Number(scheda.dataset.slideIndex);
+    const totalSlides = p.immagini.length + 1; // tabella + immagini
 
-    img.parentElement.dataset.imgIndex = idx;
-    img.src = p.immagini[idx];
+    idx = (idx + 1) % totalSlides; // ciclo infinito
+
+    scheda.dataset.slideIndex = idx;
+
+    mostraSlide(scheda, idx);
+    aggiornaContatore(scheda, p.immagini.length);
+}
+function mostraSlide(scheda, index) {
+    const slides = scheda.querySelectorAll(".viewer .slide");
+    slides.forEach((s, i) => {
+        s.style.display = (i === index) ? "block" : "none";
+    });
+}
+
+function aggiornaContatore(scheda, imgCount) {
+    const idx = Number(scheda.dataset.slideIndex);
+    const cont = scheda.querySelector(".contatore");
+
+    if (idx === 0) {
+        cont.textContent = `0 di ${imgCount}`;
+    } else {
+        cont.textContent = `${idx} di ${imgCount}`;
+    }
 }
 
 /* ============================
