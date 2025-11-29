@@ -83,6 +83,16 @@ body{
 .submenu { margin-left: 15px; display: none; }
 .submenu a { margin-bottom: 4px; }
 
+/* voci cliccabili del sottomenu progetti */
+.submenu-item {
+    cursor: pointer;      /* <<< manina */
+    margin-bottom: 4px;
+}
+
+.submenu-item:hover {
+    text-decoration: underline;
+}
+
 /* SCHEDA / POPUP */
 .scheda {
     position: absolute;
@@ -130,7 +140,7 @@ body{
     height: auto;
     cursor: pointer;
     margin: 15px 0;
-    border: 1px solid var(--fg);
+    border: none;
     display: block;
 }
 
