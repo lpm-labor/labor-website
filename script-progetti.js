@@ -12,7 +12,8 @@ const temi = [
 ];
 
 /* ============================================================
-   PROGETTI — ESEMPIO
+   PROGETTI
+   (puoi aggiungerne infiniti mantenendo la struttura)
 ============================================================ */
 
 const progetti = [
@@ -61,17 +62,17 @@ const schemaTabella = [
    GENERA TABELLA
 ============================================================ */
 
-function generaTabella(dett){
+function generaTabella(dettagli){
     let html = `<div class="table-grid">`;
 
     schemaTabella.forEach(riga=>{
-        const n = riga.colonne.length;
-        html += `<div class="table-row cols-${n}">`;
+        const count = riga.colonne.length;
+        html += `<div class="table-row cols-${count}">`;
 
         riga.colonne.forEach(key=>{
-            let value = dett[key] || "—";
+            let value = dettagli[key] || "—";
 
-            if(key==="link" && value !== "—"){
+            if(key==="link" && value!=="—"){
                 value = `<a href="${value}" target="_blank">${value}</a>`;
             }
 
@@ -90,7 +91,7 @@ function generaTabella(dett){
 }
 
 /* ============================================================
-   LISTA TEMI
+   LISTA TEMI + PROGETTI
 ============================================================ */
 
 const lista = document.getElementById("listaTemi");
@@ -100,9 +101,7 @@ temi.forEach(t=>{
     voce.textContent = t.nome;
     voce.onclick = ()=>toggleSubmenu("sm_"+t.id);
 
-    lista.appendChild(voce);
-    lista.appendChild(document.createElement("br"));
-
+    const br = document.createElement("br");
     const submenu = document.createElement("div");
     submenu.id = "sm_"+t.id;
     submenu.className = "submenu";
@@ -111,12 +110,14 @@ temi.forEach(t=>{
         .filter(p=>p.temi.includes(t.id))
         .forEach(p=>{
             const link = document.createElement("div");
-            link.className = "submenu-item";
-            link.textContent = p.titolo;
-            link.onclick = ()=>apriProgetto(p.id);
+            link.className="submenu-item";
+            link.textContent=p.titolo;
+            link.onclick=()=>apriProgetto(p.id);
             submenu.appendChild(link);
         });
 
+    lista.appendChild(voce);
+    lista.appendChild(br);
     lista.appendChild(submenu);
 });
 
@@ -129,33 +130,30 @@ function chiudiTutte(){
     document.querySelectorAll(".scheda").forEach(x=>x.remove());
 }
 
+let offset = 0;
+
 /* ============================================================
-   APRI POPUP
+   APRI POPUP PROGETTO
 ============================================================ */
 
 function apriProgetto(id){
     const p = progetti.find(x=>x.id===id);
     if(!p) return;
 
+    offset += 25;
+
     const scheda = document.createElement("div");
     scheda.className="scheda";
-
-    /* LIMITE INVISIBILE */
-    const limite = 280;
-
-    /* POSIZIONE RANDOM CONTROLLATA */
-    const randomX = limite + 40 + Math.random()*120;
-    const randomY = 120 + Math.random()*50;
-
-    scheda.style.left = randomX + "px";
-    scheda.style.top  = randomY + "px";
-
+    scheda.style.left = (220+offset)+"px";
+    scheda.style.top = (140+offset)+"px";
     scheda.dataset.slideIndex = 0;
+    scheda.dataset.zoom = 1;
 
-    const tab = generaTabella(p.dettagli);
+    const tabella = generaTabella(p.dettagli);
 
     scheda.innerHTML = `
         <div class="close-btn" onclick="this.parentElement.remove()">×</div>
+        <div class="zoom-btn" onclick="zoomPopup(this)">zoom</div>
 
         <div class="drag-area">
             <h3>${p.titolo}</h3>
@@ -164,8 +162,15 @@ function apriProgetto(id){
         </div>
 
         <div class="viewer">
-            <div class="slide table-slide">${tab}</div>
-            ${p.immagini.map(src=>`<img class="slide popup-img" src="${src}">`).join("")}
+            <div class="slide table-slide">
+                ${tabella}
+            </div>
+
+            ${p.immagini.map(src=>`
+                <div class="slide">
+                    <img class="popup-img" src="${src}">
+                </div>
+            `).join("")}
         </div>
 
         <div class="contatore"></div>
@@ -176,14 +181,11 @@ function apriProgetto(id){
     mostraSlide(scheda,0);
     aggiornaContatore(scheda,p.immagini.length);
 
-    scheda.querySelector(".viewer").onclick = ()=>{
+    scheda.querySelector(".viewer").onclick=()=>{
         nextSlide(scheda,p.id);
     };
 
-    /* DRAG SOLO DESKTOP */
-    if(window.innerWidth > 520){
-        renderDraggable(scheda);
-    }
+    renderDraggable(scheda);
 }
 
 /* ============================================================
@@ -192,12 +194,12 @@ function apriProgetto(id){
 
 function nextSlide(scheda,id){
     const p = progetti.find(x=>x.id===id);
-    const tot = p.immagini.length + 1;
+    const total = p.immagini.length + 1;
 
     let index = Number(scheda.dataset.slideIndex);
-    index = (index+1)%tot;
+    index = (index+1)%total;
 
-    scheda.dataset.slideIndex = index;
+    scheda.dataset.slideIndex=index;
     mostraSlide(scheda,index);
     aggiornaContatore(scheda,p.immagini.length);
 }
@@ -209,31 +211,65 @@ function mostraSlide(scheda,index){
     });
 }
 
-function aggiornaContatore(scheda,totImg){
-    let i = Number(scheda.dataset.slideIndex);
-    scheda.querySelector(".contatore").textContent =
-        (i===0 ? "tabella" : `${i} / ${totImg}`);
+function aggiornaContatore(scheda,imgCount){
+    const cont = scheda.querySelector(".contatore");
+    const index = Number(scheda.dataset.slideIndex);
+
+    if(index===0){
+        cont.textContent = `0 / ${imgCount}`;
+    } else {
+        cont.textContent = `${index} / ${imgCount}`;
+    }
 }
 
 /* ============================================================
-   DRAG DESKTOP
+   DRAG DELLE SCHEDE
 ============================================================ */
 
 function renderDraggable(el){
-    let offX = 0, offY = 0;
-    let down = false;
+    const dragArea = el.querySelector(".drag-area");
+    let offsetX, offsetY, dragging=false;
 
-    el.querySelector(".drag-area").addEventListener("mousedown",e=>{
-        down = true;
-        offX = e.clientX - el.offsetLeft;
-        offY = e.clientY - el.offsetTop;
+    dragArea.addEventListener("mousedown", e=>{
+        dragging=true;
+        offsetX = e.clientX - el.offsetLeft;
+        offsetY = e.clientY - el.offsetTop;
     });
-
-    document.addEventListener("mouseup", ()=>down=false);
 
     document.addEventListener("mousemove", e=>{
-        if(!down) return;
-        el.style.left = (e.clientX - offX) + "px";
-        el.style.top  = (e.clientY - offY) + "px";
+        if(!dragging) return;
+        el.style.left = (e.clientX - offsetX)+"px";
+        el.style.top = (e.clientY - offsetY)+"px";
     });
+
+    document.addEventListener("mouseup", ()=> dragging=false);
+}
+
+/* ============================================================
+   PORTA IN PRIMO PIANO LA SCHEDA CLICCATA
+============================================================ */
+
+document.addEventListener("click", e=>{
+    const scheda = e.target.closest(".scheda");
+    if(!scheda) return;
+
+    window.topZ = (window.topZ || 100);
+    window.topZ++;
+    scheda.style.zIndex = window.topZ;
+});
+
+/* ============================================================
+   ZOOM A STEP DELLA SCHEDA
+============================================================ */
+
+function zoomPopup(btn){
+    const scheda = btn.closest(".scheda");
+    let z = Number(scheda.dataset.zoom || 1);
+
+    if(z === 1) z = 2;
+    else if(z === 2) z = 1.5;
+    else z = 1;
+
+    scheda.dataset.zoom = z;
+    scheda.style.transform = `scale(${z})`;
 }
