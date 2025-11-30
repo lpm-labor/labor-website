@@ -132,7 +132,7 @@ function chiudiTutte(){
 let offset = 0;
 
 /* ============================================================
-   APRI POPUP PROGETTO
+   APRI POPUP
 ============================================================ */
 
 function apriProgetto(id){
@@ -185,6 +185,7 @@ function apriProgetto(id){
     };
 
     renderDraggable(scheda);
+    enableImageDrag(scheda);
 }
 
 /* ============================================================
@@ -222,7 +223,7 @@ function aggiornaContatore(scheda,imgCount){
 }
 
 /* ============================================================
-   DRAG DELLE SCHEDE
+   DRAG SCHEDE
 ============================================================ */
 
 function renderDraggable(el){
@@ -258,22 +259,68 @@ document.addEventListener("click", e=>{
 });
 
 /* ============================================================
-   ZOOM (solo desktop)
+   ZOOM (desktop)
 ============================================================ */
 
 function zoomPopup(btn){
 
-    /* niente zoom su mobile */
     if(window.innerWidth <= 520) return;
 
     const scheda = btn.closest(".scheda");
     let z = Number(scheda.dataset.zoom || 1);
 
-    // 1 → 2 → 3 → 1
+    /* 1 → 2 → 4 → 1 */
     if(z === 1) z = 2;
     else if(z === 2) z = 4;
     else z = 1;
 
     scheda.dataset.zoom = z;
     scheda.style.transform = `scale(${z})`;
+}
+
+/* ============================================================
+   DRAG IMMAGINI ZOOMATE
+============================================================ */
+
+function enableImageDrag(scheda){
+    const viewer = scheda.querySelector(".viewer");
+
+    let down = false;
+    let startX, startY, scrollX, scrollY;
+
+    viewer.addEventListener("mousedown", e=>{
+        const zoom = Number(scheda.dataset.zoom);
+        if(zoom <= 1) return;
+
+        down = true;
+        viewer.classList.add("dragging");
+
+        startX = e.clientX;
+        startY = e.clientY;
+
+        scrollX = viewer.scrollLeft;
+        scrollY = viewer.scrollTop;
+    });
+
+    viewer.addEventListener("mouseup", ()=>{
+        down = false;
+        viewer.classList.remove("dragging");
+    });
+
+    viewer.addEventListener("mouseleave", ()=>{
+        down = false;
+        viewer.classList.remove("dragging");
+    });
+
+    viewer.addEventListener("mousemove", e=>{
+        if(!down) return;
+
+        e.preventDefault();
+
+        const dx = e.clientX - startX;
+        const dy = e.clientY - startY;
+
+        viewer.scrollLeft = scrollX - dx;
+        viewer.scrollTop = scrollY - dy;
+    });
 }
