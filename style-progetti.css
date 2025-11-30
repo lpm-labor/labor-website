@@ -1,11 +1,12 @@
 /* ======================================
-   BASE
+   VARIABILI E BASE
 ====================================== */
 
 :root{
     --font: "Courier New", monospace;
     --bg: #ffffff;
     --fg: #000000;
+    --line: #dcdcdc;
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
@@ -13,20 +14,27 @@ body{
     font-family:var(--font);
     background:var(--bg);
     color:var(--fg);
+    overflow-x:hidden;
 }
 
-/* LINEA VERTICALE */
+/* ======================================
+   LINEA VERTICALE
+====================================== */
+
 .colonna-limite{
     position:fixed;
-    top:140px; /* inizio più in basso */
-    left:240px; /* più a sinistra */
+    top:140px;
+    left:240px;
     width:1px;
     height:calc(100vh - 140px);
     background:#000;
     z-index:5;
 }
 
-/* LOGO */
+/* ======================================
+   LOGO E MENU
+====================================== */
+
 .logo{
     position:fixed;
     top:20px;
@@ -37,10 +45,7 @@ body{
     white-space:pre-line;
     z-index:10;
 }
-.logo a{
-    color:var(--fg);
-    text-decoration:none;
-}
+.logo a{color:var(--fg);text-decoration:none}
 .logo strong{
     display:block;
     margin-top:4px;
@@ -48,7 +53,6 @@ body{
     text-transform:uppercase;
 }
 
-/* MENU */
 .menu{
     position:fixed;
     top:20px;
@@ -74,7 +78,10 @@ body{
     z-index:10;
 }
 
-/* LISTA TEMI */
+/* ======================================
+   LISTA TEMI
+====================================== */
+
 .list-container{
     margin-top:185px;
     margin-left:25px;
@@ -82,7 +89,7 @@ body{
     text-transform:lowercase;
     line-height:1.6em;
     position:relative;
-    z-index:20;         
+    z-index:20;
 }
 .list-container a{
     text-decoration:none;
@@ -102,7 +109,7 @@ body{
 .submenu-item:hover{text-decoration:underline}
 
 /* ======================================
-   POPUP PROGETTO (RIDOTTO AL 75%)
+   POPUP
 ====================================== */
 
 .scheda{
@@ -111,9 +118,8 @@ body{
     max-width:100%;
     background:var(--bg);
     border:1px solid var(--fg);
-    box-shadow:4px 4px 0px var(--fg);
-    padding:20px;
-    padding-top:15px;
+    box-shadow:4px 4px 0 var(--fg);
+    padding:15px 20px 20px;
     z-index:50;
     font-size:14px;
     user-select:none;
@@ -131,41 +137,48 @@ body{
 
 /* DRAG AREA */
 .drag-area{
+    position:relative;
     cursor:move;
     padding-bottom:10px;
     border-bottom:1px solid var(--fg);
     margin-bottom:10px;
 }
+
+.drag-handle{
+    position:absolute;
+    right:10px;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:13px;
+    opacity:0.45;
+    pointer-events:none;
+    user-select:none;
+}
+
+/* TITOLI */
 .drag-area h3{
     font-size:20px;
     margin:0;
     text-transform:lowercase;
 }
-.sottotitolo{
-    font-size:14px;
-    margin-top:4px;
-}
-.meta{
-    margin-top:6px;
-    opacity:0.9;
-}
+.sottotitolo{font-size:14px;margin-top:4px}
+.meta{margin-top:6px;opacity:0.9}
 
-/* VIEWER */
+/* ======================================
+   VIEWER E SLIDES
+====================================== */
+
 .viewer{
     width:100%;
     min-height:320px;
     cursor:pointer;
 }
-
-/* SLIDES */
 .slide{display:none}
 
-/* IMMAGINI */
 .popup-img{
     width:100%;
     border:none;
     margin:15px 0;
-    cursor:pointer;
 }
 
 /* ======================================
@@ -174,51 +187,40 @@ body{
 
 .table-grid{
     width:100%;
-    border-collapse:collapse;
-    margin-top:18px;                
-    border-left:1px solid #dcdcdc;
-    border-right:1px solid #dcdcdc;
-    border-top:1px solid #dcdcdc;   
+    margin-top:18px;
+    border-left:1px solid var(--line);
+    border-right:1px solid var(--line);
+    border-top:1px solid var(--line);
 }
 
 .table-row{
     display:grid;
-    border-bottom:1px solid #dcdcdc;
+    border-bottom:1px solid var(--line);
 }
 
-.table-row.cols-1{
-    grid-template-columns:1fr;
-}
-.table-row.cols-2{
-    grid-template-columns:1fr 1fr;
-}
+.table-row.cols-1{grid-template-columns:1fr}
+.table-row.cols-2{grid-template-columns:1fr 1fr}
 
 .info-cell{
-    border-right:1px solid #dcdcdc;
+    border-right:1px solid var(--line);
     padding:8px 10px;
     display:flex;
     justify-content:space-between;
 }
-.info-cell:last-child{
-    border-right:none;
-}
+.info-cell:last-child{border-right:none}
 
 .info-label{
     font-size:11px;
     color:#777;
     text-transform:lowercase;
 }
-
 .info-value{
     font-size:14px;
     font-weight:600;
-    color:#111;
     text-align:right;
-}
-.info-value a{
     color:#111;
-    text-decoration:underline;
 }
+.info-value a{color:#111;text-decoration:underline}
 
 /* CONTATORE */
 .contatore{
@@ -229,43 +231,34 @@ body{
 }
 
 /* ======================================
-   RESPONSIVE MOBILE FIX
+   MOBILE FIX
 ====================================== */
 
 @media(max-width:520px){
 
-    /* nascondi la linea verticale */
-    .colonna-limite{
-        display:none !important;
-    }
+    .colonna-limite{display:none}
 
-    /* popup centrato e sotto la lista */
     .scheda{
-        width:calc(100% - 40px) !important;
-        left:50% !important;
+        width:calc(100% - 40px);
+        left:50%!important;
         transform:translateX(-50%);
-        top:160px !important;
+        top:160px!important;
     }
 
-    /* tabella mobile */
-    .table-row.cols-2{
-        grid-template-columns:1fr;
-    }
+    .table-row.cols-2{grid-template-columns:1fr}
 
     .table-row.cols-2 .info-cell{
-        border-right:none !important;
-        border-bottom:1px solid #dcdcdc;
+        border-right:none!important;
+        border-bottom:1px solid var(--line);
         flex-direction:column;
+        padding:10px 8px;
         gap:4px;
         text-align:left;
-        padding:10px 8px;
     }
 
     .table-row.cols-2 .info-cell:last-child{
         border-bottom:none;
     }
 
-    .info-value{
-        text-align:left;
-    }
+    .info-value{text-align:left}
 }
