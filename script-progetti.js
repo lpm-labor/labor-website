@@ -139,11 +139,10 @@ function apriProgetto(id){
     const p = progetti.find(x=>x.id===id);
     if(!p) return;
 
-    const limite = 300; // linea + spaziatura
-    const maxOffset = 120;
+    const limite = 260; // linea + margine
+const randomLeft = limite + Math.floor(Math.random()*260) - 40;
+const randomTop  = 160  + Math.floor(Math.random()*180) - 60;
 
-    const randomLeft = limite + Math.floor(Math.random()*maxOffset);
-    const randomTop  = 120  + Math.floor(Math.random()*80);
 
     const scheda = document.createElement("div");
     scheda.className="scheda";
