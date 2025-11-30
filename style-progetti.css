@@ -101,10 +101,8 @@ body{
     z-index:80;
     font-size:14px;
     user-select:none;
-
     resize:both;
     overflow:auto;
-
     transform-origin:top left;
 }
 
@@ -164,7 +162,7 @@ body{
 }
 
 /* ======================================
-   TABELLA TECNICA
+   TABELLA TECNICA (desktop)
 ====================================== */
 
 .table-grid{
@@ -190,9 +188,11 @@ body{
 
 .info-cell{
     border-right:1px solid #dcdcdc;
-    padding:8px 10px;
+    padding:10px 10px;
     display:flex;
-    justify-content:space-between;
+    flex-direction:column;      /* valore a capo */
+    gap:4px;
+    align-items:flex-start;
 }
 .info-cell:last-child{
     border-right:none;
@@ -208,7 +208,7 @@ body{
     font-size:14px;
     font-weight:600;
     color:#111;
-    text-align:right;
+    text-align:left;
 }
 .info-value a{
     color:#111;
@@ -224,37 +224,32 @@ body{
 }
 
 /* ======================================
-   MOBILE FIX
-====================================== */
-
-/* ======================================
    RESPONSIVE — FIX TABELLA MOBILE
 ====================================== */
+
 @media(max-width:520px){
 
     .scheda{
         width:calc(100% - 40px);
         left:10px!important;
         top:10px!important;
+        transform:scale(1)!important;
     }
 
-    .logo{left:12px;top:12px}
-    .menu{right:12px;top:12px}
-    .chiudi-tutte{left:12px;bottom:12px}
+    /* Niente zoom su mobile */
+    .zoom-btn{display:none!important;}
 
-    /* --- TABELLA MOBILE FIX --- */
-
-    /* ogni riga mantiene un UNICO bordo inferiore */
+    /* ogni riga ha un solo bordo */
     .table-row{
         border-bottom:1px solid #dcdcdc;
     }
 
-    /* righe da 2 -> 1 colonna */
+    /* da 2 colonne → 1 colonna */
     .table-row.cols-2{
         grid-template-columns:1fr;
     }
 
-    /* elimina tutti i conflitti */
+    /* elimina linee extra */
     .table-row.cols-2 .info-cell{
         border-right:none !important;
         border-bottom:none !important;
@@ -264,13 +259,10 @@ body{
         text-align:left;
     }
 
-    /* ripristina UNA sola linea tra i gruppi */
+    /* rimetti UNA sola linea per separare le righe */
     .table-row.cols-2 .info-cell:last-child{
         border-bottom:1px solid #dcdcdc !important;
     }
 
-    .info-value{
-        text-align:left;
-    }
+    .info-value{text-align:left;}
 }
-
