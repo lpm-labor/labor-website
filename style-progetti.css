@@ -1,6 +1,6 @@
-/* ======================================
+/* ============================================================
    BASE
-====================================== */
+============================================================ */
 
 :root{
     --font: "Courier New", monospace;
@@ -24,9 +24,12 @@ body{
     line-height:0.8em;
     text-transform:lowercase;
     white-space:pre-line;
-    z-index:50;
+    z-index:10;
 }
-.logo a{text-decoration:none;color:var(--fg)}
+.logo a{
+    color:var(--fg);
+    text-decoration:none;
+}
 .logo strong{
     display:block;
     margin-top:4px;
@@ -41,7 +44,7 @@ body{
     right:20px;
     font-size:18px;
     text-transform:lowercase;
-    z-index:50;
+    z-index:10;
 }
 .menu a{
     color:var(--fg);
@@ -57,7 +60,7 @@ body{
     text-transform:lowercase;
     text-decoration:underline;
     cursor:pointer;
-    z-index:50;
+    z-index:10;
 }
 
 /* LISTA TEMI */
@@ -67,7 +70,6 @@ body{
     font-size:16px;
     text-transform:lowercase;
     line-height:1.6em;
-    z-index:40;
 }
 .list-container a{
     text-decoration:none;
@@ -86,9 +88,9 @@ body{
 }
 .submenu-item:hover{text-decoration:underline}
 
-/* ======================================
-   POPUP PROGETTO
-====================================== */
+/* ============================================================
+   POPUP PROGETTI (75%)
+============================================================ */
 
 .scheda{
     position:absolute;
@@ -98,12 +100,12 @@ body{
     box-shadow:4px 4px 0px var(--fg);
     padding:20px;
     padding-top:15px;
-    z-index:80;
+    z-index:50;
     font-size:14px;
     user-select:none;
     resize:both;
     overflow:auto;
-    transform-origin:top left;
+    transform-origin: top left;
 }
 
 .close-btn{
@@ -116,7 +118,7 @@ body{
 
 .zoom-btn{
     position:absolute;
-    top:7px;
+    top:6px;
     right:45px;
     font-size:14px;
     cursor:pointer;
@@ -128,26 +130,27 @@ body{
     cursor:move;
     padding-bottom:10px;
     border-bottom:1px solid var(--fg);
-    margin-bottom:10px;
+    margin-bottom:12px;
 }
 .drag-area h3{
     font-size:20px;
-    margin:0;
     text-transform:lowercase;
 }
 .sottotitolo{
-    font-size:14px;
     margin-top:4px;
+    font-size:14px;
 }
 .meta{
     margin-top:6px;
-    opacity:0.9;
+    opacity:0.8;
 }
 
 /* VIEWER */
 .viewer{
     width:100%;
+    min-height:320px;
     cursor:pointer;
+    overflow:auto;
 }
 
 /* SLIDES */
@@ -156,19 +159,23 @@ body{
 /* IMMAGINI */
 .popup-img{
     width:100%;
-    border:none;
-    margin:15px 0;
-    cursor:pointer;
+    display:block;
+    cursor:grab;
 }
 
-/* ======================================
-   TABELLA TECNICA (desktop)
-====================================== */
+/* DRAG IMMAGINE */
+.viewer.dragging{
+    cursor:grabbing !important;
+}
+
+/* ============================================================
+   TABELLA TECNICA - DESKTOP VERSION
+============================================================ */
 
 .table-grid{
     width:100%;
     border-collapse:collapse;
-    margin-top:14px;
+    margin-top:18px;
     border-left:1px solid #dcdcdc;
     border-right:1px solid #dcdcdc;
     border-top:1px solid #dcdcdc;
@@ -188,11 +195,9 @@ body{
 
 .info-cell{
     border-right:1px solid #dcdcdc;
-    padding:10px 10px;
+    padding:10px 12px;
     display:flex;
-    flex-direction:column;      /* valore a capo */
-    gap:4px;
-    align-items:flex-start;
+    flex-direction:column;   /* <—— valore sotto label */
 }
 .info-cell:last-child{
     border-right:none;
@@ -201,6 +206,7 @@ body{
 .info-label{
     font-size:11px;
     color:#777;
+    margin-bottom:4px;
     text-transform:lowercase;
 }
 
@@ -208,7 +214,6 @@ body{
     font-size:14px;
     font-weight:600;
     color:#111;
-    text-align:left;
 }
 .info-value a{
     color:#111;
@@ -217,15 +222,15 @@ body{
 
 /* CONTATORE */
 .contatore{
-    margin-top:8px;
+    margin-top:10px;
     font-size:12px;
     opacity:0.6;
     text-align:right;
 }
 
-/* ======================================
-   RESPONSIVE — FIX TABELLA MOBILE
-====================================== */
+/* ============================================================
+   MOBILE FIX
+============================================================ */
 
 @media(max-width:520px){
 
@@ -233,36 +238,23 @@ body{
         width:calc(100% - 40px);
         left:10px!important;
         top:10px!important;
-        transform:scale(1)!important;
     }
 
-    /* Niente zoom su mobile */
     .zoom-btn{display:none!important;}
 
-    /* ogni riga ha un solo bordo */
-    .table-row{
-        border-bottom:1px solid #dcdcdc;
-    }
-
-    /* da 2 colonne → 1 colonna */
+    /* 2 colonne → 1 colonna */
     .table-row.cols-2{
-        grid-template-columns:1fr;
+        grid-template-columns:1fr !important;
     }
 
-    /* elimina linee extra */
-    .table-row.cols-2 .info-cell{
+    /* niente doppie linee */
+    .info-cell{
         border-right:none !important;
-        border-bottom:none !important;
-        flex-direction:column;
-        gap:4px;
-        padding:10px 8px;
-        text-align:left;
-    }
-
-    /* rimetti UNA sola linea per separare le righe */
-    .table-row.cols-2 .info-cell:last-child{
         border-bottom:1px solid #dcdcdc !important;
+        flex-direction:column;
     }
 
-    .info-value{text-align:left;}
+    .table-row .info-cell:last-child{
+        border-bottom:none !important;
+    }
 }
