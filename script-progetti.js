@@ -266,8 +266,10 @@ function zoomPopup(btn){
     const scheda = btn.closest(".scheda");
     let z = Number(scheda.dataset.zoom || 1);
 
+    // NUOVA LOGICA:
+    // 1 → 2 → 3 → 1
     if(z === 1) z = 2;
-    else if(z === 2) z = 1.5;
+    else if(z === 2) z = 3;
     else z = 1;
 
     scheda.dataset.zoom = z;
