@@ -12,7 +12,7 @@ const temi = [
 ];
 
 /* ============================================================
-   PROGETTI (ESEMPIO)
+   PROGETTI
 ============================================================ */
 
 const progetti = [
@@ -132,19 +132,23 @@ function chiudiTutte(){
 let offset = 0;
 
 /* ============================================================
-   APRI POPUP
+   APRI POPUP CON POSIZIONE RANDOM A DESTRA DELLA LINEA
 ============================================================ */
 
 function apriProgetto(id){
     const p = progetti.find(x=>x.id===id);
     if(!p) return;
 
-    offset += 25;
+    const limite = 300; // linea + spaziatura
+    const maxOffset = 120;
+
+    const randomLeft = limite + Math.floor(Math.random()*maxOffset);
+    const randomTop  = 120  + Math.floor(Math.random()*80);
 
     const scheda = document.createElement("div");
     scheda.className="scheda";
-    scheda.style.left = (300+offset)+"px";
-    scheda.style.top = (100+offset)+"px"; /* PRIMO POPUP PIÙ IN ALTO */
+    scheda.style.left = randomLeft+"px";
+    scheda.style.top = randomTop+"px";
     scheda.dataset.slideIndex = 0;
 
     const tabella = generaTabella(p.dettagli);
@@ -201,4 +205,37 @@ function nextSlide(scheda,id){
 
 function mostraSlide(scheda,index){
     const slides = scheda.querySelectorAll(".viewer .slide");
-    slides.forEach((s,i
+    slides.forEach((s,i)=>{
+        s.style.display = (i===index ? "block" : "none");
+    });
+}
+
+function aggiornaContatore(scheda,n){
+    const i = Number(scheda.dataset.slideIndex);
+    scheda.querySelector(".contatore").textContent =
+        (i===0 ? `0 di ${n}` : `${i} di ${n}`);
+}
+
+/* ============================================================
+   DRAG
+============================================================ */
+
+function renderDraggable(el){
+    const drag = el.querySelector(".drag-area");
+    let shiftX, shiftY;
+
+    drag.onmousedown = e=>{
+        e.preventDefault();
+        shiftX = e.clientX - el.getBoundingClientRect().left;
+        shiftY = e.clientY - el.getBoundingClientRect().top;
+
+        document.onmousemove = ev=>{
+            el.style.left = (ev.clientX - shiftX)+"px";
+            el.style.top  = (ev.clientY - shiftY)+"px";
+        };
+        document.onmouseup = ()=>{
+            document.onmousemove=null;
+            document.onmouseup=null;
+        };
+    };
+}
