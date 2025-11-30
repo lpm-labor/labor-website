@@ -24,12 +24,9 @@ body{
     line-height:0.8em;
     text-transform:lowercase;
     white-space:pre-line;
-    z-index:10;
+    z-index:50;
 }
-.logo a{
-    color:var(--fg);
-    text-decoration:none;
-}
+.logo a{text-decoration:none;color:var(--fg)}
 .logo strong{
     display:block;
     margin-top:4px;
@@ -44,7 +41,7 @@ body{
     right:20px;
     font-size:18px;
     text-transform:lowercase;
-    z-index:10;
+    z-index:50;
 }
 .menu a{
     color:var(--fg);
@@ -60,7 +57,7 @@ body{
     text-transform:lowercase;
     text-decoration:underline;
     cursor:pointer;
-    z-index:10;
+    z-index:50;
 }
 
 /* LISTA TEMI */
@@ -70,8 +67,7 @@ body{
     font-size:16px;
     text-transform:lowercase;
     line-height:1.6em;
-    position:relative;
-    z-index:20; /* evita che venga coperta */
+    z-index:40;
 }
 .list-container a{
     text-decoration:none;
@@ -91,22 +87,26 @@ body{
 .submenu-item:hover{text-decoration:underline}
 
 /* ======================================
-   POPUP PROGETTO (RIDOTTO AL 75%)
+   POPUP PROGETTO
 ====================================== */
 
 .scheda{
     position:absolute;
     width:720px;
-    max-width:100%;
     background:var(--bg);
     border:1px solid var(--fg);
     box-shadow:4px 4px 0px var(--fg);
     padding:20px;
     padding-top:15px;
-    z-index:50;
+    z-index:80;
     font-size:14px;
     user-select:none;
+
+    /* ripristinato */
+    resize:both;
     overflow:auto;
+
+    transform-origin:top left;
 }
 
 .close-btn{
@@ -117,7 +117,17 @@ body{
     cursor:pointer;
 }
 
-/* DRAG AREA (desktop) */
+/* NUOVO — TASTO ZOOM */
+.zoom-btn{
+    position:absolute;
+    top:7px;
+    right:45px;
+    font-size:14px;
+    cursor:pointer;
+    text-decoration:underline;
+}
+
+/* DRAG AREA */
 .drag-area{
     cursor:move;
     padding-bottom:10px;
@@ -141,7 +151,6 @@ body{
 /* VIEWER */
 .viewer{
     width:100%;
-    min-height:320px;
     cursor:pointer;
 }
 
@@ -163,10 +172,10 @@ body{
 .table-grid{
     width:100%;
     border-collapse:collapse;
-    margin-top:18px;
+    margin-top:14px;
     border-left:1px solid #dcdcdc;
     border-right:1px solid #dcdcdc;
-    border-top:1px solid #dcdcdc; 
+    border-top:1px solid #dcdcdc;
 }
 
 .table-row{
@@ -216,46 +225,25 @@ body{
     text-align:right;
 }
 
-/* ======================================
-   RESPONSIVE — FIX TABELLA MOBILE
-====================================== */
-
+/* MOBILE FIX */
 @media(max-width:520px){
 
     .scheda{
         width:calc(100% - 40px);
         left:10px!important;
         top:10px!important;
-    }
-    .logo{left:12px;top:12px}
-    .menu{right:12px;top:12px}
-    .chiudi-tutte{left:12px;bottom:12px}
-
-    /* 2 colonne → 1 colonna */
-    .table-row.cols-2{
-        grid-template-columns:1fr;
+        transform:scale(1)!important;
     }
 
-    /* fix linee doppie */
+    .table-row.cols-2{grid-template-columns:1fr;}
+
     .table-row.cols-2 .info-cell{
         border-right:none !important;
         border-bottom:1px solid #dcdcdc;
         flex-direction:column;
         gap:4px;
-        text-align:left;
         padding:10px 8px;
-    }
-
-    .table-row.cols-2 .info-cell:last-child{
-        border-bottom:none;
-    }
-
-    .info-value{
         text-align:left;
     }
-
-    /* rimuovo drag su mobile */
-    .drag-area{
-        cursor:default !important;
-    }
+    .info-value{text-align:left;}
 }
