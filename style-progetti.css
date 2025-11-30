@@ -120,7 +120,7 @@ body{
 .drag-area{
     cursor:move;
     padding-bottom:10px;
-    border-bottom:1px solid var(--fg);
+    border-bottom:1px solid #dcdcdc; /* più elegante */
     margin-bottom:10px;
 }
 .drag-area h3{
@@ -159,13 +159,13 @@ body{
    TABELLA TECNICA CLASSICA (VARIANTE B)
 ====================================== */
 
-/* bordo verticale sinistra/destra */
 .table-grid{
     width:100%;
     border-collapse:collapse;
-    margin-top:10px;
+    margin-top:18px; /* maggiore distanza dal titolo */
     border-left:1px solid #dcdcdc;
     border-right:1px solid #dcdcdc;
+    border-top:1px solid #dcdcdc; /* nuova linea superiore */
 }
 
 .table-row{
@@ -183,66 +183,3 @@ body{
 .info-cell{
     border-right:1px solid #dcdcdc;
     padding:8px 10px;
-    display:flex;
-    justify-content:space-between;
-}
-.info-cell:last-child{
-    border-right:none;
-}
-
-.info-label{
-    font-size:11px;
-    color:#777;
-    text-transform:lowercase;
-}
-
-.info-value{
-    font-size:14px;
-    font-weight:600;
-    color:#111;
-    text-align:right;
-}
-.info-value a{
-    color:#111;
-    text-decoration:underline;
-}
-
-/* CONTATORE */
-.contatore{
-    margin-top:8px;
-    font-size:12px;
-    opacity:0.6;
-    text-align:right;
-}
-
-/* ======================================
-   RESPONSIVE
-====================================== */
-
-@media(max-width:520px){
-
-    .scheda{
-        width:calc(100% - 40px);
-        left:10px!important;
-        top:10px!important;
-    }
-    .logo{left:12px;top:12px}
-    .menu{right:12px;top:12px}
-    .chiudi-tutte{left:12px;bottom:12px}
-
-    /* Tabella tecnica adattata al mobile */
-    .table-row.cols-2{
-        grid-template-columns:1fr;
-    }
-
-    .info-cell{
-        padding:10px 8px;
-        flex-direction:column;
-        gap:4px;
-        text-align:left;
-    }
-
-    .info-value{
-        text-align:left;
-    }
-}
