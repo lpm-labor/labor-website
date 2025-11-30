@@ -102,7 +102,6 @@ body{
     font-size:14px;
     user-select:none;
 
-    /* ripristinato */
     resize:both;
     overflow:auto;
 
@@ -117,7 +116,6 @@ body{
     cursor:pointer;
 }
 
-/* NUOVO — TASTO ZOOM */
 .zoom-btn{
     position:absolute;
     top:7px;
@@ -225,7 +223,10 @@ body{
     text-align:right;
 }
 
-/* MOBILE FIX */
+/* ======================================
+   MOBILE FIX
+====================================== */
+
 @media(max-width:520px){
 
     .scheda{
@@ -235,15 +236,30 @@ body{
         transform:scale(1)!important;
     }
 
-    .table-row.cols-2{grid-template-columns:1fr;}
+    /* Nascondi zoom su mobile */
+    .zoom-btn{
+        display:none !important;
+    }
 
+    /* Colonne diventano verticali */
+    .table-row.cols-2{
+        grid-template-columns:1fr;
+    }
+
+    /* FIX doppie linee */
     .table-row.cols-2 .info-cell{
         border-right:none !important;
-        border-bottom:1px solid #dcdcdc;
+        border-bottom:none !important; /* ← tolta linea extra */
         flex-direction:column;
         gap:4px;
         padding:10px 8px;
         text-align:left;
     }
+
+    /* Rimettiamo UNA SOLA linea di separazione */
+    .table-row.cols-2 .info-cell:last-child{
+        border-bottom:1px solid #dcdcdc !important;
+    }
+
     .info-value{text-align:left;}
 }
