@@ -227,39 +227,50 @@ body{
    MOBILE FIX
 ====================================== */
 
+/* ======================================
+   RESPONSIVE — FIX TABELLA MOBILE
+====================================== */
 @media(max-width:520px){
 
     .scheda{
         width:calc(100% - 40px);
         left:10px!important;
         top:10px!important;
-        transform:scale(1)!important;
     }
 
-    /* Nascondi zoom su mobile */
-    .zoom-btn{
-        display:none !important;
+    .logo{left:12px;top:12px}
+    .menu{right:12px;top:12px}
+    .chiudi-tutte{left:12px;bottom:12px}
+
+    /* --- TABELLA MOBILE FIX --- */
+
+    /* ogni riga mantiene un UNICO bordo inferiore */
+    .table-row{
+        border-bottom:1px solid #dcdcdc;
     }
 
-    /* Colonne diventano verticali */
+    /* righe da 2 -> 1 colonna */
     .table-row.cols-2{
         grid-template-columns:1fr;
     }
 
-    /* FIX doppie linee */
+    /* elimina tutti i conflitti */
     .table-row.cols-2 .info-cell{
         border-right:none !important;
-        border-bottom:none !important; /* ← tolta linea extra */
+        border-bottom:none !important;
         flex-direction:column;
         gap:4px;
         padding:10px 8px;
         text-align:left;
     }
 
-    /* Rimettiamo UNA SOLA linea di separazione */
+    /* ripristina UNA sola linea tra i gruppi */
     .table-row.cols-2 .info-cell:last-child{
         border-bottom:1px solid #dcdcdc !important;
     }
 
-    .info-value{text-align:left;}
+    .info-value{
+        text-align:left;
+    }
 }
+
