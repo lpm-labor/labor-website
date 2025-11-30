@@ -18,14 +18,14 @@ body{
 /* LINEA VERTICALE */
 .colonna-limite{
     position:fixed;
-    top:0;
-    left:280px;             /* posizione scelta */
+    top:140px; /* inizio più in basso */
+    left:240px; /* più a sinistra */
     width:1px;
-    height:100vh;
+    height:calc(100vh - 140px);
     background:#000;
     z-index:5;
-    opacity:1;              /* nera piena */
 }
+
 
 /* LOGO */
 .logo{
