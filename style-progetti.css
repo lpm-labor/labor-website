@@ -89,12 +89,12 @@ body{
 .submenu-item:hover{text-decoration:underline}
 
 /* ======================================
-   POPUP PROGETTO
+   POPUP PROGETTO (RIDOTTO AL 75%)
 ====================================== */
 
 .scheda{
     position:absolute;
-    width:960px;
+    width:720px;      /* <-- PRIMA 960, ora 75% */
     max-width:100%;
     background:var(--bg);
     border:1px solid var(--fg);
@@ -120,7 +120,7 @@ body{
 .drag-area{
     cursor:move;
     padding-bottom:10px;
-    border-bottom:1px solid #dcdcdc; /* più elegante */
+    border-bottom:1px solid var(--fg);
     margin-bottom:10px;
 }
 .drag-area h3{
@@ -157,15 +157,16 @@ body{
 
 /* ======================================
    TABELLA TECNICA CLASSICA (VARIANTE B)
+   (+ bordo superiore + distanza maggiore)
 ====================================== */
 
 .table-grid{
     width:100%;
     border-collapse:collapse;
-    margin-top:18px; /* maggiore distanza dal titolo */
+    margin-top:18px;                /* prima 10px */
     border-left:1px solid #dcdcdc;
     border-right:1px solid #dcdcdc;
-    border-top:1px solid #dcdcdc; /* nuova linea superiore */
+    border-top:1px solid #dcdcdc;   /* bordo superiore aggiunto */
 }
 
 .table-row{
@@ -183,3 +184,73 @@ body{
 .info-cell{
     border-right:1px solid #dcdcdc;
     padding:8px 10px;
+    display:flex;
+    justify-content:space-between;
+}
+.info-cell:last-child{
+    border-right:none;
+}
+
+.info-label{
+    font-size:11px;
+    color:#777;
+    text-transform:lowercase;
+}
+
+.info-value{
+    font-size:14px;
+    font-weight:600;
+    color:#111;
+    text-align:right;
+}
+.info-value a{
+    color:#111;
+    text-decoration:underline;
+}
+
+/* CONTATORE */
+.contatore{
+    margin-top:8px;
+    font-size:12px;
+    opacity:0.6;
+    text-align:right;
+}
+
+/* ======================================
+   RESPONSIVE — FIX TABELLA MOBILE
+====================================== */
+
+@media(max-width:520px){
+
+    .scheda{
+        width:calc(100% - 40px);
+        left:10px!important;
+        top:10px!important;
+    }
+    .logo{left:12px;top:12px}
+    .menu{right:12px;top:12px}
+    .chiudi-tutte{left:12px;bottom:12px}
+
+    /* da 2 colonne a 1 colonna */
+    .table-row.cols-2{
+        grid-template-columns:1fr;
+    }
+
+    /* fix doppie linee + separazione corretta */
+    .table-row.cols-2 .info-cell{
+        border-right:none !important;
+        border-bottom:1px solid #dcdcdc;
+        flex-direction:column;
+        gap:4px;
+        text-align:left;
+        padding:10px 8px;
+    }
+
+    .table-row.cols-2 .info-cell:last-child{
+        border-bottom:none;
+    }
+
+    .info-value{
+        text-align:left;
+    }
+}
