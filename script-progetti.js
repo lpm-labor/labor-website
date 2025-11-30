@@ -12,7 +12,7 @@ const temi = [
 ];
 
 /* ============================================================
-   PROGETTI
+   PROGETTI (esempio)
 ============================================================ */
 
 const progetti = [
@@ -90,7 +90,7 @@ function generaTabella(dettagli){
 }
 
 /* ============================================================
-   LISTA TEMI + PROGETTI
+   LISTA TEMI
 ============================================================ */
 
 const lista = document.getElementById("listaTemi");
@@ -132,7 +132,7 @@ function chiudiTutte(){
 let offset = 0;
 
 /* ============================================================
-   APRI POPUP
+   APRI POPUP PROGETTO
 ============================================================ */
 
 function apriProgetto(id){
@@ -222,7 +222,7 @@ function aggiornaContatore(scheda,imgCount){
 }
 
 /* ============================================================
-   DRAG SCHEDE
+   DRAG DELLE SCHEDE
 ============================================================ */
 
 function renderDraggable(el){
@@ -258,13 +258,13 @@ document.addEventListener("click", e=>{
 });
 
 /* ============================================================
-   ZOOM A STEP — con disattivazione su mobile
+   ZOOM (solo desktop)
 ============================================================ */
 
 function zoomPopup(btn){
 
-    /* disattivato su mobile */
-    if(window.innerWidth < 520) return;
+    /* niente zoom su mobile */
+    if(window.innerWidth <= 520) return;
 
     const scheda = btn.closest(".scheda");
     let z = Number(scheda.dataset.zoom || 1);
