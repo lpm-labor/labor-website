@@ -15,6 +15,18 @@ body{
     color:var(--fg);
 }
 
+/* LINEA VERTICALE */
+.colonna-limite{
+    position:fixed;
+    top:0;
+    left:280px;             /* posizione scelta */
+    width:1px;
+    height:100vh;
+    background:#000;
+    z-index:5;
+    opacity:1;              /* nera piena */
+}
+
 /* LOGO */
 .logo{
     position:fixed;
@@ -70,6 +82,8 @@ body{
     font-size:16px;
     text-transform:lowercase;
     line-height:1.6em;
+    position:relative;
+    z-index:20;         /* per non essere coperta dai popup */
 }
 .list-container a{
     text-decoration:none;
@@ -94,7 +108,7 @@ body{
 
 .scheda{
     position:absolute;
-    width:720px;      /* <-- PRIMA 960, ora 75% */
+    width:720px;
     max-width:100%;
     background:var(--bg);
     border:1px solid var(--fg);
@@ -156,17 +170,16 @@ body{
 }
 
 /* ======================================
-   TABELLA TECNICA CLASSICA (VARIANTE B)
-   (+ bordo superiore + distanza maggiore)
+   TABELLA TECNICA
 ====================================== */
 
 .table-grid{
     width:100%;
     border-collapse:collapse;
-    margin-top:18px;                /* prima 10px */
+    margin-top:18px;                
     border-left:1px solid #dcdcdc;
     border-right:1px solid #dcdcdc;
-    border-top:1px solid #dcdcdc;   /* bordo superiore aggiunto */
+    border-top:1px solid #dcdcdc;   
 }
 
 .table-row{
@@ -217,7 +230,7 @@ body{
 }
 
 /* ======================================
-   RESPONSIVE — FIX TABELLA MOBILE
+   RESPONSIVE MOBILE FIX
 ====================================== */
 
 @media(max-width:520px){
@@ -227,16 +240,11 @@ body{
         left:10px!important;
         top:10px!important;
     }
-    .logo{left:12px;top:12px}
-    .menu{right:12px;top:12px}
-    .chiudi-tutte{left:12px;bottom:12px}
 
-    /* da 2 colonne a 1 colonna */
     .table-row.cols-2{
         grid-template-columns:1fr;
     }
 
-    /* fix doppie linee + separazione corretta */
     .table-row.cols-2 .info-cell{
         border-right:none !important;
         border-bottom:1px solid #dcdcdc;
