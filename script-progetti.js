@@ -238,3 +238,16 @@ function renderDraggable(el){
         };
     };
 }
+/* ============================================================
+   PORTA IN PRIMO PIANO LA SCHEDA CLICCATA
+============================================================ */
+
+let zMax = 60; // di partenza sopra il valore base 50
+
+document.addEventListener("click", function(ev){
+    const scheda = ev.target.closest(".scheda");
+    if(scheda){
+        zMax++;
+        scheda.style.zIndex = zMax;
+    }
+});
