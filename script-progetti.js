@@ -13,7 +13,6 @@ const temi = [
 
 /* ============================================================
    PROGETTI
-   (puoi aggiungerne infiniti mantenendo la struttura)
 ============================================================ */
 
 const progetti = [
@@ -133,7 +132,7 @@ function chiudiTutte(){
 let offset = 0;
 
 /* ============================================================
-   APRI POPUP PROGETTO
+   APRI POPUP
 ============================================================ */
 
 function apriProgetto(id){
@@ -223,7 +222,7 @@ function aggiornaContatore(scheda,imgCount){
 }
 
 /* ============================================================
-   DRAG DELLE SCHEDE
+   DRAG SCHEDE
 ============================================================ */
 
 function renderDraggable(el){
@@ -246,7 +245,7 @@ function renderDraggable(el){
 }
 
 /* ============================================================
-   PORTA IN PRIMO PIANO LA SCHEDA CLICCATA
+   PORTA IN PRIMO PIANO
 ============================================================ */
 
 document.addEventListener("click", e=>{
@@ -259,14 +258,17 @@ document.addEventListener("click", e=>{
 });
 
 /* ============================================================
-   ZOOM A STEP DELLA SCHEDA
+   ZOOM A STEP — con disattivazione su mobile
 ============================================================ */
 
 function zoomPopup(btn){
+
+    /* disattivato su mobile */
+    if(window.innerWidth < 520) return;
+
     const scheda = btn.closest(".scheda");
     let z = Number(scheda.dataset.zoom || 1);
 
-    // NUOVA LOGICA:
     // 1 → 2 → 3 → 1
     if(z === 1) z = 2;
     else if(z === 2) z = 3;
