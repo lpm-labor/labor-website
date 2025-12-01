@@ -191,6 +191,32 @@ function apriProgetto(id){
     `;
 
     document.body.appendChild(scheda);
+   /* ===============================================================
+   CLIC SU UNA SCHEDA:
+   - Se la scheda NON è in primo piano → porta davanti e blocca azione
+   - Se è in primo piano → i click funzionano normalmente
+=============================================================== */
+scheda.addEventListener("mousedown", e => {
+
+    const z = parseInt(scheda.style.zIndex);
+    const isTop = (z === window.topZ);
+
+    if (!isTop) {
+
+        // ❌ blocca subito il click per evitare zoom/slide/close
+        e.stopPropagation();
+        e.preventDefault();
+
+        // 🔼 porta la scheda in primo piano
+        window.topZ++;
+        scheda.style.zIndex = window.topZ;
+
+        return; // NON attiva altre funzioni
+    }
+
+    // Se è già in primo piano → i click funzionano normalmente
+});
+
 
     mostraSlide(scheda,0);
     aggiornaContatore(scheda,p.immagini.length);
