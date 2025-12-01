@@ -1,5 +1,5 @@
 /* ============================================================
-   TEMI
+   TEMI (restano statici)
 ============================================================ */
 
 const temi = [
@@ -12,36 +12,17 @@ const temi = [
 ];
 
 /* ============================================================
-   PROGETTI (ESEMPIO)
+   PROGETTI — ora caricati da JSON
 ============================================================ */
 
-const progetti = [
-    {
-        id:1,
-        titolo:"Innsbruck",
-        sottotitolo:"Espositori per immagini",
-        codice:"4.19_023-001",
+let progetti = [];
 
-        temi:["2023","expo"],
-
-        immagini:[
-            "img/progetti/1/4.19_023-001_axo.jpg",
-            "img/progetti/1/4.19_023-001_proiez.jpg"
-        ],
-
-        dettagli:{
-            design:"Innsbruck",
-            anno:"2023",
-            status:"completato",
-            materiali:"MDF, acero",
-            dimensioni:"—",
-            quantità:"12 pezzi",
-            tecnica_lavorazione:"—",
-            energia_produzione:"—",
-            link:"—"
-        }
-    }
-];
+fetch("progetti.json")
+  .then(r => r.json())
+  .then(data => {
+      progetti = data.progetti || [];
+      generaListaTemi();
+  });
 
 /* ============================================================
    SCHEMA TABELLA
@@ -123,8 +104,6 @@ function generaListaTemi(){
     });
 }
 
-generaListaTemi();
-
 function toggleSubmenu(id){
     const el = document.getElementById(id);
     el.style.display = (el.style.display==="block" ? "none" : "block");
@@ -135,7 +114,7 @@ function chiudiTutte(){
 }
 
 /* ============================================================
-   UTILITY RANDOM
+   RANDOM UTILITY
 ============================================================ */
 
 function randomBetween(min,max){
@@ -153,11 +132,11 @@ function apriProgetto(id){
     const scheda = document.createElement("div");
     scheda.className="scheda";
 
-    /* RANDOM POSITION */
+    /* Random placement */
     scheda.style.left = randomBetween(180,260)+"px";
     scheda.style.top  = randomBetween(100,180)+"px";
 
-    /* TOP Z-INDEX */
+    /* Top Z */
     window.topZ = (window.topZ || 100);
     window.topZ++;
     scheda.style.zIndex = window.topZ;
@@ -191,46 +170,33 @@ function apriProgetto(id){
     `;
 
     document.body.appendChild(scheda);
-   /* ===============================================================
-   CLIC SU UNA SCHEDA:
-   - Se la scheda NON è in primo piano → porta davanti e blocca azione
-   - Se è in primo piano → i click funzionano normalmente
-=============================================================== */
-scheda.addEventListener("mousedown", e => {
 
-    const z = parseInt(scheda.style.zIndex);
-    const isTop = (z === window.topZ);
+    /* Bring-to-front-on-click logic */
+    scheda.addEventListener("mousedown", e => {
+        const z = parseInt(scheda.style.zIndex);
+        const isTop = (z === window.topZ);
 
-    if (!isTop) {
+        if (!isTop) {
+            e.stopPropagation();
+            e.preventDefault();
+            window.topZ++;
+            scheda.style.zIndex = window.topZ;
+            return;
+        }
+    });
 
-        // ❌ blocca subito il click per evitare zoom/slide/close
-        e.stopPropagation();
-        e.preventDefault();
-
-        // 🔼 porta la scheda in primo piano
-        window.topZ++;
-        scheda.style.zIndex = window.topZ;
-
-        return; // NON attiva altre funzioni
-    }
-
-    // Se è già in primo piano → i click funzionano normalmente
-});
-
-
+    /* Init */
     mostraSlide(scheda,0);
     aggiornaContatore(scheda,p.immagini.length);
 
     const viewer = scheda.querySelector(".viewer");
-    viewer.onclick = ()=>{
-        nextSlide(scheda,p.id);
-    };
+    viewer.onclick = ()=> nextSlide(scheda,p.id);
 
     renderDraggable(scheda);
 }
 
 /* ============================================================
-   SLIDE
+   SLIDES
 ============================================================ */
 
 function nextSlide(scheda,id){
@@ -257,7 +223,6 @@ function mostraSlide(scheda,index){
     viewer.scrollTop = 0;
     viewer.scrollLeft = 0;
 
-    /* reset transform */
     const img = viewer.querySelector(".slide:nth-child("+(index+1)+") img");
     if(img) img.style.transform = "none";
 }
@@ -270,12 +235,11 @@ function aggiornaContatore(scheda,nImgs){
     const index = Number(scheda.dataset.slideIndex);
     const cont = scheda.querySelector(".contatore");
 
-    if(index===0) cont.textContent = `1 / ${nImgs+1}`;
-    else cont.textContent = `${index+1} / ${nImgs+1}`;
+    cont.textContent = `${index+1} / ${nImgs+1}`;
 }
 
 /* ============================================================
-   ZOOM (1 → 2 → 4 → 1)
+   ZOOM
 ============================================================ */
 
 function zoomPopup(btn){
@@ -307,7 +271,7 @@ function zoomPopup(btn){
 }
 
 /* ============================================================
-   DRAG SCHEDA
+   DRAG
 ============================================================ */
 
 function renderDraggable(el){
@@ -320,8 +284,8 @@ function renderDraggable(el){
         window.topZ++;
         el.style.zIndex=window.topZ;
 
-        sx=e.clientX - el.offsetLeft;
-        sy=e.clientY - el.offsetTop;
+        sx = e.clientX - el.offsetLeft;
+        sy = e.clientY - el.offsetTop;
     });
 
     document.addEventListener("mousemove", e=>{
