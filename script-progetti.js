@@ -1,5 +1,5 @@
 /* ============================================================
-   TEMI (restano statici)
+   TEMI
 ============================================================ */
 
 const temi = [
@@ -12,7 +12,7 @@ const temi = [
 ];
 
 /* ============================================================
-   PROGETTI — ora caricati da JSON
+   PROGETTI — caricati da JSON
 ============================================================ */
 
 let progetti = [];
@@ -114,7 +114,7 @@ function chiudiTutte(){
 }
 
 /* ============================================================
-   RANDOM UTILITY
+   UTILS RANDOM
 ============================================================ */
 
 function randomBetween(min,max){
@@ -132,11 +132,9 @@ function apriProgetto(id){
     const scheda = document.createElement("div");
     scheda.className="scheda";
 
-    /* Random placement */
     scheda.style.left = randomBetween(180,260)+"px";
     scheda.style.top  = randomBetween(100,180)+"px";
 
-    /* Top Z */
     window.topZ = (window.topZ || 100);
     window.topZ++;
     scheda.style.zIndex = window.topZ;
@@ -157,13 +155,16 @@ function apriProgetto(id){
         </div>
 
         <div class="viewer">
+
             <div class="slide table-slide">${tabella}</div>
 
-            ${p.immagini.map(src=>`
-                <div class="slide">
-                    <img class="popup-img" src="${src}">
+            ${p.immagini.map(img=>`
+                <div class="slide img-container">
+                    <img class="popup-img" src="${img.src}">
+                    ${img.autore ? `<div class="autore-img">${img.autore}</div>` : ""}
                 </div>
             `).join("")}
+
         </div>
 
         <div class="contatore"></div>
@@ -171,12 +172,10 @@ function apriProgetto(id){
 
     document.body.appendChild(scheda);
 
-    /* Bring-to-front-on-click logic */
+    /* Bring to front on click */
     scheda.addEventListener("mousedown", e => {
         const z = parseInt(scheda.style.zIndex);
-        const isTop = (z === window.topZ);
-
-        if (!isTop) {
+        if(z !== window.topZ){
             e.stopPropagation();
             e.preventDefault();
             window.topZ++;
@@ -185,7 +184,6 @@ function apriProgetto(id){
         }
     });
 
-    /* Init */
     mostraSlide(scheda,0);
     aggiornaContatore(scheda,p.immagini.length);
 
@@ -233,9 +231,7 @@ function mostraSlide(scheda,index){
 
 function aggiornaContatore(scheda,nImgs){
     const index = Number(scheda.dataset.slideIndex);
-    const cont = scheda.querySelector(".contatore");
-
-    cont.textContent = `${index+1} / ${nImgs+1}`;
+    scheda.querySelector(".contatore").textContent = `${index+1} / ${nImgs+1}`;
 }
 
 /* ============================================================
@@ -262,7 +258,7 @@ function zoomPopup(btn){
     const img = slide.querySelector("img");
 
     if(z > 1){
-        viewer.style.overflow = "scroll";  
+        viewer.style.overflow = "scroll";
         img.style.transform = `scale(${z})`;
     } else {
         viewer.style.overflow = "auto";
