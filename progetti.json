@@ -1,1 +1,30 @@
+{
+  "progetti": [
+    {
+      "id": 1,
+      "titolo": "Innsbruck",
+      "sottotitolo": "Espositori per immagini",
+      "codice": "4.19_023-001",
+
+      "temi": ["2023", "expo"],
+
+      "immagini": [
+        "img/progetti/1/4.19_023-001_axo.jpg",
+        "img/progetti/1/4.19_023-001_proiez.jpg"
+      ],
+
+      "dettagli": {
+        "design": "Innsbruck",
+        "anno": "2023",
+        "status": "completato",
+        "materiali": "MDF, acero",
+        "dimensioni": "—",
+        "quantità": "12 pezzi",
+        "tecnica_lavorazione": "—",
+        "energia_produzione": "—",
+        "link": "—"
+      }
+    }
+  ]
+}
 
