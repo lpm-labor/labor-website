@@ -15,7 +15,7 @@
         "anno": "2023",
         "status": "realizzato\nINN SITU Innsbruck 4.Ottobre2023-20.Gennaio2024",
         "materiali": "MDF, legno d'acero, vetro AR70",
-        "dimensioni": "60x160, 35x140",
+        "dimensioni": "60x160,35x140",
         "quantità": "6+3",
         "tecnica_lavorazione": "manuale con attrezzi elettrici",
         "energia_produzione": "—",
@@ -25,7 +25,7 @@
 
     {
       "id": 2,
-      "titolo": "Graifen un loslassen",
+      "titolo": "Graifen un Loslassen",
       "sottotitolo": "Struttura modulare",
       "codice": "4.19_023-002",
       "temi": ["2023", "expo"],
@@ -40,7 +40,7 @@
         "anno": "2023",
         "status": "realizzato\nSaarländischeGalerie Berlino 23.Novembre-19.Dicembre2023",
         "materiali": "profili in acciaio da cartongesso CW-UD, legno",
-        "dimensioni": "165x300x80, 215x150x45",
+        "dimensioni": "165x300x80,215x150x45",
         "quantità": "1+1",
         "tecnica_lavorazione": "manuale con attrezzi elettrici",
         "energia_produzione": "-",
@@ -50,17 +50,20 @@
 
     {
       "id": 3,
-      "titolo": "",
-      "sottotitolo": "",
-      "codice": "",
-      "temi": [],
+      "titolo": "Instruments of vision",
+      "sottotitolo": "Ancoraggio flottante cornici",
+      "codice": "4.19_024-002",
+      "temi": ["2024", "expo"],
       "immagini": [
+        "img/progetti/3/img1.jpg",
+        "img/progetti/3/img1.jpg",
+        "img/progetti/3/img1.jpg",
         "img/progetti/3/img1.jpg"
       ],
       "dettagli": {
-        "design": "",
-        "anno": "",
-        "status": "",
+        "design": "ArminLinke, MartinaPozzan, AlbertoStievanin",
+        "anno": "2024",
+        "status": "realizzato\nIgrexa da Universidade Santiago de Compostela 21.Giugno-21.Settembre2024",
         "materiali": "",
         "dimensioni": "",
         "quantità": "",
