@@ -76,18 +76,19 @@
     {
       "id": 4,
       "titolo": "",
-      "sottotitolo": "",
-      "codice": "",
-      "temi": [],
+      "sottotitolo": "Espositore per pubblicazione",
+      "codice": "4.19_024-001-01",
+      "temi": ["2024", "expo"],
       "immagini": [
-        "img/progetti/4/img1.jpg"
+        { "src": "img/progetti/4/4.19_024-001-01_axo.jpg", "autore": "" },
+        { "src":  "img/progetti/4/4.19_024-001-01_proiez.jpg", "autore": "" }
       ],
       "dettagli": {
-        "design": "",
-        "anno": "",
-        "status": "",
-        "materiali": "",
-        "dimensioni": "",
+        "design": "AlbertoStievanin",
+        "anno": "2024",
+        "status": "in progress",
+        "materiali": "legno, vetroAR70",
+        "dimensioni": "70x45",
         "quantità": "",
         "tecnica_lavorazione": "",
         "energia_produzione": "",
