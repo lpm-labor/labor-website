@@ -26,10 +26,7 @@ body{
     white-space:pre-line;
     z-index:10;
 }
-.logo a{
-    color:var(--fg);
-    text-decoration:none;
-}
+.logo a{color:var(--fg);text-decoration:none}
 .logo strong{
     display:block;
     margin-top:4px;
@@ -72,12 +69,10 @@ body{
     line-height:1.6em;
 }
 .list-container a{
-    text-decoration:none;
     color:var(--fg);
+    text-decoration:none;
     cursor:pointer;
 }
-.list-container a:hover{text-decoration:underline}
-
 .submenu{
     margin-left:15px;
     display:none;
@@ -86,10 +81,9 @@ body{
     cursor:pointer;
     margin-bottom:6px;
 }
-.submenu-item:hover{text-decoration:underline}
 
 /* ======================================
-   POPUP PROGETTO
+   POPUP
 ====================================== */
 
 .scheda{
@@ -105,6 +99,7 @@ body{
     font-size:14px;
     user-select:none;
     overflow:auto;
+    resize:both;      /* <- ora puoi allargare le schede */
 }
 
 .close-btn{
@@ -118,7 +113,7 @@ body{
 .zoom-btn{
     position:absolute;
     top:6px;
-    right:40px;
+    right:45px;
     font-size:14px;
     cursor:pointer;
     text-decoration:underline;
@@ -133,16 +128,13 @@ body{
 }
 .drag-area h3{
     font-size:20px;
-    margin:0;
-    text-transform:lowercase;
 }
 .sottotitolo{
-    font-size:14px;
     margin-top:4px;
 }
 .meta{
     margin-top:6px;
-    opacity:0.9;
+    opacity:0.8;
 }
 
 /* VIEWER */
@@ -150,7 +142,8 @@ body{
     width:100%;
     min-height:320px;
     cursor:pointer;
-    overflow:auto;
+    overflow:auto;  /* <- scroll normale */
+    position:relative;
 }
 
 /* SLIDES */
@@ -159,22 +152,22 @@ body{
 /* IMMAGINI */
 .popup-img{
     width:100%;
-    border:none;
+    display:block;
     margin:15px 0;
-    cursor:pointer;
+    transform-origin:top left;
+    transition: transform 160ms ease-out;
 }
 
 /* ======================================
-   TABELLA TECNICA
+   TABELLA
 ====================================== */
 
 .table-grid{
-    width:100%;
-    border-collapse:collapse;
-    margin-top:20px;
+    border-top:1px solid #dcdcdc;
     border-left:1px solid #dcdcdc;
     border-right:1px solid #dcdcdc;
-    border-top:1px solid #dcdcdc;
+    margin-top:20px;
+    width:100%;
 }
 
 .table-row{
@@ -182,20 +175,16 @@ body{
     border-bottom:1px solid #dcdcdc;
 }
 
-.table-row.cols-1{
-    grid-template-columns:1fr;
-}
-.table-row.cols-2{
-    grid-template-columns:1fr 1fr;
-}
+.table-row.cols-1{grid-template-columns:1fr}
+.table-row.cols-2{grid-template-columns:1fr 1fr}
 
 .info-cell{
+    padding:10px 12px;
     border-right:1px solid #dcdcdc;
-    padding:10px 10px;
     display:flex;
     flex-direction:column;
-    gap:6px;
 }
+
 .info-cell:last-child{
     border-right:none;
 }
@@ -203,17 +192,12 @@ body{
 .info-label{
     font-size:11px;
     color:#777;
-    text-transform:lowercase;
+    margin-bottom:4px;
 }
 
 .info-value{
     font-size:14px;
     font-weight:600;
-    color:#111;
-}
-.info-value a{
-    color:#111;
-    text-decoration:underline;
 }
 
 /* CONTATORE */
@@ -224,41 +208,25 @@ body{
     text-align:right;
 }
 
-/* ======================================
-   RESPONSIVE — FIX TABELLA MOBILE
-====================================== */
-
+/* MOBILE FIX */
 @media(max-width:520px){
 
     .scheda{
         width:calc(100% - 40px);
         left:10px!important;
         top:10px!important;
-    }
-
-    .viewer{
-        overflow:auto;
+        resize:none; /* niente ridimensionamento su mobile */
     }
 
     .zoom-btn{
-        display:none; /* niente zoom su mobile */
+        display:none;
     }
 
     .table-row.cols-2{
         grid-template-columns:1fr;
     }
 
-    .table-row.cols-2 .info-cell{
-        border-right:none !important;
-        border-bottom:1px solid #dcdcdc;
+    .info-value{
+        text-align:left;
     }
-
-    .table-row.cols-2 .info-cell:last-child{
-        border-bottom:none;
-    }
-}
-
-/* Cursor quando si trascina immagine */
-.viewer.dragging{
-    cursor:grabbing!important;
 }
