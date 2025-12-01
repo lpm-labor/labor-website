@@ -1,6 +1,6 @@
-/* ============================================================
+/* ======================================
    BASE
-============================================================ */
+====================================== */
 
 :root{
     --font: "Courier New", monospace;
@@ -88,13 +88,14 @@ body{
 }
 .submenu-item:hover{text-decoration:underline}
 
-/* ============================================================
-   POPUP PROGETTI (75%)
-============================================================ */
+/* ======================================
+   POPUP PROGETTO
+====================================== */
 
 .scheda{
     position:absolute;
     width:720px;
+    max-width:100%;
     background:var(--bg);
     border:1px solid var(--fg);
     box-shadow:4px 4px 0px var(--fg);
@@ -103,9 +104,7 @@ body{
     z-index:50;
     font-size:14px;
     user-select:none;
-    resize:both;
     overflow:auto;
-    transform-origin: top left;
 }
 
 .close-btn{
@@ -119,7 +118,7 @@ body{
 .zoom-btn{
     position:absolute;
     top:6px;
-    right:45px;
+    right:40px;
     font-size:14px;
     cursor:pointer;
     text-decoration:underline;
@@ -130,19 +129,20 @@ body{
     cursor:move;
     padding-bottom:10px;
     border-bottom:1px solid var(--fg);
-    margin-bottom:12px;
+    margin-bottom:10px;
 }
 .drag-area h3{
     font-size:20px;
+    margin:0;
     text-transform:lowercase;
 }
 .sottotitolo{
-    margin-top:4px;
     font-size:14px;
+    margin-top:4px;
 }
 .meta{
     margin-top:6px;
-    opacity:0.8;
+    opacity:0.9;
 }
 
 /* VIEWER */
@@ -159,23 +159,19 @@ body{
 /* IMMAGINI */
 .popup-img{
     width:100%;
-    display:block;
-    cursor:grab;
+    border:none;
+    margin:15px 0;
+    cursor:pointer;
 }
 
-/* DRAG IMMAGINE */
-.viewer.dragging{
-    cursor:grabbing !important;
-}
-
-/* ============================================================
-   TABELLA TECNICA - DESKTOP VERSION
-============================================================ */
+/* ======================================
+   TABELLA TECNICA
+====================================== */
 
 .table-grid{
     width:100%;
     border-collapse:collapse;
-    margin-top:18px;
+    margin-top:20px;
     border-left:1px solid #dcdcdc;
     border-right:1px solid #dcdcdc;
     border-top:1px solid #dcdcdc;
@@ -195,9 +191,10 @@ body{
 
 .info-cell{
     border-right:1px solid #dcdcdc;
-    padding:10px 12px;
+    padding:10px 10px;
     display:flex;
-    flex-direction:column;   /* <—— valore sotto label */
+    flex-direction:column;
+    gap:6px;
 }
 .info-cell:last-child{
     border-right:none;
@@ -206,7 +203,6 @@ body{
 .info-label{
     font-size:11px;
     color:#777;
-    margin-bottom:4px;
     text-transform:lowercase;
 }
 
@@ -222,15 +218,15 @@ body{
 
 /* CONTATORE */
 .contatore{
-    margin-top:10px;
+    margin-top:8px;
     font-size:12px;
     opacity:0.6;
     text-align:right;
 }
 
-/* ============================================================
-   MOBILE FIX
-============================================================ */
+/* ======================================
+   RESPONSIVE — FIX TABELLA MOBILE
+====================================== */
 
 @media(max-width:520px){
 
@@ -240,21 +236,29 @@ body{
         top:10px!important;
     }
 
-    .zoom-btn{display:none!important;}
+    .viewer{
+        overflow:auto;
+    }
 
-    /* 2 colonne → 1 colonna */
+    .zoom-btn{
+        display:none; /* niente zoom su mobile */
+    }
+
     .table-row.cols-2{
-        grid-template-columns:1fr !important;
+        grid-template-columns:1fr;
     }
 
-    /* niente doppie linee */
-    .info-cell{
+    .table-row.cols-2 .info-cell{
         border-right:none !important;
-        border-bottom:1px solid #dcdcdc !important;
-        flex-direction:column;
+        border-bottom:1px solid #dcdcdc;
     }
 
-    .table-row .info-cell:last-child{
-        border-bottom:none !important;
+    .table-row.cols-2 .info-cell:last-child{
+        border-bottom:none;
     }
+}
+
+/* Cursor quando si trascina immagine */
+.viewer.dragging{
+    cursor:grabbing!important;
 }
