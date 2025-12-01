@@ -5,7 +5,7 @@
 const temi = [
     { id:"2023", nome:"2023" },
     { id:"2024", nome:"2024" },
-    { id:"2025", nome:"2022025" },
+    { id:"2025", nome:"2025" },
     { id:"expo", nome:"esposizione" },
     { id:"arredo", nome:"arredamento" },
     { id:"ricerca", nome:"ricerca" }
@@ -93,32 +93,37 @@ function generaTabella(dettagli){
    LISTA TEMI
 ============================================================ */
 
-const lista = document.getElementById("listaTemi");
+function generaListaTemi(){
+    const lista = document.getElementById("listaTemi");
+    lista.innerHTML = "";
 
-temi.forEach(t=>{
-    const voce = document.createElement("a");
-    voce.textContent = t.nome;
-    voce.onclick = ()=>toggleSubmenu("sm_"+t.id);
+    temi.forEach(t=>{
+        const voce = document.createElement("a");
+        voce.textContent = t.nome;
+        voce.onclick = ()=>toggleSubmenu("sm_"+t.id);
 
-    const br = document.createElement("br");
-    const submenu = document.createElement("div");
-    submenu.id = "sm_"+t.id;
-    submenu.className = "submenu";
+        const br = document.createElement("br");
+        const submenu = document.createElement("div");
+        submenu.id = "sm_"+t.id;
+        submenu.className = "submenu";
 
-    progetti
-        .filter(p=>p.temi.includes(t.id))
-        .forEach(p=>{
-            const link = document.createElement("div");
-            link.className="submenu-item";
-            link.textContent=p.titolo;
-            link.onclick=()=>apriProgetto(p.id);
-            submenu.appendChild(link);
-        });
+        progetti
+            .filter(p=>p.temi.includes(t.id))
+            .forEach(p=>{
+                const link = document.createElement("div");
+                link.className="submenu-item";
+                link.textContent=p.titolo;
+                link.onclick=()=>apriProgetto(p.id);
+                submenu.appendChild(link);
+            });
 
-    lista.appendChild(voce);
-    lista.appendChild(br);
-    lista.appendChild(submenu);
-});
+        lista.appendChild(voce);
+        lista.appendChild(br);
+        lista.appendChild(submenu);
+    });
+}
+
+generaListaTemi();
 
 function toggleSubmenu(id){
     const el = document.getElementById(id);
@@ -130,7 +135,7 @@ function chiudiTutte(){
 }
 
 /* ============================================================
-   UTILITY RANDOM PER POPUP
+   UTILITY RANDOM
 ============================================================ */
 
 function randomBetween(min,max){
@@ -148,11 +153,11 @@ function apriProgetto(id){
     const scheda = document.createElement("div");
     scheda.className="scheda";
 
-    /* posizione random controllata */
+    /* RANDOM POSITION */
     scheda.style.left = randomBetween(180,260)+"px";
     scheda.style.top  = randomBetween(100,180)+"px";
 
-    /* nuovo popup SEMPRE davanti */
+    /* TOP Z-INDEX */
     window.topZ = (window.topZ || 100);
     window.topZ++;
     scheda.style.zIndex = window.topZ;
@@ -173,9 +178,7 @@ function apriProgetto(id){
         </div>
 
         <div class="viewer">
-            <div class="slide table-slide">
-                ${tabella}
-            </div>
+            <div class="slide table-slide">${tabella}</div>
 
             ${p.immagini.map(src=>`
                 <div class="slide">
@@ -193,14 +196,11 @@ function apriProgetto(id){
     aggiornaContatore(scheda,p.immagini.length);
 
     const viewer = scheda.querySelector(".viewer");
-
     viewer.onclick = ()=>{
-        if(scheda.dataset.panning==="true") return;
         nextSlide(scheda,p.id);
     };
 
     renderDraggable(scheda);
-    enableImageDrag(scheda);
 }
 
 /* ============================================================
@@ -230,6 +230,10 @@ function mostraSlide(scheda,index){
     const viewer = scheda.querySelector(".viewer");
     viewer.scrollTop = 0;
     viewer.scrollLeft = 0;
+
+    /* reset transform */
+    const img = viewer.querySelector(".slide:nth-child("+(index+1)+") img");
+    if(img) img.style.transform = "none";
 }
 
 /* ============================================================
@@ -245,7 +249,7 @@ function aggiornaContatore(scheda,nImgs){
 }
 
 /* ============================================================
-   ZOOM IMMAGINI (1→2→4→1)
+   ZOOM (1 → 2 → 4 → 1)
 ============================================================ */
 
 function zoomPopup(btn){
@@ -253,10 +257,9 @@ function zoomPopup(btn){
 
     const scheda = btn.closest(".scheda");
     const index = Number(scheda.dataset.slideIndex);
+    if(index===0) return;
 
-    if(index === 0) return;
-
-    let z = Number(scheda.dataset.zoom || 1);
+    let z = Number(scheda.dataset.zoom);
 
     if(z===1) z=2;
     else if(z===2) z=4;
@@ -265,93 +268,41 @@ function zoomPopup(btn){
     scheda.dataset.zoom = z;
 
     const viewer = scheda.querySelector(".viewer");
-    const img = viewer.querySelector(".slide:nth-child("+(index+1)+") img");
+    const slide = viewer.querySelectorAll(".slide")[index];
+    const img = slide.querySelector("img");
 
-    viewer.scrollTop = 0;
-    viewer.scrollLeft = 0;
-
-    img.style.transform = (z>1 ? `scale(${z})` : "none");
-    img.style.transformOrigin = "top left";
-
-    if(z>1){
-        scheda.dataset.panning="true";
-        viewer.style.overflow="scroll";
+    if(z > 1){
+        viewer.style.overflow = "scroll";  
+        img.style.transform = `scale(${z})`;
     } else {
-        scheda.dataset.panning="false";
-        viewer.style.overflow="auto";
+        viewer.style.overflow = "auto";
+        img.style.transform = "none";
     }
 }
 
 /* ============================================================
-   DRAG DELLA SCHEDA
+   DRAG SCHEDA
 ============================================================ */
 
 function renderDraggable(el){
     const drag = el.querySelector(".drag-area");
-    let isDown = false, startX, startY;
+    let down=false, sx=0, sy=0;
 
     drag.addEventListener("mousedown", e=>{
-        isDown=true;
+        down=true;
 
         window.topZ++;
         el.style.zIndex=window.topZ;
 
-        startX=e.clientX-el.offsetLeft;
-        startY=e.clientY-el.offsetTop;
+        sx=e.clientX - el.offsetLeft;
+        sy=e.clientY - el.offsetTop;
     });
 
     document.addEventListener("mousemove", e=>{
-        if(!isDown) return;
-        el.style.left = (e.clientX-startX)+"px";
-        el.style.top  = (e.clientY-startY)+"px";
+        if(!down) return;
+        el.style.left = (e.clientX - sx)+"px";
+        el.style.top  = (e.clientY - sy)+"px";
     });
 
-    document.addEventListener("mouseup", ()=> isDown=false);
-}
-
-/* ============================================================
-   DRAG IMMAGINE ZOOMATA
-============================================================ */
-
-function enableImageDrag(scheda){
-    const viewer = scheda.querySelector(".viewer");
-
-    let isDown=false, startX, startY, scrollLeft, scrollTop;
-
-    viewer.addEventListener("mousedown", e=>{
-        const zoom = Number(scheda.dataset.zoom||1);
-        if(zoom<=1) return;
-
-        isDown=true;
-        viewer.classList.add("dragging");
-        scheda.dataset.panning="true";
-
-        startX=e.clientX;
-        startY=e.clientY;
-
-        scrollLeft=viewer.scrollLeft;
-        scrollTop=viewer.scrollTop;
-    });
-
-    viewer.addEventListener("mouseleave", ()=>{
-        isDown=false;
-        viewer.classList.remove("dragging");
-    });
-
-    viewer.addEventListener("mouseup", ()=>{
-        isDown=false;
-        viewer.classList.remove("dragging");
-    });
-
-    viewer.addEventListener("mousemove", e=>{
-        if(!isDown) return;
-
-        e.preventDefault();
-
-        const x=e.clientX;
-        const y=e.clientY;
-
-        viewer.scrollLeft = scrollLeft - (x-startX);
-        viewer.scrollTop  = scrollTop  - (y-startY);
-    });
+    document.addEventListener("mouseup", ()=> down=false);
 }
