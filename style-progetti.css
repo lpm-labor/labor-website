@@ -99,7 +99,7 @@ body{
     font-size:14px;
     user-select:none;
     overflow:auto;
-    resize:both;      /* <- ora puoi allargare le schede */
+    resize:both;
 }
 
 .close-btn{
@@ -142,20 +142,33 @@ body{
     width:100%;
     min-height:320px;
     cursor:pointer;
-    overflow:auto;  /* <- scroll normale */
+    overflow:auto;
     position:relative;
 }
 
 /* SLIDES */
 .slide{display:none}
 
+.img-container{
+    display:block;
+}
+
 /* IMMAGINI */
 .popup-img{
     width:100%;
     display:block;
-    margin:15px 0;
+    margin:15px 0 5px 0;
     transform-origin:top left;
     transition: transform 160ms ease-out;
+}
+
+/* AUTORE IMMAGINE */
+.autore-img{
+    font-size:12px;
+    color:#666;
+    opacity:0.8;
+    text-align:right;
+    margin-top:2px;
 }
 
 /* ======================================
@@ -215,7 +228,7 @@ body{
         width:calc(100% - 40px);
         left:10px!important;
         top:10px!important;
-        resize:none; /* niente ridimensionamento su mobile */
+        resize:none;
     }
 
     .zoom-btn{
