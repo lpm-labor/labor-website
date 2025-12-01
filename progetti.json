@@ -25,7 +25,7 @@
 
     {
       "id": 2,
-      "titolo": "Graifen un Loslassen",
+      "titolo": "Graifen und Loslassen",
       "sottotitolo": "Struttura modulare",
       "codice": "4.19_023-002",
       "temi": ["2023", "expo"],
@@ -75,8 +75,8 @@
 
     {
       "id": 4,
-      "titolo": "",
-      "sottotitolo": "Espositore per pubblicazione",
+      "titolo": "Espositore",
+      "sottotitolo": "",
       "codice": "4.19_024-001-01",
       "temi": ["2024", "expo"],
       "immagini": [
