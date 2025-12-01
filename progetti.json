@@ -7,8 +7,8 @@
       "codice": "4.19_023-001",
       "temi": ["2023", "expo"],
       "immagini": [
-        "img/progetti/1/4.19_023-001_axo.jpg",
-        "img/progetti/1/4.19_023-001_proiez.jpg"
+        { "src": "img/progetti/1/4.19_023-001_axo.jpg", "autore": "" },
+        { "src":  "img/progetti/1/4.19_023-001_proiez.jpg", "autore": "" }
       ],
       "dettagli": {
         "design": "MartinaPozzan, MarthaSchwindling, AlbertoStievanin",
@@ -30,10 +30,10 @@
       "codice": "4.19_023-002",
       "temi": ["2023", "expo"],
       "immagini": [
-        "img/progetti/2/4.19_023-002-01_axo.jpg",
-        "img/progetti/2/4.19_023-002-01_proiez.jpg",
-        "img/progetti/2/4.19_023-002-02_axo.jpg",
-        "img/progetti/2/4.19_023-002-02_proiez.jpg"
+          { "src": "img/progetti/2/4.19_023-002-01_axo.jpg", "autore": "" },
+        { "src":  "img/progetti/2/4.19_023-002-01_proiez.jpg", "autore": "" },
+        { "src": "img/progetti/2/4.19_023-002-02_axo.jpg", "autore": "" },
+        { "src": "img/progetti/2/4.19_023-002-02_proiez.jpg", "autore": "" } 
       ],
       "dettagli": {
         "design": "NoraMertes, MartinaPozzan, AlbertoStievanin",
@@ -55,10 +55,10 @@
       "codice": "4.19_024-002",
       "temi": ["2024", "expo"],
       "immagini": [
-        "img/progetti/3/4.19_024-002_axo.jpg",
-        "img/progetti/3/instruments_of_vision1.jpg",
-        "img/progetti/3/4.19_024-002_proiez.jpg",
-        "img/progetti/3/instruments_of_vision2.jpg"
+         { "src": "img/progetti/3/4.19_024-002_axo.jpg", "autore": "" },
+        { "src":  "img/progetti/3/instruments_of_vision1.jpg", "autore": "" },
+        { "src": "img/progetti/3/4.19_024-002_proiez.jpg", "autore": "" },
+        { "src": "img/progetti/3/instruments_of_vision2.jpg", "autore": "" }  
       ],
       "dettagli": {
         "design": "ArminLinke, MartinaPozzan, AlbertoStievanin",
