@@ -211,6 +211,7 @@ body{
 .info-value{
     font-size:14px;
     font-weight:600;
+   white-space: pre-line;
 }
 
 /* CONTATORE */
