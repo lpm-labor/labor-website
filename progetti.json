@@ -105,17 +105,14 @@
       "codice": "4.19_025-001/2/4",
       "temi": ["2025", "expo"],
       "immagini": [
-         { "src": "img/progetti/5/4.19_024-001-01_axo.jpg", "autore": "" },
-        { "src": "img/progetti/5/4.19_024-001-01_axo.jpg", "autore": "" },
-        { "src": "img/progetti/5/4.19_024-001-01_axo.jpg", "autore": "" },
-        { "src": "img/progetti/5/4.19_024-001-01_axo.jpg", "autore": "" },
-        { "src": "img/progetti/5/4.19_024-001-01_axo.jpg", "autore": "" },
-        { "src": "img/progetti/5/4.19_024-001-01_axo.jpg", "autore": "" },
-        { "src": "img/progetti/5/4.19_024-001-01_axo.jpg", "autore": "" },
-        { "src": "img/progetti/5/4.19_024-001-01_axo.jpg", "autore": "" },
-        { "src": "img/progetti/5/4.19_024-001-01_axo.jpg", "autore": "" },
-        { "src": "img/progetti/5/4.19_024-001-01_axo.jpg", "autore": "" },
-        { "src":  "img/progetti/5/4.19_024-001-01_proiez.jpg", "autore": "" }
+         { "src": "img/progetti/5/4.19_025-001_axo.jpg", "autore": "" },
+        { "src": "img/progetti/5/4.19_025-001_proiez.jpg", "autore": "" },
+        { "src": "img/progetti/5/4.19_025-002-01_axo.jpg", "autore": "" },
+        { "src": "img/progetti/5/4.19_025-002-01_proiez.jpg", "autore": "" },
+        { "src": "img/progetti/5/4.19_025-002-02_axo.jpg", "autore": "" },
+        { "src": "img/progetti/5/4.19_025-002-02_proiez.jpg", "autore": "" },
+        { "src": "img/progetti/5/4.19_025-004_axo.jpg", "autore": "" },
+        { "src": "img/progetti/5/4.19_025-004_proiez.jpg", "autore": "" }
       ],
       "dettagli": {
         "design": "MartinaPozzan, AlbertoStievanin",
