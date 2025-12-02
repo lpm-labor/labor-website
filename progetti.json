@@ -129,22 +129,22 @@
 
     {
       "id": 6,
-      "titolo": "",
-      "sottotitolo": "",
-      "codice": "",
-      "temi": [],
+      "titolo": "re-IKEA",
+      "sottotitolo": "Moblie da camera",
+      "codice": "4.19_025-005",
+      "temi": ["2025", "arredo"],
       "immagini": [
        { "src": "img/progetti/6/4.19_024-001-01_axo.jpg", "autore": "" },
         { "src":  "img/progetti/6/4.19_024-001-01_proiez.jpg", "autore": "" }
       ],
       "dettagli": {
-        "design": "",
-        "anno": "",
-        "status": "",
-        "materiali": "",
-        "dimensioni": "",
-        "quantità": "",
-        "tecnica_lavorazione": "",
+        "design": "AlbertoStievanin",
+        "anno": "2025",
+        "status": "-in progress-",
+        "materiali": "Legno truciolato, Siebdruck, Policarbonato",
+        "dimensioni": "158x58x176 ",
+        "quantità": "1",
+        "tecnica_lavorazione": "manuale con attrezzi elettrici",
         "energia_produzione": "",
         "link": ""
       }
