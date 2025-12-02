@@ -248,7 +248,7 @@ function zoomPopup(btn){
     let z = Number(scheda.dataset.zoom);
 
     if(z===1) z=2;
-    else if(z===2) z=4;
+    else if(z===2) z=2.5;
     else z=1;
 
     scheda.dataset.zoom = z;
