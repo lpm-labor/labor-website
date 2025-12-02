@@ -103,7 +103,8 @@
       "codice": "",
       "temi": [],
       "immagini": [
-        "img/progetti/5/img1.jpg"
+         { "src": "img/progetti/5/4.19_024-001-01_axo.jpg", "autore": "" },
+        { "src":  "img/progetti/5/4.19_024-001-01_proiez.jpg", "autore": "" }
       ],
       "dettagli": {
         "design": "",
