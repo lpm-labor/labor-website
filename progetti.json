@@ -100,24 +100,33 @@
 
     {
       "id": 5,
-      "titolo": "",
-      "sottotitolo": "",
-      "codice": "",
-      "temi": [],
+      "titolo": "The city as archive",
+      "sottotitolo": "Cornici, supporti ed espositori",
+      "codice": "4.19_025-001/2/4",
+      "temi": ["2025", "expo"],
       "immagini": [
          { "src": "img/progetti/5/4.19_024-001-01_axo.jpg", "autore": "" },
+        { "src": "img/progetti/5/4.19_024-001-01_axo.jpg", "autore": "" },
+        { "src": "img/progetti/5/4.19_024-001-01_axo.jpg", "autore": "" },
+        { "src": "img/progetti/5/4.19_024-001-01_axo.jpg", "autore": "" },
+        { "src": "img/progetti/5/4.19_024-001-01_axo.jpg", "autore": "" },
+        { "src": "img/progetti/5/4.19_024-001-01_axo.jpg", "autore": "" },
+        { "src": "img/progetti/5/4.19_024-001-01_axo.jpg", "autore": "" },
+        { "src": "img/progetti/5/4.19_024-001-01_axo.jpg", "autore": "" },
+        { "src": "img/progetti/5/4.19_024-001-01_axo.jpg", "autore": "" },
+        { "src": "img/progetti/5/4.19_024-001-01_axo.jpg", "autore": "" },
         { "src":  "img/progetti/5/4.19_024-001-01_proiez.jpg", "autore": "" }
       ],
       "dettagli": {
-        "design": "",
-        "anno": "",
-        "status": "",
-        "materiali": "",
-        "dimensioni": "",
-        "quantità": "",
-        "tecnica_lavorazione": "",
+        "design": "MartinaPozzan, AlbertoStievanin",
+        "anno": "2025",
+        "status": "-realizzato-\n"Palazzo GrifoniBudiniGattai Firenze 12.Novembre2025-31.Gennaio2026,
+        "materiali": "Legno d'acero, vetro AR70, multiplex",
+        "dimensioni": "50x60",
+        "quantità": "11",
+        "tecnica_lavorazione": "manuale",
         "energia_produzione": "",
-        "link": ""
+        "link": "https://www.khi.fi.it/de/aktuelles/ausstellungen/20251111-city-as-archive.php"
       }
     },
 
@@ -128,7 +137,8 @@
       "codice": "",
       "temi": [],
       "immagini": [
-        "img/progetti/6/img1.jpg"
+       { "src": "img/progetti/6/4.19_024-001-01_axo.jpg", "autore": "" },
+        { "src":  "img/progetti/6/4.19_024-001-01_proiez.jpg", "autore": "" }
       ],
       "dettagli": {
         "design": "",
@@ -150,7 +160,8 @@
       "codice": "",
       "temi": [],
       "immagini": [
-        "img/progetti/7/img1.jpg"
+        { "src": "img/progetti/7/4.19_024-001-01_axo.jpg", "autore": "" },
+        { "src":  "img/progetti/7/4.19_024-001-01_proiez.jpg", "autore": "" }
       ],
       "dettagli": {
         "design": "",
@@ -172,7 +183,8 @@
       "codice": "",
       "temi": [],
       "immagini": [
-        "img/progetti/8/img1.jpg"
+       { "src": "img/progetti/8/4.19_024-001-01_axo.jpg", "autore": "" },
+        { "src":  "img/progetti/8/4.19_024-001-01_proiez.jpg", "autore": "" }
       ],
       "dettagli": {
         "design": "",
@@ -194,7 +206,8 @@
       "codice": "",
       "temi": [],
       "immagini": [
-        "img/progetti/9/img1.jpg"
+        { "src": "img/progetti/9/4.19_024-001-01_axo.jpg", "autore": "" },
+        { "src":  "img/progetti/9/4.19_024-001-01_proiez.jpg", "autore": "" }
       ],
       "dettagli": {
         "design": "",
@@ -216,7 +229,8 @@
       "codice": "",
       "temi": [],
       "immagini": [
-        "img/progetti/10/img1.jpg"
+        { "src": "img/progetti/10/4.19_024-001-01_axo.jpg", "autore": "" },
+        { "src":  "img/progetti/10/4.19_024-001-01_proiez.jpg", "autore": "" }
       ],
       "dettagli": {
         "design": "",
