@@ -25,6 +25,22 @@ fetch("progetti.json")
   });
 
 /* ============================================================
+   LABEL PERSONALIZZATE
+============================================================ */
+
+const labelMap = {
+    design: "design",
+    anno: "anno",
+    status: "status",
+    materiali: "materiali",
+    dimensioni: "dimensioni",
+    quantità: "quantità",
+    tecnica_lavorazione: "tecniche",     // ⭐ aggiornato
+    energia_produzione: "energia produzione",
+    link: "link"
+};
+
+/* ============================================================
    SCHEMA TABELLA
 ============================================================ */
 
@@ -56,9 +72,11 @@ function generaTabella(dettagli){
                 value = `<a href="${value}" target="_blank">${value}</a>`;
             }
 
+            const label = labelMap[key] || key;
+
             html += `
             <div class="info-cell">
-                <span class="info-label">${key}</span>
+                <span class="info-label">${label}</span>
                 <span class="info-value">${value}</span>
             </div>`;
         });
@@ -172,7 +190,7 @@ function apriProgetto(id){
 
     document.body.appendChild(scheda);
 
-    /* Bring to front on click */
+    /* PORTA DAVANTI SE IN SECONDO PIANO */
     scheda.addEventListener("mousedown", e => {
         const z = parseInt(scheda.style.zIndex);
         if(z !== window.topZ){
@@ -248,7 +266,7 @@ function zoomPopup(btn){
     let z = Number(scheda.dataset.zoom);
 
     if(z===1) z=2;
-    else if(z===2) z=2.5;
+    else if(z===2) z=4;
     else z=1;
 
     scheda.dataset.zoom = z;
