@@ -174,7 +174,7 @@
         "quantità": "pezzo unico",
         "tecnica_lavorazione": "manuale e attrezzi elettrici",
         "energia_produzione": "4.250 KJ",
-        "link": "-"
+        "link": ""
       }
     },
 
@@ -197,7 +197,7 @@
         "quantità": "4",
         "tecnica_lavorazione": "manuale e attrezzi elettrici",
         "energia_produzione": "3.650 KJ",
-        "link": "-"
+        "link": ""
       }
     },
 
@@ -219,8 +219,8 @@
         "dimensioni": "26x13x8,5",
         "quantità": "",
         "tecnica_lavorazione": "manuale con stampi in legno",
-        "energia_produzione": "-",
-        "link": "-"
+        "energia_produzione": "",
+        "link": ""
       }
     },
 
@@ -242,8 +242,8 @@
         "dimensioni": "500x210, 600x310, x2 530x490",
         "quantità": "4",
         "tecnica_lavorazione": "manuale",
-        "energia_produzione": "-",
-        "link": "-"
+        "energia_produzione": "",
+        "link": ""
       }
     }
   ]
