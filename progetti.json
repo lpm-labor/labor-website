@@ -145,7 +145,7 @@
       "dettagli": {
         "design": "AlbertoStievanin",
         "anno": "2025",
-        "status": "-in progress-",
+        "status": "in progress",
         "materiali": "Legno truciolato, Siebdruck, Policarbonato",
         "dimensioni": "158x58x176 ",
         "quantità": "1",
@@ -158,7 +158,7 @@
     {
       "id": 7,
       "titolo": "Animalia#01",
-      "sottotitolo": "sedia per bambino",
+      "sottotitolo": "Sedia per bambino",
       "codice": "4.19_025-006",
       "temi": ["2025", "arredo", "riuso"],
       "immagini": [
@@ -181,7 +181,7 @@
     {
       "id": 8,
       "titolo": "Bellino#",
-      "sottotitolo": "appoggia piedi",
+      "sottotitolo": "Appoggia piedi",
       "codice": "4.19_025-006",
       "temi": ["2025", "arredo", "riuso"],
       "immagini": [
@@ -203,8 +203,8 @@
 
     {
       "id": 9,
-      "titolo": "",
-      "sottotitolo": "",
+      "titolo": "Block",
+      "sottotitolo": "Blocco in legno-cemento autocostruzione",
       "codice": "18.3_025-001",
       "temi": ["2025", "ricerca", "riuso", "arch"],
       "immagini": [
@@ -212,38 +212,38 @@
         { "src":  "img/progetti/9/4.19_024-001-01_proiez.jpg", "autore": "" }
       ],
       "dettagli": {
-        "design": "",
-        "anno": "",
-        "status": "",
-        "materiali": "",
-        "dimensioni": "",
+        "design": "AlbertoStievanin",
+        "anno": "205",
+        "status": "in progress",
+        "materiali": "CementoPortland, sabbia, acqua, cippato",
+        "dimensioni": "26x13x8,5",
         "quantità": "",
-        "tecnica_lavorazione": "",
-        "energia_produzione": "",
-        "link": ""
+        "tecnica_lavorazione": "manuale con stampi in legno",
+        "energia_produzione": "-",
+        "link": "-"
       }
     },
 
     {
       "id": 10,
-      "titolo": "",
-      "sottotitolo": "",
-      "codice": "",
-      "temi": [],
+      "titolo": "Cantando Danzavamo",
+      "sottotitolo": "Scenografia per cortometraggio",
+      "codice": "18.20_022-001",
+      "temi": ["2024", "ricerca", "riuso", "arch"],
       "immagini": [
         { "src": "img/progetti/10/4.19_024-001-01_axo.jpg", "autore": "" },
         { "src":  "img/progetti/10/4.19_024-001-01_proiez.jpg", "autore": "" }
       ],
       "dettagli": {
-        "design": "",
-        "anno": "",
-        "status": "",
-        "materiali": "",
-        "dimensioni": "",
-        "quantità": "",
-        "tecnica_lavorazione": "",
-        "energia_produzione": "",
-        "link": ""
+        "design": "UmbertoFreddi, AlbertoStievanin",
+        "anno": "2024",
+        "status": "-completato-\nriprese cortometraggio Cantando Danzavamo\nCheremule,Sassari 15.-21.Marzo2025",
+        "materiali": "telai a cuneo in legno di pino ",
+        "dimensioni": "500x210, 600x310, x2 530x490",
+        "quantità": "4",
+        "tecnica_lavorazione": "manuale",
+        "energia_produzione": "-",
+        "link": "-"
       }
     }
   ]
