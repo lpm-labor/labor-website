@@ -206,7 +206,7 @@
       "titolo": "",
       "sottotitolo": "",
       "codice": "18.3_025-001",
-      "temi": ["2025", "ricerca", "riuso"],
+      "temi": ["2025", "ricerca", "riuso", "arch"],
       "immagini": [
         { "src": "img/progetti/9/4.19_024-001-01_axo.jpg", "autore": "" },
         { "src":  "img/progetti/9/4.19_024-001-01_proiez.jpg", "autore": "" }
