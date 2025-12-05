@@ -9,6 +9,7 @@ const temi = [
     { id:"expo", nome:"esposizione" },
    { id:"riuso", nome:"ri-uso" },
     { id:"arredo", nome:"arredamento" },
+    { id:"arch", nome:"architettura" },   
     { id:"ricerca", nome:"ricerca" }
 ];
 
