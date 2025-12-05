@@ -157,47 +157,47 @@
 
     {
       "id": 7,
-      "titolo": "",
-      "sottotitolo": "",
-      "codice": "",
-      "temi": [],
+      "titolo": "Animalia#01",
+      "sottotitolo": "sedia per bambino",
+      "codice": "4.19_025-006",
+      "temi": ["2025", "arredo", "riuso"],
       "immagini": [
         { "src": "img/progetti/7/4.19_024-001-01_axo.jpg", "autore": "" },
         { "src":  "img/progetti/7/4.19_024-001-01_proiez.jpg", "autore": "" }
       ],
       "dettagli": {
-        "design": "",
-        "anno": "",
-        "status": "",
-        "materiali": "",
-        "dimensioni": "",
-        "quantità": "",
-        "tecnica_lavorazione": "",
-        "energia_produzione": "",
-        "link": ""
+        "design": "MartinaPozzan, AlbertoStievanin",
+        "anno": "2025",
+        "status": "realizzato",
+        "materiali": "legno di pino e multistrato 76% materiale di recupero",
+        "dimensioni": "35x25x52",
+        "quantità": "pezzo unico",
+        "tecnica_lavorazione": "manuale e attrezzi elettrici",
+        "energia_produzione": "4.250 KJ",
+        "link": "-"
       }
     },
 
     {
       "id": 8,
-      "titolo": "",
-      "sottotitolo": "",
-      "codice": "",
-      "temi": [],
+      "titolo": "Bellino#",
+      "sottotitolo": "appoggia piedi",
+      "codice": "4.19_025-006",
+      "temi": ["2025", "arredo", "riuso"],
       "immagini": [
        { "src": "img/progetti/8/4.19_024-001-01_axo.jpg", "autore": "" },
         { "src":  "img/progetti/8/4.19_024-001-01_proiez.jpg", "autore": "" }
       ],
       "dettagli": {
-        "design": "",
-        "anno": "",
-        "status": "",
-        "materiali": "",
+        "design": "AlbertoStievanin",
+        "anno": "2025",
+        "status": "realizzato",
+        "materiali": "legno di pino 98% materiale di recupero",
         "dimensioni": "",
-        "quantità": "",
-        "tecnica_lavorazione": "",
-        "energia_produzione": "",
-        "link": ""
+        "quantità": "4",
+        "tecnica_lavorazione": "manuale e attrezzi elettrici",
+        "energia_produzione": "3.650 KJ",
+        "link": "-"
       }
     },
 
@@ -205,8 +205,8 @@
       "id": 9,
       "titolo": "",
       "sottotitolo": "",
-      "codice": "",
-      "temi": [],
+      "codice": "18.3_025-001",
+      "temi": ["2025", "ricerca", "riuso"],
       "immagini": [
         { "src": "img/progetti/9/4.19_024-001-01_axo.jpg", "autore": "" },
         { "src":  "img/progetti/9/4.19_024-001-01_proiez.jpg", "autore": "" }
