@@ -28,7 +28,7 @@
     {
       "id": 2,
       "titolo": "Greifen und Loslassen",
-      "sottotitolo": "Struttura modulare",
+      "sottotitolo": "Struttura modulare creata con profili standard per costruzioni in cartongesso",
       "codice": "4.19_023-002",
       "temi": ["2023", "expo"],
       "immagini": [
@@ -41,8 +41,8 @@
         "design": "NoraMertes, MartinaPozzan, AlbertoStievanin",
         "anno": "2023",
         "status": "-realizzato-\nSaarländischeGalerie Berlino 23.Novembre-19.Dicembre2023",
-        "materiali": "profili in acciaio da cartongesso CW-UD, legno",
-        "dimensioni": "165x300x80,215x150x45",
+        "materiali": "profili in acciaio zincato CW-UD, legno",
+        "dimensioni": "165x300x80, 215x150x45",
         "quantità": "1+1",
         "tecnica_lavorazione": "manuale con attrezzi elettrici",
         "energia_produzione": "-",
@@ -53,7 +53,7 @@
     {
       "id": 3,
       "titolo": "Instruments of vision",
-      "sottotitolo": "Ancoraggio flottante cornici",
+      "sottotitolo": "Ancoraggio flottante per cornici",
       "codice": "4.19_024-002",
       "temi": ["2024", "expo"],
       "immagini": [
@@ -135,7 +135,7 @@
     {
       "id": 6,
       "titolo": "re-IKEA_1",
-      "sottotitolo": "Riadattamento moblie da camera IKEA",
+      "sottotitolo": "Riadattamento moblie da camera IKEA KLEPPSTAD",
       "codice": "4.19_025-005",
       "temi": ["2025", "arredo", "riuso"],
       "immagini": [
@@ -147,7 +147,7 @@
         "anno": "2025",
         "status": "in progress",
         "materiali": "Legno truciolato, Siebdruck, Policarbonato",
-        "dimensioni": "158x58x176 ",
+        "dimensioni": "158x58x176",
         "quantità": "1",
         "tecnica_lavorazione": "manuale con attrezzi elettrici",
         "energia_produzione": "",
@@ -158,7 +158,7 @@
     {
       "id": 7,
       "titolo": "Animalia#01",
-      "sottotitolo": "Sedia per bambino",
+      "sottotitolo": "Sedia per bambino con materiale di recupero",
       "codice": "4.19_025-006",
       "temi": ["2025", "arredo", "riuso"],
       "immagini": [
@@ -184,7 +184,7 @@
     {
       "id": 8,
       "titolo": "Bellino#",
-      "sottotitolo": "Appoggia piedi",
+      "sottotitolo": "Appoggia piedi con materiale di recupero",
       "codice": "4.19_025-007",
       "temi": ["2025", "arredo", "riuso"],
       "immagini": [
@@ -211,7 +211,7 @@
     {
       "id": 9,
       "titolo": "Block",
-      "sottotitolo": "Blocco in legno-cemento autocostruzione",
+      "sottotitolo": "Blocco in legno-cemento per autocostruzione",
       "codice": "18.3_025-001",
       "temi": ["2025", "ricerca", "riuso", "arch"],
       "immagini": [
