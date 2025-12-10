@@ -17,7 +17,7 @@
             overflow: hidden;
         }
 
-        /* LOGO 4 RIGHE (SEMPRE VISIBILE) */
+        /* LOGO */
         .logo {
             position: fixed;
             top: 20px;
@@ -34,15 +34,15 @@
             font-size: 18px;
             display: block;
             margin-top: 4px;
-            letter-spacing: 13px; /* LABOR allargato */
+            letter-spacing: 13px;
         }
 
         .logo a {
-            color: black;
+            color: white; /* logo bianco */
             text-decoration: none;
         }
 
-        /* LINK PROGETTI (SEMPRE VISIBILE) */
+        /* MENU */
         .menu {
             position: fixed;
             top: 20px;
@@ -53,34 +53,32 @@
         }
 
         .menu a {
-            color: black;
+            color: white; /* link progetti bianco */
             text-decoration: none;
         }
 
-        /* SLIDESHOW (SOTTO AL LOGO) */
+        /* SLIDESHOW */
         .slideshow img {
             position: absolute;
-            top: 0;
-            left: 0;
+            inset: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            display: none; /* nessuna dissolvenza */
+            display: none;
         }
 
         .slideshow img.active {
             display: block;
         }
 
-        /* SPLASH SCREEN INIZIALE */
+        /* SPLASH */
         .splash {
             position: fixed;
-            top: 0;
-            left: 0;
+            inset: 0;
             width: 100%;
             height: 100%;
-            background: white;   /* sfondo bianco */
-            color: black;        /* testo nero */
+            background: white;
+            color: black;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -90,24 +88,12 @@
             text-transform: uppercase;
             z-index: 20;
         }
-        /* COLORI SOLO PER INDEX */
-.logo a {
-    color: white !important;
-}
-
-.logo strong {
-    color: white !important;
-}
-
-.menu a {
-    color: white !important;
-}
     </style>
 </head>
 
 <body>
 
-    <!-- LOGO (fisso) — ORA LINK A INFO.HTML -->
+    <!-- LOGO -->
     <div class="logo">
         <a href="info.html">
             laboratorio di<br>
@@ -117,21 +103,21 @@
         </a>
     </div>
 
-    <!-- LINK PROGETTI (fisso) -->
+    <!-- MENU -->
     <div class="menu">
         <a href="progetti.html">progetti</a>
     </div>
 
-    <!-- SPLASH SCREEN 4 SECONDI -->
+    <!-- SPLASH -->
     <div class="splash" id="splash">LABOR</div>
 
     <!-- SLIDESHOW -->
     <div class="slideshow">
-          <img src="img/home/Rep_0017_19 copia.jpg" class="active">
-          <img src="img/home/Fi_0001_01 copia.jpg">
-          <img src="img/home/Rep_0016_08 copia.jpg">
-          <img src="img/home/Rep_0025_29 copia.jpg">
-          <img src="img/home/Rep_0001_20_low copia.jpg">
+        <img src="img/home/Rep_0017_19 copia.jpg" class="active">
+        <img src="img/home/Fi_0001_01 copia.jpg">
+        <img src="img/home/Rep_0016_08 copia.jpg">
+        <img src="img/home/Rep_0025_29 copia.jpg">
+        <img src="img/home/Rep_0001_20_low copia.jpg">
     </div>
 
     <script>
@@ -140,15 +126,23 @@
             document.getElementById("splash").style.display = "none";
         }, 4000);
 
-        /* SLIDESHOW 4 SECONDI */
-        let current = 0;
+        /* SLIDESHOW RANDOM */
         const slides = document.querySelectorAll(".slideshow img");
+        let lastIndex = 0;
 
-        setInterval(() => {
-            slides[current].classList.remove("active");
-            current = (current + 1) % slides.length;
-            slides[current].classList.add("active");
-        }, 4000);
+        function randomSlide() {
+            slides[lastIndex].classList.remove("active");
+
+            let newIndex;
+            do {
+                newIndex = Math.floor(Math.random() * slides.length);
+            } while (newIndex === lastIndex);
+
+            slides[newIndex].classList.add("active");
+            lastIndex = newIndex;
+        }
+
+        setInterval(randomSlide, 4000);
     </script>
 
 </body>
