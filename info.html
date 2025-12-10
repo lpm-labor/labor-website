@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LABOR – Info</title>
 
     <style>
@@ -33,6 +33,11 @@
             display: block;
             margin-top: 4px;
             letter-spacing: 13px;
+        }
+
+        .logo a {
+            color: black;
+            text-decoration: none;
         }
 
         /* LINK PROGETTI identico a index.html */
@@ -74,6 +79,16 @@
             font-size: 18px; /* stesso corpo dei progetti */
             line-height: 1.4em;
         }
+
+        /* piccoli accorgimenti per i link nel contenuto */
+        .content a {
+            color: inherit;
+            text-decoration: underline;
+        }
+
+        .contact-line {
+            margin-bottom: 8px;
+        }
     </style>
 </head>
 
@@ -81,7 +96,7 @@
 
     <!-- LOGO come homepage -->
     <div class="logo">
-        <a href="index.html" style="color:black; text-decoration:none;">
+        <a href="index.html" aria-label="Vai alla homepage">
             laboratorio di<br>
             progettazione e produzione<br>
             multidisciplinare<br>
@@ -95,7 +110,7 @@
     </div>
 
     <!-- CONTENUTO -->
-    <div class="content">
+    <main class="content" role="main">
         <h2>Informazioni</h2>
         <p>
             LABOR è un laboratorio multidisciplinare di progettazione e produzione attivo nei campi del design, 
@@ -107,17 +122,17 @@
 
         <h3>Contatti</h3>
         <p>
-            email: <a href="mailto:info@lpm-labor.eu">info@lpm-labor.eu</a><br>
-            tel: +39 3899420553<br>
-            laboratorio: Saonara PD - Italia
+            <span class="contact-line">Email: <a href="mailto:info@lpm-labor.eu">info@lpm-labor.eu</a></span><br>
+            <span class="contact-line">Tel: <a href="tel:+393899420553">+39 389 942 0553</a></span><br>
+            <span class="contact-line">Laboratorio: Saonara (PD) – Italia</span>
         </p>
 
         <h3>Orari</h3>
         <p>
             Lunedì – Venerdì<br>
-            9:00 – 18:00
+            09:00 – 18:00
         </p>
-    </div>
+    </main>
 
 </body>
 </html>
