@@ -19,7 +19,7 @@
         "materiali": "MDF, legno d'acero, vetro AR70",
         "dimensioni": "60x160,35x140",
         "quantità": "6+3",
-        "tecnica_lavorazione": "manuale con attrezzi elettrici",
+        "tecnica_lavorazione": "20% manuale, 80% semi-manuale",
         "energia_produzione": "—",
         "link": "https://www.innsitu.at/ausstellung/quantum-conditions/"
       }
@@ -44,7 +44,7 @@
         "materiali": "profili in acciaio zincato CW-UD, legno",
         "dimensioni": "165x300x80, 215x150x45",
         "quantità": "1+1",
-        "tecnica_lavorazione": "manuale con attrezzi elettrici",
+        "tecnica_lavorazione": "70% manuale, 30% semi-manuale",
         "energia_produzione": "-",
         "link": "https://www.saarlaendische-galerie.eu/veranstaltung/mertes/"
       }
@@ -69,7 +69,7 @@
         "materiali": "legno d'acero, fettuccia sintetica",
         "dimensioni": "50x60",
         "quantità": "10",
-        "tecnica_lavorazione": "manuale con attrezzi elettrici",
+        "tecnica_lavorazione": "80% manuale, 20% semi-manuale",
         "energia_produzione": "",
         "link": "https://arts.cern/exhibition/armin-linke-instruments-of-vision/"
       }
@@ -126,7 +126,7 @@
         "materiali": "Legno d'acero, vetro AR70, multiplex",
         "dimensioni": "50x60",
         "quantità": "11",
-        "tecnica_lavorazione": "manuale",
+        "tecnica_lavorazione": "80% manuale, 20% semi-manuale",
         "energia_produzione": "",
         "link": "https://www.khi.fi.it/de/aktuelles/ausstellungen/20251111-city-as-archive.php"
       }
@@ -149,7 +149,7 @@
         "materiali": "Legno truciolato, Siebdruck, Policarbonato",
         "dimensioni": "158x58x176",
         "quantità": "1",
-        "tecnica_lavorazione": "manuale con attrezzi elettrici",
+        "tecnica_lavorazione": "",
         "energia_produzione": "",
         "link": ""
       }
@@ -175,7 +175,7 @@
         "materiali": "legno di pino e multistrato 76% materiale di recupero",
         "dimensioni": "35x25x52",
         "quantità": "pezzo unico",
-        "tecnica_lavorazione": "manuale e attrezzi elettrici",
+        "tecnica_lavorazione": "40% manuale, 60% semi-manuale",
         "energia_produzione": "4.250 KJ",
         "link": ""
       }
@@ -202,7 +202,7 @@
         "materiali": "legno di pino 98% materiale di recupero",
         "dimensioni": "",
         "quantità": "4",
-        "tecnica_lavorazione": "manuale e attrezzi elettrici",
+        "tecnica_lavorazione": "70% manuale, 30% semi-manuale",
         "energia_produzione": "3.650 KJ",
         "link": ""
       }
@@ -225,7 +225,7 @@
         "materiali": "CementoPortland, sabbia, acqua, cippato",
         "dimensioni": "26x13x8,5",
         "quantità": "",
-        "tecnica_lavorazione": "manuale con stampi in legno",
+        "tecnica_lavorazione": "",
         "energia_produzione": "",
         "link": ""
       }
@@ -248,7 +248,7 @@
         "materiali": "telai a cuneo in legno di pino ",
         "dimensioni": "500x210, 600x310, x2 530x490",
         "quantità": "4",
-        "tecnica_lavorazione": "manuale",
+        "tecnica_lavorazione": "90% manuale, 10% semi-manuale",
         "energia_produzione": "",
         "link": ""
       }
