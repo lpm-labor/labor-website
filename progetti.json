@@ -215,8 +215,8 @@
       "codice": "18.3_025-001",
       "temi": ["2025", "ricerca", "riuso", "arch"],
       "immagini": [
-        { "src": "img/progetti/9/4.19_024-001-01_axo.jpg", "autore": "" },
-        { "src":  "img/progetti/9/4.19_024-001-01_proiez.jpg", "autore": "" }
+        { "src": "img/progetti/9/18.3_025-001_axo.jpg", "autore": "" },
+        { "src":  "img/progetti/9/18.3_025-001_proiez.jpg", "autore": "" }
       ],
       "dettagli": {
         "design": "AlbertoStievanin",
@@ -238,7 +238,7 @@
       "codice": "18.20_022-001",
       "temi": ["2024", "ricerca", "riuso", "arch"],
       "immagini": [
-        { "src": "img/progetti/10/4.19_024-001-01_axo.jpg", "autore": "" },
+        { "src": "img/progetti/10/18.20_022_001_axo.jpg", "autore": "" },
         { "src":  "img/progetti/10/4.19_024-001-01_proiez.jpg", "autore": "" }
       ],
       "dettagli": {
