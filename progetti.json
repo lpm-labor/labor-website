@@ -216,7 +216,9 @@
       "temi": ["2025", "ricerca", "riuso", "arch"],
       "immagini": [
         { "src": "img/progetti/9/18.3_025-001_axo.jpg", "autore": "" },
-        { "src":  "img/progetti/9/18.3_025-001_proiez.jpg", "autore": "" }
+        { "src": "img/progetti/9/IMG_20251116_142855_bw.jpg", "autore": "Photo:AlbertoStievanin" },
+        { "src":  "img/progetti/9/18.3_025-001_proiez.jpg", "autore": "" },
+        { "src": "img/progetti/9/IMG_20251116_142103_bw.jpg", "autore": "Photo:AlbertoStievanin" }
       ],
       "dettagli": {
         "design": "AlbertoStievanin",
