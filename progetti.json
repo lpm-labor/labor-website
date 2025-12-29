@@ -33,9 +33,11 @@
       "temi": ["2023", "expo"],
       "immagini": [
           { "src": "img/progetti/2/4.19_023-002-01_axo.jpg", "autore": "" },
+         { "src":  "img/progetti/2/493A0002_MARTINA POZZAN copia.jpg", "autore": "Photo:MartinaPozzan" },
         { "src":  "img/progetti/2/4.19_023-002-01_proiez.jpg", "autore": "" },
         { "src": "img/progetti/2/4.19_023-002-02_axo.jpg", "autore": "" },
-        { "src": "img/progetti/2/4.19_023-002-02_proiez.jpg", "autore": "" } 
+        { "src": "img/progetti/2/4.19_023-002-02_proiez.jpg", "autore": "" }, 
+         { "src": "img/progetti/2/493A9875_MARTINA POZZAN copia.jpg", "autore": "Photo:MartinaPozzan" }
       ],
       "dettagli": {
         "design": "NoraMertes, MartinaPozzan, AlbertoStievanin",
