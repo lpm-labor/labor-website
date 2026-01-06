@@ -6,6 +6,7 @@ const temi = [
     { id:"2023", nome:"2023" },
     { id:"2024", nome:"2024" },
     { id:"2025", nome:"2025" },
+   { id:"2026", nome:"2026" },
     { id:"expo", nome:"esposizione" },
    { id:"riuso", nome:"ri-uso" },
     { id:"arredo", nome:"arredamento" },
