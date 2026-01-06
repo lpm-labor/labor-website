@@ -15,7 +15,7 @@
             color: black;
         }
 
-        /* LOGO identico a index.html */
+        /* LOGO (NON TRADOTTO) */
         .logo {
             position: fixed;
             top: 20px;
@@ -40,7 +40,7 @@
             text-decoration: none;
         }
 
-        /* LINK PROGETTI identico a index.html */
+        /* MENU */
         .menu {
             position: fixed;
             top: 20px;
@@ -50,53 +50,50 @@
             z-index: 10;
         }
 
-        .menu a {
+        .menu a,
+        .lang-switch {
             color: black;
             text-decoration: none;
+            margin-left: 15px;
+            cursor: pointer;
         }
 
-        /* CONTENUTO DELLA PAGINA */
+        .lang-switch {
+            font-size: 16px;
+            opacity: 0.6;
+        }
+
+        .lang-switch.active {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        /* CONTENUTO */
         .content {
             margin-top: 180px;
             padding: 20px;
             max-width: 800px;
-            font-size: 18px; /* come progetti */
+            font-size: 18px;
             line-height: 1.4em;
         }
 
-        .content h2 {
-            font-size: 20px; /* come intestazioni progetti */
-            margin-bottom: 10px;
-        }
-
-        .content h3 {
-            font-size: 20px; /* leggermente minore del titolo principale */
-            margin-top: 30px;
-            margin-bottom: 5px;
-        }
-
-        .content p {
-            font-size: 18px; /* stesso corpo dei progetti */
-            line-height: 1.4em;
-        }
-
-        /* piccoli accorgimenti per i link nel contenuto */
         .content a {
             color: inherit;
             text-decoration: underline;
         }
 
         .contact-line {
-            margin-bottom: 8px;
+            display: block;
+            margin-bottom: 6px;
         }
     </style>
 </head>
 
 <body>
 
-    <!-- LOGO come homepage -->
+    <!-- LOGO -->
     <div class="logo">
-        <a href="index.html" aria-label="Vai alla homepage">
+        <a href="index.html">
             laboratorio di<br>
             progettazione e produzione<br>
             multidisciplinare<br>
@@ -104,44 +101,96 @@
         </a>
     </div>
 
-    <!-- LINK PROGETTI -->
+    <!-- MENU + LANGUAGE SWITCH -->
     <div class="menu">
-        <a href="progetti.html">progetti</a>
+        <a href="progetti.html" class="t" data-en="projects">progetti</a>
+        <span class="lang-switch active" id="btn-it">IT</span>
+        <span class="lang-switch" id="btn-en">EN</span>
     </div>
 
     <!-- CONTENUTO -->
-    <main class="content" role="main">
-        <h2>Informazioni</h2>
-        <p>
-            LABOR è un laboratorio multidisciplinare di progettazione e produzione attivo nei campi del design, 
-            della sperimentazione e della cultura visiva. LABOR si concentra sul trasferimento di competenze e 
-            sulla fornitura di strumenti pratici, che permettono lo sviluppo dei progetti in autonomia. Nello spirito 
-            della sostenibilità, il laboratorio privilegia il riuso dei materiali, l’impiego di risorse locali e il 
-            riadattamento di prodotti già esistenti.
-        </p>
-        <h3>Prontuario</h3>
-<p>
-    Documento sintetico di riferimento su metodi, pratiche e strumenti LABOR.
-</p>
-<p>
-    <a href="download/Prontuario_v1.3.1_genn2026.pdf" download>
-        download(pdf)
-    </a>
-</p>
-        <h3>Contatti</h3>
-        <p>
-            <span class="contact-line">Email: <a href="mailto:info@lpm-labor.eu">info@lpm-labor.eu</a></span><br>
-            <span class="contact-line">Tel: <a href="tel:+4915112913620">+49 151 1291 3620</a></span><br>
-            <span class="contact-line">Tel: <a href="tel:+393899420553">+39 389 9420 553</a></span><br>
-            <span class="contact-line">Laboratorio: Saonara,IT - Berlin,DE</span>
+    <main class="content">
+
+        <h2 class="t" data-en="Information">Informazioni</h2>
+
+        <p class="t"
+           data-en="LABOR is a multidisciplinary laboratory for design and production, active in the fields of design, experimentation and visual culture. LABOR focuses on skill transfer and practical tools enabling autonomous project development. In the spirit of sustainability, the laboratory prioritizes material reuse, local resources and the adaptation of existing products.">
+            LABOR è un laboratorio multidisciplinare di progettazione e produzione attivo nei campi del design,
+            della sperimentazione e della cultura visiva. LABOR si concentra sul trasferimento di competenze e
+            sulla fornitura di strumenti pratici, che permettono lo sviluppo dei progetti in autonomia.
+            Nello spirito della sostenibilità, il laboratorio privilegia il riuso dei materiali,
+            l’impiego di risorse locali e il riadattamento di prodotti già esistenti.
         </p>
 
-        <h3>Orari</h3>
+        <h3 class="t" data-en="Handbook">Prontuario</h3>
+
+        <p class="t"
+           data-en="A concise reference document on LABOR methods, practices and tools.">
+            Documento sintetico di riferimento su metodi, pratiche e strumenti LABOR.
+        </p>
+
         <p>
+            <a href="download/Prontuario_v1.3.1_genn2026.pdf"
+               download
+               class="t"
+               data-en="download (pdf)">
+                download (pdf)
+            </a>
+        </p>
+
+        <h3 class="t" data-en="Contacts">Contatti</h3>
+
+        <p>
+            <span class="contact-line t" data-en="Email: info@lpm-labor.eu">
+                Email: <a href="mailto:info@lpm-labor.eu">info@lpm-labor.eu</a>
+            </span>
+
+            <span class="contact-line t" data-en="Phone: +49 151 1291 3620">
+                Tel: <a href="tel:+4915112913620">+49 151 1291 3620</a>
+            </span>
+
+            <span class="contact-line t" data-en="Phone: +39 389 9420 553">
+                Tel: <a href="tel:+393899420553">+39 389 9420 553</a>
+            </span>
+
+            <span class="contact-line t" data-en="Laboratory: Saonara, IT – Berlin, DE">
+                Laboratorio: Saonara, IT – Berlin, DE
+            </span>
+        </p>
+
+        <h3 class="t" data-en="Opening hours">Orari</h3>
+
+        <p class="t" data-en="Monday–Friday · 09:00–18:00">
             Lunedì–Venerdì<br>
             09:00–18:00
         </p>
+
     </main>
+
+    <script>
+        const elements = document.querySelectorAll(".t");
+        const btnIT = document.getElementById("btn-it");
+        const btnEN = document.getElementById("btn-en");
+
+        const originalTexts = new Map();
+        elements.forEach(el => originalTexts.set(el, el.innerHTML));
+
+        function setLanguage(lang) {
+            elements.forEach(el => {
+                if (lang === "en" && el.dataset.en) {
+                    el.innerHTML = el.dataset.en;
+                } else {
+                    el.innerHTML = originalTexts.get(el);
+                }
+            });
+
+            btnIT.classList.toggle("active", lang === "it");
+            btnEN.classList.toggle("active", lang === "en");
+        }
+
+        btnIT.addEventListener("click", () => setLanguage("it"));
+        btnEN.addEventListener("click", () => setLanguage("en"));
+    </script>
 
 </body>
 </html>
