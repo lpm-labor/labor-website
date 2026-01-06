@@ -257,10 +257,40 @@
         "design": "UmbertoFreddi, AlbertoStievanin",
         "anno": "2025",
         "status": "realizzato\nset riprese Cheremule,Sassari 15.-21.Marzo2025",
-        "materiali": "telai a cuneo in legno di pino ",
+        "materiali": "telai a cuneo in legno di pino",
         "dimensioni": "500x210, 600x310, x2 530x490",
         "quantità": "4",
         "tecnica_lavorazione": "90% manuale, 10% semi-manuale",
+        "energia_produzione": "",
+        "link": ""
+      }
+    },
+    {
+      "id": 11,
+      "titolo": "Capretta#1",
+      "sottotitolo": "Supporto per tavolo da lavoro",
+      "codice": "4.19_026-001",
+      "temi": ["2026", "arredo"],
+      "immagini": [
+        { "src": "img/progetti/10/18.20_022_001_axo.jpg", "autore": "" },
+        { "src": "img/progetti/10/Fi-d_0066_IMG_2508_selection01.jpg", "autore": "Photo:AlbertoStievanin" },
+         { "src": "img/progetti/10/Screenshot 2025-12-10 155924.jpg", "autore": "Model:UmbertoFreddi" },
+         { "src": "img/progetti/10/Fi-d_0067_DSCF4467_selection01.jpg", "autore": "Photo:MartinaPozzan" },
+         { "src": "img/progetti/10/Fi-d_0066_IMG_2487_selection01.jpg", "autore": "Photo:LucaCaciagli" },
+         { "src": "img/progetti/10/Fi-d_0067_DSCF4495_selection01.jpg", "autore": "Photo:LucaCaciagli" },
+         { "src": "img/progetti/10/Fi-d_0067_DSCF4478_selection01.jpg", "autore": "Photo:MartinaPozzan" },
+         { "src": "img/progetti/10/Fi-d_0066_IMG_2543_selection01.jpg", "autore": "Photo:LucaCaciagli" },
+         { "src": "img/progetti/10/Screenshot 2025-12-10 155948.jpg", "autore": "Model:UmbertoFreddi" },
+         { "src": "img/progetti/10/Fi-d_0066_IMG_2453_selection01.jpg", "autore": "Photo:LucaCaciagli" }
+      ],
+      "dettagli": {
+        "design": "AlbertoStievanin",
+        "anno": "2026",
+        "status": "realizzato",
+        "materiali": "profili legno di pino",
+        "dimensioni": "178x71x78",
+        "quantità": "1",
+        "tecnica_lavorazione": "taglio manuale, fissaggio con utensile elettrico ",
         "energia_produzione": "",
         "link": ""
       }
