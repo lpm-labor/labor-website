@@ -272,16 +272,10 @@
       "codice": "4.19_026-001",
       "temi": ["2026", "arredo"],
       "immagini": [
-        { "src": "img/progetti/10/18.20_022_001_axo.jpg", "autore": "" },
-        { "src": "img/progetti/10/Fi-d_0066_IMG_2508_selection01.jpg", "autore": "Photo:AlbertoStievanin" },
-         { "src": "img/progetti/10/Screenshot 2025-12-10 155924.jpg", "autore": "Model:UmbertoFreddi" },
-         { "src": "img/progetti/10/Fi-d_0067_DSCF4467_selection01.jpg", "autore": "Photo:MartinaPozzan" },
-         { "src": "img/progetti/10/Fi-d_0066_IMG_2487_selection01.jpg", "autore": "Photo:LucaCaciagli" },
-         { "src": "img/progetti/10/Fi-d_0067_DSCF4495_selection01.jpg", "autore": "Photo:LucaCaciagli" },
-         { "src": "img/progetti/10/Fi-d_0067_DSCF4478_selection01.jpg", "autore": "Photo:MartinaPozzan" },
-         { "src": "img/progetti/10/Fi-d_0066_IMG_2543_selection01.jpg", "autore": "Photo:LucaCaciagli" },
-         { "src": "img/progetti/10/Screenshot 2025-12-10 155948.jpg", "autore": "Model:UmbertoFreddi" },
-         { "src": "img/progetti/10/Fi-d_0066_IMG_2453_selection01.jpg", "autore": "Photo:LucaCaciagli" }
+        { "src": "img/progetti/11/4.19_026-001_axo.jpg", "autore": "" },
+        { "src": "img/progetti/11/Fi-d_0076_493A0564_post.jpg", "autore": "Photo:AlbertoStievanin" },
+         { "src": "img/progetti/11/Fi-d_0076_493A0591_post.jpg", "autore": "Photo:AlbertoStievanin" },
+         { "src": "img/progetti/11/Fi-d_0076_493A0568_post.jpg", "autore": "Photo:AlbertoStievanin" }
       ],
       "dettagli": {
         "design": "AlbertoStievanin",
