@@ -7,11 +7,11 @@ const temi = [
     { id:"2024", nome:"2024" },
     { id:"2025", nome:"2025" },
    { id:"2026", nome:"2026" },
-    { id:"expo", nome:"esposizione" },
-   { id:"riuso", nome:"ri-uso" },
-    { id:"arredo", nome:"arredamento" },
-    { id:"arch", nome:"architettura" },   
-    { id:"ricerca", nome:"ricerca" }
+    { id:"expo", nome:"exhibition" },
+   { id:"riuso", nome:"reuse" },
+    { id:"arredo", nome:"design" },
+    { id:"arch", nome:"architecture" },   
+    { id:"ricerca", nome:"research" }
 ];
 
 /* ============================================================
