@@ -1,1 +1,140 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>LABOR — Catalogo progetti</title>
+
+<style>
+@page{
+    size:A6;
+    margin:10mm;
+}
+
+body{
+    font-family:"Courier New", monospace;
+    font-size:11px;
+    line-height:1.35;
+    color:#000;
+}
+
+/* ogni scheda = nuova pagina */
+.scheda{
+    page-break-after:always;
+}
+
+/* intro LABOR */
+.intro h1{
+    font-size:18px;
+    margin-bottom:10px;
+}
+.intro p{
+    margin-bottom:8px;
+}
+
+/* progetto */
+h2{
+    font-size:14px;
+    margin:0 0 2px 0;
+}
+h3{
+    font-size:11px;
+    font-weight:normal;
+    margin:0 0 6px 0;
+}
+
+.meta{
+    font-size:10px;
+    margin-bottom:6px;
+}
+
+img{
+    width:100%;
+    height:auto;
+    margin:6px 0;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:10px;
+}
+td{
+    padding:2px 0;
+    vertical-align:top;
+}
+.label{
+    width:40%;
+    opacity:.6;
+}
+.value{
+    width:60%;
+    white-space:pre-line; /* ← fondamentale per \n */
+}
+.autore{
+    font-size:9px;
+    opacity:.6;
+    text-align:right;
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGINA INTRO -->
+<div class="scheda intro">
+    <h1>LABOR</h1>
+    <p>
+        laboratorio di progettazione e produzione multidisciplinare
+    </p>
+    <p>
+        LABOR opera nei campi del design, della sperimentazione e della cultura
+        visiva, con attenzione al riuso dei materiali e ai processi produttivi.
+    </p>
+    <p>
+        info@lpm-labor.eu<br>
+        lpm-labor.eu
+    </p>
+</div>
+
+<script>
+fetch("data/progetti.json")
+.then(r=>r.json())
+.then(data=>{
+    data.progetti.forEach(p=>{
+        const d = p.dettagli || {};
+
+        const scheda = document.createElement("div");
+        scheda.className = "scheda";
+
+        scheda.innerHTML = `
+            <h2>${p.titolo}</h2>
+            <h3>${p.sottotitolo || ""}</h3>
+
+            <div class="meta">${p.codice || ""}</div>
+
+            ${p.immagini && p.immagini.length ? `
+                <img src="${p.immagini[0].src}">
+                ${p.immagini[0].autore ? `<div class="autore">${p.immagini[0].autore}</div>` : ``}
+            ` : ``}
+
+            <table>
+                ${Object.entries(d).map(([k,v])=>{
+                    if(!v) return "";
+                    return `
+                        <tr>
+                            <td class="label">${k}</td>
+                            <td class="value">${v}</td>
+                        </tr>
+                    `;
+                }).join("")}
+            </table>
+        `;
+
+        document.body.appendChild(scheda);
+    });
+});
+</script>
+
+</body>
+</html>
 
