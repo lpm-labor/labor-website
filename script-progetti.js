@@ -37,7 +37,7 @@ const labelMap = {
     status: "status",
     materiali: "materiali",
     dimensioni: "dimensioni",
-    quantità: "quantità",
+    quantità: "unità",
     tecnica_lavorazione: "processo di lavorazione",     // ⭐ aggiornato
     energia_produzione: "energia utilizzata",
     link: "link"
