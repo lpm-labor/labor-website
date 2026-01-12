@@ -3,7 +3,7 @@
     {
       "id": 1,
       "titolo": "Quantum conditions",
-      "sottotitolo": "Supporti per Dibond con vetro",
+      "sottotitolo": "Leaning display system",
       "codice": "4.19_023-001",
       "temi": ["2023", "expo"],
       "immagini": [
@@ -15,11 +15,11 @@
       "dettagli": {
         "design": "MartinaPozzan, MarthaSchwindling, AlbertoStievanin",
         "anno": "2023",
-        "status": "realizzato\nINN SITU Innsbruck 4.Ottobre2023-20.Gennaio2024",
-        "materiali": "MDF, legno d'acero, vetro AR70",
+        "status": "realizedo\nQuantum Condition by Armin Linke\nINN SITU Innsbruck 4.Ottobre2023-20.Gennaio2024",
+        "materiali": "MDF, maple wood, museum glass AR70",
         "dimensioni": "60x160,35x140",
         "quantità": "6+3",
-        "tecnica_lavorazione": "20% manuale, 80% semi-manuale",
+        "tecnica_lavorazione": "20% manual, 80% power tools",
         "energia_produzione": "—",
         "link": "https://www.innsitu.at/ausstellung/quantum-conditions/"
       }
@@ -28,7 +28,7 @@
     {
       "id": 2,
       "titolo": "Greifen und Loslassen",
-      "sottotitolo": "Struttura modulare creata con profili standard per costruzioni in cartongesso",
+      "sottotitolo": "Modular spatial totems",
       "codice": "4.19_023-002",
       "temi": ["2023", "expo"],
       "immagini": [
@@ -42,11 +42,11 @@
       "dettagli": {
         "design": "NoraMertes, MartinaPozzan, AlbertoStievanin",
         "anno": "2023",
-        "status": "realizzato\nSaarländischeGalerie Berlino 23.Novembre-19.Dicembre2023",
-        "materiali": "profili in acciaio zincato CW-UD, legno",
+        "status": "realized\nGreifen un Loslassen by Nora Mertes\nSaarländischeGalerie Berlino 23.Novembre-19.Dicembre2023",
+        "materiali": "Drywall Framing: U-Track, C-Stud, wood",
         "dimensioni": "165x300x80, 215x150x45",
         "quantità": "1+1",
-        "tecnica_lavorazione": "70% manuale, 30% semi-manuale",
+        "tecnica_lavorazione": "70% manual, 30% power tools",
         "energia_produzione": "-",
         "link": "https://www.saarlaendische-galerie.eu/veranstaltung/mertes/"
       }
@@ -55,7 +55,7 @@
     {
       "id": 3,
       "titolo": "Instruments of vision",
-      "sottotitolo": "Ancoraggio flottante per cornici",
+      "sottotitolo": "Hanging system for frames",
       "codice": "4.19_024-002",
       "temi": ["2024", "expo"],
       "immagini": [
@@ -67,11 +67,11 @@
       "dettagli": {
         "design": "ArminLinke, MartinaPozzan, AlbertoStievanin",
         "anno": "2024",
-        "status": "realizzato\nIgrexa da Universidade Santiago de Compostela 21.Giugno-21.Settembre2024",
-        "materiali": "legno d'acero, fettuccia sintetica",
+        "status": "realized\nInstruments of vision by Armin Linke\nIgrexa da Universidade Santiago de Compostela 21.Giugno-21.Settembre2024",
+        "materiali": "beech wood, polypropylene",
         "dimensioni": "50x60",
         "quantità": "10",
-        "tecnica_lavorazione": "80% manuale, 20% semi-manuale",
+        "tecnica_lavorazione": "80% manual, 20% power tools",
         "energia_produzione": "",
         "link": "https://arts.cern/exhibition/armin-linke-instruments-of-vision/"
       }
@@ -80,7 +80,7 @@
     {
       "id": 4,
       "titolo": "Untitled_1",
-      "sottotitolo": "Espositore",
+      "sottotitolo": "Display",
       "codice": "4.19_024-001-01",
       "temi": ["2024", "expo"],
       "immagini": [
@@ -91,7 +91,7 @@
         "design": "AlbertoStievanin",
         "anno": "2024",
         "status": "in progress",
-        "materiali": "legno, vetroAR70",
+        "materiali": "beech wood, museum glass AR70",
         "dimensioni": "70x45",
         "quantità": "",
         "tecnica_lavorazione": "",
@@ -103,7 +103,7 @@
     {
       "id": 5,
       "titolo": "The city as archive",
-      "sottotitolo": "Cornici, supporti ed espositori",
+      "sottotitolo": "Adaptive hanging system for exhibition",
       "codice": "4.19_025-001/2/4",
       "temi": ["2025", "expo"],
       "immagini": [
@@ -124,11 +124,11 @@
       "dettagli": {
         "design": "MartinaPozzan, AlbertoStievanin",
         "anno": "2025",
-        "status": "realizzato\nPalazzo GrifoniBudiniGattai\nFirenze 12.Novembre2025-31.Gennaio2026",
-        "materiali": "Legno d'acero, vetro AR70, multiplex",
+        "status": "realized\nFlorence: the city as archive by Armin Linke\nPalazzo GrifoniBudiniGattai\nFirenze 12.Novembre2025-31.Gennaio2026",
+        "materiali": "maple wood, museum glass AR70, multiplex",
         "dimensioni": "50x60",
         "quantità": "11",
-        "tecnica_lavorazione": "80% manuale, 20% semi-manuale",
+        "tecnica_lavorazione": "80% manual, 20% power tool",
         "energia_produzione": "",
         "link": "https://www.khi.fi.it/de/aktuelles/ausstellungen/20251111-city-as-archive.php"
       }
@@ -238,7 +238,7 @@
     {
       "id": 10,
       "titolo": "Cantando Danzavamo",
-      "sottotitolo": "Scenografia per cortometraggio",
+      "sottotitolo": "Scenography for a short movie",
       "codice": "18.20_022-001",
       "temi": ["2025", "ricerca", "riuso", "arch"],
       "immagini": [
@@ -256,11 +256,11 @@
       "dettagli": {
         "design": "UmbertoFreddi, AlbertoStievanin",
         "anno": "2025",
-        "status": "realizzato\nset riprese Cheremule,Sassari 15.-21.Marzo2025",
-        "materiali": "telai a cuneo in legno di pino",
+        "status": "realized\nset riprese Cheremule,Sassari 15.-21.Marzo2025",
+        "materiali": "pine wood, nylon",
         "dimensioni": "500x210, 600x310, x2 530x490",
         "quantità": "4",
-        "tecnica_lavorazione": "90% manuale, 10% semi-manuale",
+        "tecnica_lavorazione": "90% manual, 10% power",
         "energia_produzione": "",
         "link": ""
       }
@@ -268,7 +268,7 @@
     {
       "id": 11,
       "titolo": "Capretta#1",
-      "sottotitolo": "Supporto per tavolo da lavoro",
+      "sottotitolo": "Wooden table structure",
       "codice": "4.19_026-001",
       "temi": ["2026", "arredo"],
       "immagini": [
@@ -280,11 +280,11 @@
       "dettagli": {
         "design": "AlbertoStievanin",
         "anno": "2026",
-        "status": "realizzato",
-        "materiali": "profili standard in legno di pino",
+        "status": "realized",
+        "materiali": "pine timber profiles",
         "dimensioni": "178x71x78",
         "quantità": "1",
-        "tecnica_lavorazione": "taglio manuale, fissaggio con utensile elettrico ",
+        "tecnica_lavorazione": "manual cut, power Screwdriver",
         "energia_produzione": "3.000 KJ",
         "link": ""
       }
