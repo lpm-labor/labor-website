@@ -33,13 +33,13 @@ fetch("progetti.json")
 
 const labelMap = {
     design: "design",
-    anno: "anno",
+    anno: "year",
     status: "status",
-    materiali: "materiali",
-    dimensioni: "dimensioni",
-    quantità: "unità",
-    tecnica_lavorazione: "processo di lavorazione",     // ⭐ aggiornato
-    energia_produzione: "energia utilizzata",
+    materiali: "materials",
+    dimensioni: "dimensions",
+    quantità: "production units",
+    tecnica_lavorazione: "processing",     // ⭐ aggiornato
+    energia_produzione: "energy output",
     link: "link"
 };
 
