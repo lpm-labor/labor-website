@@ -221,6 +221,23 @@ body{
     opacity:0.6;
     text-align:right;
 }
+/* ======================================
+   COPYRIGHT FOOTER
+====================================== */
+
+#labor-copyright{
+    position: fixed;
+    bottom: 10px;
+    right: 15px;
+    max-width: 320px;
+    font-size: 12px;
+    color: #555;
+    text-align: right;
+    background: rgba(255,255,255,0.85);
+    padding: 6px 10px;
+    z-index: 100000;
+    pointer-events: none;
+}
 
 /* MOBILE FIX */
 @media(max-width:520px){
