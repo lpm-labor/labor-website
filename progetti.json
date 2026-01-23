@@ -128,7 +128,7 @@
         "materiali": "maple wood, museum glass AR70, multiplex",
         "dimensioni": "50x60",
         "quantità": "11",
-        "tecnica_lavorazione": "80% manual, 20% power tool",
+        "tecnica_lavorazione": "80% manual, 20% power tools",
         "energia_produzione": "",
         "link": "https://www.khi.fi.it/de/aktuelles/ausstellungen/20251111-city-as-archive.php"
       }
@@ -177,7 +177,7 @@
         "materiali": "legno di pino e multistrato 76% materiale di recupero",
         "dimensioni": "35x25x52",
         "quantità": "pezzo unico",
-        "tecnica_lavorazione": "40% manuale, 60% semi-manuale",
+        "tecnica_lavorazione": "40% manual, 60% semi-manual",
         "energia_produzione": "4.250 KJ",
         "link": ""
       }
@@ -204,7 +204,7 @@
         "materiali": "legno di pino 98% materiale di recupero",
         "dimensioni": "",
         "quantità": "4",
-        "tecnica_lavorazione": "70% manuale, 30% semi-manuale",
+        "tecnica_lavorazione": "70% manual, 30% semi-manual",
         "energia_produzione": "3.650 KJ",
         "link": ""
       }
@@ -260,7 +260,7 @@
         "materiali": "pine wood, nylon",
         "dimensioni": "500x210, 600x310, x2 530x490",
         "quantità": "4",
-        "tecnica_lavorazione": "90% manual, 10% power",
+        "tecnica_lavorazione": "90% manual, 10% power tools",
         "energia_produzione": "",
         "link": ""
       }
@@ -284,7 +284,7 @@
         "materiali": "pine timber profiles",
         "dimensioni": "178x71x78",
         "quantità": "1",
-        "tecnica_lavorazione": "manual cut, power Screwdriver",
+        "tecnica_lavorazione": "manual cut, screwer",
         "energia_produzione": "3.000 KJ",
         "link": ""
       }
