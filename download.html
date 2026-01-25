@@ -20,20 +20,40 @@ a {
 a:hover {
     color: gray;
 }
+.disclaimer {
+    font-size: 14px;
+    margin-top: 12px;
+}
 </style>
 </head>
 <body>
 
-<!-- Messaggio in italiano e inglese -->
-<p class="t" data-en="The download will start automatically. If it doesn't, <a href='https://raw.githubusercontent.com/lpm-labor/labor-website/main/download/Prontuario_v1.3.5_bw_genn2026.pdf' download>click here</a>.">
-  Il download inizierà automaticamente. Se non parte, <a href="https://raw.githubusercontent.com/lpm-labor/labor-website/main/download/Prontuario_v1.3.5_bw_genn2026.pdf" download>clicca qui</a>.
+<p class="t" data-en="The download will start automatically. If it doesn't, <a href='https://lpm-labor.eu/download/Prontuario_v1.3.5_bw_genn2026.pdf' download>click here</a>.">
+  Il download inizierà automaticamente. Se non parte, <a href="https://lpm-labor.eu/download/Prontuario_v1.3.5_bw_genn2026.pdf" download>clicca qui</a>.
+</p>
+
+<p class="disclaimer t" data-en="The email will only be used for the download and occasional communications.">
+  L'email verrà utilizzata solo per il download ed eventuali comunicazioni.
 </p>
 
 <script>
-  // Redirect automatico al PDF
-  window.location.href = "https://raw.githubusercontent.com/lpm-labor/labor-website/main/download/Prontuario_v1.3.5_bw_genn2026.pdf";
+  // Funzione download universale
+  function downloadFile(url) {
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = ''; // forza il download
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+  }
 
-  // Switch lingua automatico se la pagina è in inglese (opzionale)
+  // Link PDF sul tuo server
+  const pdfUrl = "https://lpm-labor.eu/download/Prontuario_v1.3.5_bw_genn2026.pdf";
+
+  // Avvia il download automatico
+  downloadFile(pdfUrl);
+
+  // Switch lingua in base al browser
   const elements = document.querySelectorAll(".t");
   const userLang = navigator.language || navigator.userLanguage;
   if(userLang.startsWith("en")){
