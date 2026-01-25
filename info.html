@@ -173,24 +173,24 @@ Within a sustainability-oriented approach, the laboratory prioritizes material r
             Formato adatto alla stampa d'ufficio. 
         </p>
 
-      <!-- FORM FORMSpree aggiornato -->
+     <!-- FORM FORMSpree aggiornato -->
 <form action="https://formspree.io/f/mwvlgorn" method="POST">
     <input type="email" name="email" required placeholder="email">
 
     <input type="hidden" name="_redirect" value="https://lpm-labor.eu/download.html">
     <button type="submit" class="t" data-en="handbook(pdf)">prontuario(pdf)</button>
 
-    <!-- CHECKBOX + DISCLAIMER posizionati sotto il pulsante -->
+    <!-- CHECKBOX + DISCLAIMER sotto il pulsante -->
     <!-- Italiano -->
     <label class="t" data-en="I consent to the use of my email for the download and occasional communications." 
            style="display:block; font-size:14px; margin-top:8px;" id="checkbox-it">
         <input type="checkbox" name="consent" required>
-        L'email verrà utilizzata solo per il download ed eventuali comunicazioni.
+        Acconsento all'utilizzo della mia email per il download ed eventuali comunicazioni.
     </label>
 
     <!-- Inglese -->
     <label class="t" data-en="I consent to the use of my email for the download and occasional communications." 
-           style="display:none; font-size:14px; margin-top:8px;" id="checkbox-en">
+           style="display:block; font-size:14px; margin-top:8px;" id="checkbox-en">
         <input type="checkbox" name="consent" required>
         I consent to the use of my email for the download and occasional communications.
     </label>
@@ -216,13 +216,8 @@ Within a sustainability-oriented approach, the laboratory prioritizes material r
         });
 
         // Mostra / nascondi checkbox
-        if(lang === "en") {
-            checkboxEN.style.display = "block";
-            checkboxIT.style.display = "none";
-        } else {
-            checkboxIT.style.display = "block";
-            checkboxEN.style.display = "none";
-        }
+        checkboxIT.style.display = (lang === "it") ? "block" : "none";
+        checkboxEN.style.display = (lang === "en") ? "block" : "none";
 
         btnIT.classList.toggle("active", lang === "it");
         btnEN.classList.toggle("active", lang === "en");
@@ -230,6 +225,10 @@ Within a sustainability-oriented approach, the laboratory prioritizes material r
 
     btnIT.addEventListener("click", () => setLanguage("it"));
     btnEN.addEventListener("click", () => setLanguage("en"));
+
+    // Imposta lingua iniziale in base al browser
+    const userLang = (navigator.language || navigator.userLanguage).startsWith("en") ? "en" : "it";
+    setLanguage(userLang);
 </script>
 
 
