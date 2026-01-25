@@ -46,10 +46,18 @@ L'email verrà utilizzata solo per il download ed eventuali comunicazioni.
 <script>
 const elements = document.querySelectorAll(".t");
 const userLang = navigator.language || navigator.userLanguage;
-if(userLang.startsWith("en")){
-    elements.forEach(el => { if(el.dataset.en) el.innerHTML = el.dataset.en; });
+
+// Se è italiano, mantieni il testo originale
+if(userLang.startsWith("it")){
+    // testo italiano già presente, niente da fare
+} else {
+    // qualsiasi altra lingua → sostituisci con inglese
+    elements.forEach(el => { 
+        if(el.dataset.en) el.innerHTML = el.dataset.en; 
+    });
 }
 </script>
+
 
 </body>
 </html>
