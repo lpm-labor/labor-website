@@ -4,63 +4,33 @@
 <meta charset="UTF-8">
 <title>Download PDF</title>
 <style>
-body {
-    font-family: "Courier New", monospace;
-    background: white;
-    color: black;
-    padding: 20px;
-}
-p {
-    font-size: 16px;
-}
-a {
-    text-decoration: underline;
-    color: black;
-}
-a:hover {
-    color: gray;
-}
-.disclaimer {
-    font-size: 14px;
-    margin-top: 12px;
-}
+body { font-family: "Courier New", monospace; background:white; color:black; padding:20px; text-align:center; }
+button { font-size:16px; padding:10px 20px; cursor:pointer; }
+button:hover { background:black; color:white; }
+.disclaimer { font-size:14px; margin-top:12px; }
 </style>
 </head>
 <body>
 
-<p class="t" data-en="The download will start automatically. If it doesn't, <a href='https://lpm-labor.eu/download/Prontuario_v1.3.5_bw_genn2026.pdf' download>click here</a>.">
-  Il download inizierà automaticamente. Se non parte, <a href="https://lpm-labor.eu/download/Prontuario_v1.3.5_bw_genn2026.pdf" download>clicca qui</a>.
-</p>
+<h2 class="t" data-en="Your download is ready! Click the button below to download the PDF.">
+Il download è pronto! Clicca il pulsante qui sotto per scaricare il PDF.
+</h2>
+
+<button onclick="window.location.href='https://lpm-labor.eu/download/Prontuario_v1.3.5_bw_genn2026.pdf'" 
+        class="t" data-en="Download PDF">
+Scarica PDF
+</button>
 
 <p class="disclaimer t" data-en="The email will only be used for the download and occasional communications.">
-  L'email verrà utilizzata solo per il download ed eventuali comunicazioni.
+L'email verrà utilizzata solo per il download ed eventuali comunicazioni.
 </p>
 
 <script>
-  // Funzione download universale
-  function downloadFile(url) {
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = ''; // forza il download
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-  }
-
-  // Link PDF sul tuo server
-  const pdfUrl = "https://lpm-labor.eu/download/Prontuario_v1.3.5_bw_genn2026.pdf";
-
-  // Avvia il download automatico
-  downloadFile(pdfUrl);
-
-  // Switch lingua in base al browser
-  const elements = document.querySelectorAll(".t");
-  const userLang = navigator.language || navigator.userLanguage;
-  if(userLang.startsWith("en")){
-    elements.forEach(el => {
-      if(el.dataset.en) el.innerHTML = el.dataset.en;
-    });
-  }
+const elements = document.querySelectorAll(".t");
+const userLang = navigator.language || navigator.userLanguage;
+if(userLang.startsWith("en")){
+    elements.forEach(el => { if(el.dataset.en) el.innerHTML = el.dataset.en; });
+}
 </script>
 
 </body>
