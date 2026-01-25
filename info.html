@@ -15,7 +15,6 @@
             color: black;
         }
 
-        /* LOGO (NON TRADOTTO) */
         .logo {
             position: fixed;
             top: 20px;
@@ -40,7 +39,6 @@
             text-decoration: none;
         }
 
-        /* MENU */
         .menu {
             position: fixed;
             top: 20px;
@@ -68,7 +66,6 @@
             text-decoration: underline;
         }
 
-        /* CONTENUTO */
         .content {
             margin-top: 180px;
             padding: 20px;
@@ -77,9 +74,31 @@
             line-height: 1.4em;
         }
 
-        .content a {
-            color: inherit;
-            text-decoration: underline;
+        form {
+            margin-top: 10px;
+        }
+
+        input[type="email"] {
+            font-family: inherit;
+            font-size: 16px;
+            padding: 6px;
+            margin-right: 8px;
+            border: 1px solid black;
+            background: white;
+        }
+
+        button {
+            font-family: inherit;
+            font-size: 16px;
+            padding: 6px 10px;
+            border: 1px solid black;
+            background: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: black;
+            color: white;
         }
 
         .contact-line {
@@ -91,115 +110,78 @@
 
 <body>
 
-    <!-- LOGO -->
-    <div class="logo">
-        <a href="index.html">
-            laboratorio di<br>
-            progettazione e produzione<br>
-            multidisciplinare<br>
-            <strong>LABOR</strong>
-        </a>
-    </div>
+<div class="logo">
+    <a href="index.html">
+        laboratorio di<br>
+        progettazione e produzione<br>
+        multidisciplinare<br>
+        <strong>LABOR</strong>
+    </a>
+</div>
 
-    <!-- MENU + LANGUAGE SWITCH -->
-    <div class="menu">
-        <a href="progetti.html" class="t" data-en="projects">progetti</a>
-        <span class="lang-switch active" id="btn-it">IT</span>
-        <span class="lang-switch" id="btn-en">EN</span>
-    </div>
+<div class="menu">
+    <a href="progetti.html" class="t" data-en="projects">progetti</a>
+    <span class="lang-switch active" id="btn-it">IT</span>
+    <span class="lang-switch" id="btn-en">EN</span>
+</div>
 
-    <!-- CONTENUTO -->
-    <main class="content">
+<main class="content">
 
-        <h3 class="t" data-en="Information">Informazioni</h3>
+    <h3 class="t" data-en="Information">Informazioni</h3>
 
-        <p class="t"
-           data-en="LABOR is a multidisciplinary design and production laboratory operating across design, experimentation, and visual culture.<br>
-LABOR focuses on process reduction and the development of practical
-tools, enabling projects to be conceived and realized with a high degree of autonomy.<br>
-Within a sustainability-oriented approach, the laboratory prioritizes material reuse, local resources, and the adaptation of existing products and systems.">
-            LABOR è un laboratorio multidisciplinare di progettazione e produzione attivo nei campi del design,
-            della sperimentazione e della cultura visiva.<br>LABOR si concentra sul trasferimento di competenze e
-            sulla fornitura di strumenti pratici, che permettono lo sviluppo dei progetti in autonomia.<br>
-            Nello spirito della sostenibilità, il laboratorio privilegia il riuso dei materiali,
-            l’impiego di risorse locali e il riadattamento di prodotti già esistenti.
-        </p>
+    <p class="t" data-en="LABOR is a multidisciplinary design and production laboratory operating across design, experimentation, and visual culture.">
+        LABOR è un laboratorio multidisciplinare di progettazione e produzione attivo nei campi del design,
+        della sperimentazione e della cultura visiva.
+    </p>
 
-        <h3 class="t" data-en="Handbook">Prontuario</h3>
+    <h3 class="t" data-en="Handbook">Prontuario</h3>
 
-        <p class="t"
-           data-en="A concise reference document on LABOR methods, practices and tools.<br>
-            The document is intended as a working tool for professionals and may be annotated, copied or adapted.<br>
-            Designed for standard office printing.">
-            Documento sintetico di riferimento su metodi, pratiche e strumenti LABOR.<br>
-            Il documento è pensato come strumento di lavoro e può essere annotato, copiato o adattato.<br>
-            Formato adatto alla stampa d'ufficio. 
-        </p>
+    <p class="t" data-en="A concise reference document on LABOR methods, practices and tools.">
+        Documento sintetico di riferimento su metodi, pratiche e strumenti LABOR.
+    </p>
 
-        <p>
-            <a href="https://forms.gle/8x2ANV41FZVMk2ah7" 
-   target="_blank"
-   class="t"
-   data-en="handbook(pdf)">
-   prontuario(pdf)
-</a>
+    <!-- FORM FORMSpree -->
+    <form action="https://formspree.io/f/mwvlgorn" method="POST">
+        <input type="email" name="email" required placeholder="email">
+        <input type="hidden" name="_redirect" value="https://lpm-labor.eu/download/Prontuario_v1.3.5_bw_genn2026.pdf">
+        <button type="submit" class="t" data-en="download (pdf)">scarica (pdf)</button>
+    </form>
 
-        </p>
+    <h3 class="t" data-en="Contacts">Contatti</h3>
 
-        <h3 class="t" data-en="Contacts">Contatti</h3>
+    <p>
+        <span class="contact-line">
+            Email: <a href="mailto:info@lpm-labor.eu">info@lpm-labor.eu</a>
+        </span>
+    </p>
 
-        <p>
-            <span class="contact-line t" data-en="Email: info@lpm-labor.eu">
-                Email: <a href="mailto:info@lpm-labor.eu">info@lpm-labor.eu</a>
-            </span>
+</main>
 
-            <span class="contact-line t" data-en="Phone: +49 151 1291 3620">
-                Tel: <a href="tel:+4915112913620">+49 151 1291 3620</a>
-            </span>
+<script>
+    const elements = document.querySelectorAll(".t");
+    const btnIT = document.getElementById("btn-it");
+    const btnEN = document.getElementById("btn-en");
 
-            <span class="contact-line t" data-en="Phone: +39 389 9420 553">
-                Tel: <a href="tel:+393899420553">+39 389 9420 553</a>
-            </span>
+    const originalTexts = new Map();
+    elements.forEach(el => originalTexts.set(el, el.innerHTML));
 
-            <span class="contact-line t" data-en="Laboratory: Saonara, IT – Berlin, DE">
-                Laboratorio: Saonara, IT – Berlin, DE
-            </span>
-        </p>
+    function setLanguage(lang) {
+        elements.forEach(el => {
+            if (lang === "en" && el.dataset.en) {
+                el.innerHTML = el.dataset.en;
+            } else {
+                el.innerHTML = originalTexts.get(el);
+            }
+        });
 
-        <h3 class="t" data-en="Opening hours">Orari</h3>
+        btnIT.classList.toggle("active", lang === "it");
+        btnEN.classList.toggle("active", lang === "en");
+    }
 
-        <p class="t" data-en="Monday–Friday<br>9am–6pm">
-            Lunedì–Venerdì<br>
-            09:00–18:00
-        </p>
+    btnIT.addEventListener("click", () => setLanguage("it"));
+    btnEN.addEventListener("click", () => setLanguage("en"));
+</script>
 
-    </main>
-
-    <script>
-        const elements = document.querySelectorAll(".t");
-        const btnIT = document.getElementById("btn-it");
-        const btnEN = document.getElementById("btn-en");
-
-        const originalTexts = new Map();
-        elements.forEach(el => originalTexts.set(el, el.innerHTML));
-
-        function setLanguage(lang) {
-            elements.forEach(el => {
-                if (lang === "en" && el.dataset.en) {
-                    el.innerHTML = el.dataset.en;
-                } else {
-                    el.innerHTML = originalTexts.get(el);
-                }
-            });
-
-            btnIT.classList.toggle("active", lang === "it");
-            btnEN.classList.toggle("active", lang === "en");
-        }
-
-        btnIT.addEventListener("click", () => setLanguage("it"));
-        btnEN.addEventListener("click", () => setLanguage("en"));
-    </script>
-    
 <footer style="
     position: fixed;
     bottom: 0;
@@ -207,13 +189,9 @@ Within a sustainability-oriented approach, the laboratory prioritizes material r
     padding: 0.5em 1em;
     font-size: 0.8em;
     color: #555;
-    text-align: right;
-    background: rgba(255, 255, 255, 0.8); /* sfondo semi-trasparente per leggibilità */
-    z-index: 1000;
+    background: rgba(255,255,255,0.8);
 ">
-  © 2025 LABOR. All rights reserved.
-  <br>
-  Copying, redistribution, or use of the content and code is prohibited without explicit permission.
+© 2025 LABOR
 </footer>
 
 </body>
