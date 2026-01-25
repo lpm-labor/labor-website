@@ -101,6 +101,10 @@
             background: white;
         }
 
+        input[type="checkbox"] {
+            margin-right: 6px;
+        }
+
         button {
             font-family: inherit;
             font-size: 16px;
@@ -115,6 +119,10 @@
             color: white;
         }
 
+        .disclaimer {
+            font-size: 14px;
+            margin: 6px 0 10px 0;
+        }
     </style>
 </head>
 
@@ -165,10 +173,22 @@ Within a sustainability-oriented approach, the laboratory prioritizes material r
             Formato adatto alla stampa d'ufficio. 
         </p>
 
-        <!-- FORM FORMSpree -->
+        <!-- FORM FORMSpree con disclaimer e checkbox -->
         <form action="https://formspree.io/f/mwvlgorn" method="POST">
             <input type="email" name="email" required placeholder="email">
-            <input type="hidden" name="_redirect" value="https://lpm-labor.eu/download/Prontuario_v1.3.5_bw_genn2026.pdf">
+
+            <!-- DISCLAIMER bilingue -->
+            <p class="disclaimer t" data-en="The email will only be used for the download and occasional communications.">
+                L'email verrà utilizzata solo per il download ed eventuali comunicazioni.
+            </p>
+
+            <!-- CHECKBOX GDPR -->
+            <label class="t" data-en="I consent to the use of my email for the download and communications." style="display:block; margin-bottom:10px;">
+                <input type="checkbox" name="consent" required>
+                Acconsento all’utilizzo della mia email per il download ed eventuali comunicazioni.
+            </label>
+
+            <input type="hidden" name="_redirect" value="https://lpm-labor.eu/download.html">
             <button type="submit" class="t" data-en="handbook(pdf)">prontuario(pdf)</button>
         </form>
 
