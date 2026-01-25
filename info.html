@@ -173,17 +173,13 @@ Within a sustainability-oriented approach, the laboratory prioritizes material r
             Formato adatto alla stampa d'ufficio. 
         </p>
 
-    <!-- FORM FORMSpree aggiornato senza checkbox -->
+   <!-- FORM FORMSpree senza checkbox, solo disclaimer -->
 <form action="https://formspree.io/f/mwvlgorn" method="POST">
     <input type="email" name="email" required placeholder="email">
-
-    <input type="hidden" name="_redirect" value="https://lpm-labor.eu/download.html">
+    <input type="hidden" name="_redirect" value="download.html">
     <button type="submit" class="t" data-en="handbook(pdf)">prontuario(pdf)</button>
 
-    <!-- DISCLAIMER bilingue sotto il pulsante -->
-    <p class="disclaimer t" 
-       data-en="The email will only be used for the download and occasional communications." 
-       style="font-size:14px; margin-top:8px;">
+    <p class="disclaimer t" data-en="The email will only be used for the download and occasional communications.">
         L'email verrà utilizzata solo per il download ed eventuali comunicazioni.
     </p>
 </form>
@@ -246,29 +242,28 @@ Within a sustainability-oriented approach, the laboratory prioritizes material r
     </main>
 
     <script>
-        const elements = document.querySelectorAll(".t");
-        const btnIT = document.getElementById("btn-it");
-        const btnEN = document.getElementById("btn-en");
+const elements = document.querySelectorAll(".t");
+const btnIT = document.getElementById("btn-it");
+const btnEN = document.getElementById("btn-en");
 
-        const originalTexts = new Map();
-        elements.forEach(el => originalTexts.set(el, el.innerHTML));
+const originalTexts = new Map();
+elements.forEach(el => originalTexts.set(el, el.innerHTML));
 
-        function setLanguage(lang) {
-            elements.forEach(el => {
-                if (lang === "en" && el.dataset.en) {
-                    el.innerHTML = el.dataset.en;
-                } else {
-                    el.innerHTML = originalTexts.get(el);
-                }
-            });
+function setLanguage(lang) {
+    elements.forEach(el => {
+        if (lang === "en" && el.dataset.en) el.innerHTML = el.dataset.en;
+        else el.innerHTML = originalTexts.get(el);
+    });
+    btnIT.classList.toggle("active", lang === "it");
+    btnEN.classList.toggle("active", lang === "en");
+}
+btnIT.addEventListener("click", () => setLanguage("it"));
+btnEN.addEventListener("click", () => setLanguage("en"));
 
-            btnIT.classList.toggle("active", lang === "it");
-            btnEN.classList.toggle("active", lang === "en");
-        }
-
-        btnIT.addEventListener("click", () => setLanguage("it"));
-        btnEN.addEventListener("click", () => setLanguage("en"));
-    </script>
+// Imposta lingua iniziale dal browser
+const userLang = (navigator.language || navigator.userLanguage).startsWith("en") ? "en" : "it";
+setLanguage(userLang);
+</script>
     
 <footer style="
     position: fixed;
