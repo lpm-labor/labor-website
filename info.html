@@ -255,8 +255,12 @@ btnIT.addEventListener("click", () => setLanguage("it"));
 btnEN.addEventListener("click", () => setLanguage("en"));
 
 // Imposta lingua iniziale dal browser
-const userLang = (navigator.language || navigator.userLanguage).startsWith("en") ? "en" : "it";
+const browserLang = navigator.language || navigator.userLanguage;
+
+// Se italiano → "it", altrimenti → fallback "en"
+const userLang = browserLang.startsWith("it") ? "it" : "en";
 setLanguage(userLang);
+
 </script>
     
 <footer style="
