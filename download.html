@@ -3,12 +3,45 @@
 <head>
 <meta charset="UTF-8">
 <title>Download PDF</title>
+<style>
+body {
+    font-family: "Courier New", monospace;
+    background: white;
+    color: black;
+    padding: 20px;
+}
+p {
+    font-size: 16px;
+}
+a {
+    text-decoration: underline;
+    color: black;
+}
+a:hover {
+    color: gray;
+}
+</style>
 </head>
 <body>
-<p>Il download inizierà automaticamente. Se non parte, <a href="https://github.com/lpm-labor/labor-website/blob/main/download/Prontuario_v1.3.5_bw_genn2026.pdf" download>clicca qui</a>.</p>
+
+<!-- Messaggio in italiano e inglese -->
+<p class="t" data-en="The download will start automatically. If it doesn't, <a href='https://raw.githubusercontent.com/lpm-labor/labor-website/main/download/Prontuario_v1.3.5_bw_genn2026.pdf' download>click here</a>.">
+  Il download inizierà automaticamente. Se non parte, <a href="https://raw.githubusercontent.com/lpm-labor/labor-website/main/download/Prontuario_v1.3.5_bw_genn2026.pdf" download>clicca qui</a>.
+</p>
+
 <script>
-  window.location.href = "https://github.com/lpm-labor/labor-website/blob/main/download/Prontuario_v1.3.5_bw_genn2026.pdf";
+  // Redirect automatico al PDF
+  window.location.href = "https://raw.githubusercontent.com/lpm-labor/labor-website/main/download/Prontuario_v1.3.5_bw_genn2026.pdf";
+
+  // Switch lingua automatico se la pagina è in inglese (opzionale)
+  const elements = document.querySelectorAll(".t");
+  const userLang = navigator.language || navigator.userLanguage;
+  if(userLang.startsWith("en")){
+    elements.forEach(el => {
+      if(el.dataset.en) el.innerHTML = el.dataset.en;
+    });
+  }
 </script>
+
 </body>
 </html>
-
