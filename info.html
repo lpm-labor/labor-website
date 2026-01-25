@@ -173,45 +173,35 @@ Within a sustainability-oriented approach, the laboratory prioritizes material r
             Formato adatto alla stampa d'ufficio. 
         </p>
 
-   <!-- FORM FORMSpree senza checkbox, solo disclaimer -->
-<form action="https://formspree.io/f/mwvlgorn" method="POST">
+ <form id="download-form">
     <input type="email" name="email" required placeholder="email">
-    <input type="hidden" name="_redirect" value="download.html">
     <button type="submit" class="t" data-en="handbook(pdf)">prontuario(pdf)</button>
 
+    <!-- Disclaimer sotto il pulsante -->
     <p class="disclaimer t" data-en="The email will only be used for the download and occasional communications.">
         L'email verrà utilizzata solo per il download ed eventuali comunicazioni.
     </p>
 </form>
 
 <script>
-    const btnIT = document.getElementById("btn-it");
-    const btnEN = document.getElementById("btn-en");
-    const elements = document.querySelectorAll(".t");
+document.getElementById('download-form').addEventListener('submit', function(e) {
+    e.preventDefault(); // blocca submit tradizionale
 
-    const originalTexts = new Map();
-    elements.forEach(el => originalTexts.set(el, el.innerHTML));
+    // apre download.html subito in una nuova scheda
+    window.open('download.html', '_blank');
 
-    function setLanguage(lang) {
-        elements.forEach(el => {
-            if (lang === "en" && el.dataset.en) {
-                el.innerHTML = el.dataset.en;
-            } else {
-                el.innerHTML = originalTexts.get(el);
-            }
-        });
-
-        btnIT.classList.toggle("active", lang === "it");
-        btnEN.classList.toggle("active", lang === "en");
-    }
-
-    btnIT.addEventListener("click", () => setLanguage("it"));
-    btnEN.addEventListener("click", () => setLanguage("en"));
-
-    // Imposta lingua iniziale in base al browser
-    const userLang = (navigator.language || navigator.userLanguage).startsWith("en") ? "en" : "it";
-    setLanguage(userLang);
+    // invia email a Formspree in background
+    const formData = new FormData(this);
+    fetch('https://formspree.io/f/mwvlgorn', {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+    }).then(response => {
+        if(response.ok) console.log('Email inviata a Formspree');
+    }).catch(err => console.error('Errore invio email', err));
+});
 </script>
+
         <h3 class="t" data-en="Contacts">Contatti</h3>
 
         <p>
