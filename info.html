@@ -173,24 +173,67 @@ Within a sustainability-oriented approach, the laboratory prioritizes material r
             Formato adatto alla stampa d'ufficio. 
         </p>
 
-        <!-- FORM FORMSpree con disclaimer e checkbox -->
-        <form action="https://formspree.io/f/mwvlgorn" method="POST">
-            <input type="email" name="email" required placeholder="email">
+       <!-- FORM FORMSpree aggiornato bilingue -->
+<form action="https://formspree.io/f/mwvlgorn" method="POST">
+    <input type="email" name="email" required placeholder="email">
 
-            <!-- DISCLAIMER bilingue -->
-            <p class="disclaimer t" data-en="The email will only be used for the download and occasional communications.">
-                L'email verrà utilizzata solo per il download ed eventuali comunicazioni.
-            </p>
+    <!-- DISCLAIMER bilingue -->
+    <p class="disclaimer t" data-en="The email will only be used for the download and occasional communications." style="font-size:14px;">
+        L'email verrà utilizzata solo per il download ed eventuali comunicazioni.
+    </p>
 
-            <!-- CHECKBOX GDPR -->
-            <label class="t" data-en="I consent to the use of my email for the download and communications." style="display:block; margin-bottom:10px;">
-                <input type="checkbox" name="consent" required>
-                Acconsento all’utilizzo della mia email per il download ed eventuali comunicazioni.
-            </label>
+    <!-- CHECKBOX bilingue con stessa dimensione testo -->
+    <label class="t" data-en="I consent to the use of my email for the download and occasional communications." 
+           style="display:block; font-size:14px; margin-bottom:10px;">
+        <input type="checkbox" name="consent" required>
+        L'email verrà utilizzata solo per il download ed eventuali comunicazioni.
+    </label>
 
-            <input type="hidden" name="_redirect" value="https://lpm-labor.eu/download.html">
-            <button type="submit" class="t" data-en="handbook(pdf)">prontuario(pdf)</button>
-        </form>
+    <!-- Checkbox testo EN -->
+    <label class="t" data-en="I consent to the use of my email for the download and occasional communications." 
+           style="display:none; font-size:14px; margin-bottom:10px;" id="checkbox-en">
+        <input type="checkbox" name="consent" required>
+        I consent to the use of my email for the download and occasional communications.
+    </label>
+
+    <input type="hidden" name="_redirect" value="https://lpm-labor.eu/download.html">
+    <button type="submit" class="t" data-en="handbook(pdf)">prontuario(pdf)</button>
+</form>
+
+<script>
+    // Switch lingua per checkbox e disclaimer
+    const btnIT = document.getElementById("btn-it");
+    const btnEN = document.getElementById("btn-en");
+    const elements = document.querySelectorAll(".t");
+    const checkboxEn = document.getElementById("checkbox-en");
+
+    const originalTexts = new Map();
+    elements.forEach(el => originalTexts.set(el, el.innerHTML));
+
+    function setLanguage(lang) {
+        elements.forEach(el => {
+            if (lang === "en" && el.dataset.en) {
+                el.innerHTML = el.dataset.en;
+            } else {
+                el.innerHTML = originalTexts.get(el);
+            }
+        });
+
+        // Mostra / nascondi checkbox EN/IT
+        if(lang === "en") {
+            checkboxEn.style.display = "block";
+        } else {
+            checkboxEn.style.display = "none";
+        }
+
+        btnIT.classList.toggle("active", lang === "it");
+        btnEN.classList.toggle("active", lang === "en");
+    }
+
+    btnIT.addEventListener("click", () => setLanguage("it"));
+    btnEN.addEventListener("click", () => setLanguage("en"));
+</script>
+
 
         <h3 class="t" data-en="Contacts">Contatti</h3>
 
