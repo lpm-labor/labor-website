@@ -173,34 +173,24 @@ Within a sustainability-oriented approach, the laboratory prioritizes material r
             Formato adatto alla stampa d'ufficio. 
         </p>
 
-     <!-- FORM FORMSpree aggiornato -->
+    <!-- FORM FORMSpree aggiornato senza checkbox -->
 <form action="https://formspree.io/f/mwvlgorn" method="POST">
     <input type="email" name="email" required placeholder="email">
 
     <input type="hidden" name="_redirect" value="https://lpm-labor.eu/download.html">
     <button type="submit" class="t" data-en="handbook(pdf)">prontuario(pdf)</button>
 
-    <!-- CHECKBOX + DISCLAIMER sotto il pulsante -->
-    <!-- Italiano -->
-    <label class="t" data-en="I consent to the use of my email for the download and occasional communications." 
-           style="display:block; font-size:14px; margin-top:8px;" id="checkbox-it">
-        <input type="checkbox" name="consent" required>
-        Acconsento all'utilizzo della mia email per il download ed eventuali comunicazioni.
-    </label>
-
-    <!-- Inglese -->
-    <label class="t" data-en="I consent to the use of my email for the download and occasional communications." 
-           style="display:block; font-size:14px; margin-top:8px;" id="checkbox-en">
-        <input type="checkbox" name="consent" required>
-        I consent to the use of my email for the download and occasional communications.
-    </label>
+    <!-- DISCLAIMER bilingue sotto il pulsante -->
+    <p class="disclaimer t" 
+       data-en="The email will only be used for the download and occasional communications." 
+       style="font-size:14px; margin-top:8px;">
+        L'email verrà utilizzata solo per il download ed eventuali comunicazioni.
+    </p>
 </form>
 
 <script>
     const btnIT = document.getElementById("btn-it");
     const btnEN = document.getElementById("btn-en");
-    const checkboxIT = document.getElementById("checkbox-it");
-    const checkboxEN = document.getElementById("checkbox-en");
     const elements = document.querySelectorAll(".t");
 
     const originalTexts = new Map();
@@ -215,10 +205,6 @@ Within a sustainability-oriented approach, the laboratory prioritizes material r
             }
         });
 
-        // Mostra / nascondi checkbox
-        checkboxIT.style.display = (lang === "it") ? "block" : "none";
-        checkboxEN.style.display = (lang === "en") ? "block" : "none";
-
         btnIT.classList.toggle("active", lang === "it");
         btnEN.classList.toggle("active", lang === "en");
     }
@@ -230,9 +216,6 @@ Within a sustainability-oriented approach, the laboratory prioritizes material r
     const userLang = (navigator.language || navigator.userLanguage).startsWith("en") ? "en" : "it";
     setLanguage(userLang);
 </script>
-
-
-
         <h3 class="t" data-en="Contacts">Contatti</h3>
 
         <p>
