@@ -80,6 +80,7 @@
         "dimensioni": "50x60cm",
         "quantità": "10",
         "tecnica_lavorazione": "80% manual, 20% power tools",
+        "retail_materials": "50%",
         "energia_produzione": "",
         "link": "https://arts.cern/exhibition/armin-linke-instruments-of-vision/"
       }
@@ -105,6 +106,7 @@
         "dimensioni": "70x45cm",
         "quantità": "",
         "tecnica_lavorazione": "",
+        "retail_materials": "30%",
         "energia_produzione": "",
         "link": ""
       }
@@ -141,6 +143,7 @@
         "dimensioni": "50x60cm",
         "quantità": "11",
         "tecnica_lavorazione": "80% manual, 20% power tools",
+        "retail_materials": "90%",
         "energia_produzione": "",
         "link": "https://www.khi.fi.it/de/aktuelles/ausstellungen/20251111-city-as-archive.php"
       }
@@ -166,6 +169,7 @@
         "dimensioni": "158x58x176cm",
         "quantità": "one-off",
         "tecnica_lavorazione": "",
+        "retail_materials": "99%",
         "energia_produzione": "",
         "link": ""
       }
@@ -194,6 +198,7 @@
         "dimensioni": "35x25x52cm",
         "quantità": "one-off",
         "tecnica_lavorazione": "40% manual, 60% semi-manual",
+        "retail_materials": "99%",
         "energia_produzione": "4.250 KJ",
         "link": ""
       }
@@ -223,6 +228,7 @@
         "dimensioni": "33x18x25cm",
         "quantità": "4",
         "tecnica_lavorazione": "70% manual, 30% semi-manual",
+        "retail_materials": "99%",
         "energia_produzione": "3.650 KJ",
         "link": ""
       }
@@ -250,6 +256,7 @@
         "dimensioni": "26x13x8,5cm",
         "quantità": "",
         "tecnica_lavorazione": "",
+        "retail_materials": "99%",
         "energia_produzione": "",
         "link": ""
       }
@@ -283,6 +290,7 @@
         "dimensioni": "500x210cm, 600x310cm, x2 530x490cm",
         "quantità": "4",
         "tecnica_lavorazione": "90% manual, 10% power tools",
+        "retail_materials": "99%",
         "energia_produzione": "",
         "link": ""
       }
@@ -309,6 +317,7 @@
         "dimensioni": "178x71x78cm",
         "quantità": "1",
         "tecnica_lavorazione": "manual cut, screwer",
+        "retail_materials": "99%",
         "energia_produzione": "3.000 KJ",
         "link": ""
       }
