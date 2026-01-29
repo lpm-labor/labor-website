@@ -13,11 +13,13 @@
         { "src":  "img/progetti/1/4.19_023-001_proiez.jpg", "autore": "" }
       ],
       "dettagli": {
-        "design": "MartinaPozzan, MarthaSchwindling, AlbertoStievanin",
+        "design": "Martha Schwindling",
+        "progetto_esecutivo": "LABOR",
+        "produzione": "LABOR",
         "anno": "2023",
         "status": "Realized for the show -Quantum Condition- by Armin Linke\nINN SITU Innsbruck 4.Ottobre2023-20.Gennaio2024",
         "materiali": "MDF, maple wood, museum glass AR70",
-        "dimensioni": "60x160,35x140",
+        "dimensioni": "60x160cm,35x140cm",
         "quantità": "6+3",
         "tecnica_lavorazione": "20% manual, 80% power tools",
         "energia_produzione": "—",
@@ -40,11 +42,13 @@
          { "src": "img/progetti/2/493A9875_MARTINA POZZAN copia.jpg", "autore": "Photo:MartinaPozzan" }
       ],
       "dettagli": {
-        "design": "NoraMertes, MartinaPozzan, AlbertoStievanin",
+        "design": "LABOR with Nora Mertes",
+        "progetto_esecutivo": "LABOR",
+        "produzione": "LABOR",
         "anno": "2023",
         "status": "Realized for the show -Greifen un Loslassen- by Nora Mertes\nSaarländischeGalerie Berlino 23.Novembre-19.Dicembre2023",
         "materiali": "Drywall Framing: U-Track, C-Stud, wood",
-        "dimensioni": "165x300x80, 215x150x45",
+        "dimensioni": "165x300x80cm, 215x150x45cm",
         "quantità": "1+1",
         "tecnica_lavorazione": "70% manual, 30% power tools",
         "energia_produzione": "-",
@@ -65,11 +69,13 @@
         { "src": "img/progetti/3/instruments_of_vision2.jpg", "autore": "Photo:ArminLinke" }  
       ],
       "dettagli": {
-        "design": "MartinaPozzan, AlbertoStievanin",
+        "design": "LABOR",
+        "progetto_esecutivo": "LABOR",
+        "produzione": "LABOR",
         "anno": "2024",
         "status": "Realized for the show -Instruments of vision- by Armin Linke\nIgrexa da Universidade Santiago de Compostela 21.Giugno-21.Settembre2024",
         "materiali": "beech wood, polypropylene",
-        "dimensioni": "50x60",
+        "dimensioni": "50x60cm",
         "quantità": "10",
         "tecnica_lavorazione": "80% manual, 20% power tools",
         "energia_produzione": "",
@@ -80,7 +86,7 @@
     {
       "id": 4,
       "titolo": "Untitled_1",
-      "sottotitolo": "Display",
+      "sottotitolo": "Paperworks display",
       "codice": "4.19_024-001-01",
       "temi": ["2024", "expo"],
       "immagini": [
@@ -88,11 +94,13 @@
         { "src":  "img/progetti/4/4.19_024-001-01_proiez.jpg", "autore": "" }
       ],
       "dettagli": {
-        "design": "AlbertoStievanin",
+        "design": "LABOR",
+        "progetto_esecutivo": "LABOR",
+        "produzione": "-",
         "anno": "2024",
         "status": "in progress",
         "materiali": "beech wood, museum glass AR70",
-        "dimensioni": "70x45",
+        "dimensioni": "70x45cm",
         "quantità": "",
         "tecnica_lavorazione": "",
         "energia_produzione": "",
@@ -122,11 +130,13 @@
         { "src": "img/progetti/5/DSCF8105_post.JPG", "autore": "" }
       ],
       "dettagli": {
-        "design": "MartinaPozzan, AlbertoStievanin",
+        "design": "LABOR",
+        "progetto_esecutivo": "LABOR",
+        "produzione": "LABOR",
         "anno": "2025",
         "status": "Realized for the show -Florence: the city as archive- by Armin Linke\nPalazzo GrifoniBudiniGattai\nFirenze 12.Novembre2025-31.Gennaio2026",
         "materiali": "maple wood, museum glass AR70, multiplex",
-        "dimensioni": "50x60",
+        "dimensioni": "50x60cm",
         "quantità": "11",
         "tecnica_lavorazione": "80% manual, 20% power tools",
         "energia_produzione": "",
@@ -137,7 +147,7 @@
     {
       "id": 6,
       "titolo": "re-IKEA_1",
-      "sottotitolo": "Riadattamento moblie da camera IKEA KLEPPSTAD",
+      "sottotitolo": "Redesign of IKEA KLEPPSTAD furniture",
       "codice": "4.19_025-005",
       "temi": ["2025", "arredo", "riuso"],
       "immagini": [
@@ -145,12 +155,14 @@
         { "src":  "img/progetti/6/4.19_025-005_proiez.jpg", "autore": "" }
       ],
       "dettagli": {
-        "design": "AlbertoStievanin",
+        "design": "LABOR",
+        "progetto_esecutivo": "LABOR",
+        "produzione": "-",
         "anno": "2025",
         "status": "in progress",
         "materiali": "Legno truciolato, Siebdruck, Policarbonato",
-        "dimensioni": "158x58x176",
-        "quantità": "1",
+        "dimensioni": "158x58x176cm",
+        "quantità": "one-off",
         "tecnica_lavorazione": "",
         "energia_produzione": "",
         "link": ""
@@ -160,7 +172,7 @@
     {
       "id": 7,
       "titolo": "Animalia#01",
-      "sottotitolo": "Sedia per bambino con materiale di recupero",
+      "sottotitolo": "Children’s chair made from reclaimed materials",
       "codice": "4.19_025-006",
       "temi": ["2025", "arredo", "riuso"],
       "immagini": [
@@ -171,12 +183,14 @@
         { "src":  "img/progetti/7/Fi-d_0073_IMG_2675_postWeb.jpg", "autore": "Photo:AlbertoStievanin" }
       ],
       "dettagli": {
-        "design": "MartinaPozzan, AlbertoStievanin",
+        "design": "LABOR",
+        "progetto_esecutivo": "LABOR",
+        "produzione": "LABOR",
         "anno": "2025",
-        "status": "realizzato",
-        "materiali": "legno di pino e multistrato 76% materiale di recupero",
-        "dimensioni": "35x25x52",
-        "quantità": "pezzo unico",
+        "status": "realized",
+        "materiali": "pine timber and plywood panel, 76% from recycled wood",
+        "dimensioni": "35x25x52cm",
+        "quantità": "one-off",
         "tecnica_lavorazione": "40% manual, 60% semi-manual",
         "energia_produzione": "4.250 KJ",
         "link": ""
@@ -186,7 +200,7 @@
     {
       "id": 8,
       "titolo": "Bellino#",
-      "sottotitolo": "Appoggia piedi con materiale di recupero",
+      "sottotitolo": "Footrest made from reclaimed materials",
       "codice": "4.19_025-007",
       "temi": ["2025", "arredo", "riuso"],
       "immagini": [
@@ -198,11 +212,13 @@
         { "src":  "img/progetti/8/Fi-d_0073_IMG_2647_postWeb.jpg", "autore": "Photo:AlbertoStievanin" }
       ],
       "dettagli": {
-        "design": "AlbertoStievanin",
+        "design": "LABOR",
+        "progetto_esecutivo": "LABOR",
+        "produzione": "LABOR",
         "anno": "2025",
-        "status": "realizzato",
-        "materiali": "legno di pino 98% materiale di recupero",
-        "dimensioni": "",
+        "status": "realized",
+        "materiali": "pine timber, 98% from recycled wood",
+        "dimensioni": "33x18x25cm",
         "quantità": "4",
         "tecnica_lavorazione": "70% manual, 30% semi-manual",
         "energia_produzione": "3.650 KJ",
@@ -213,7 +229,7 @@
     {
       "id": 9,
       "titolo": "Block",
-      "sottotitolo": "Blocco in legno-cemento per autocostruzione",
+      "sottotitolo": "Wood-cement block for self-construction",
       "codice": "18.3_025-001",
       "temi": ["2025", "ricerca", "riuso", "arch"],
       "immagini": [
@@ -223,11 +239,13 @@
         { "src": "img/progetti/9/IMG_20251116_142103_bw.jpg", "autore": "Photo:AlbertoStievanin" }
       ],
       "dettagli": {
-        "design": "AlbertoStievanin",
+        "design": "LABOR",
+        "progetto_esecutivo": "LABOR",
+        "produzione": "LABOR",
         "anno": "2025",
-        "status": "in progress",
-        "materiali": "CementoPortland, sabbia, acqua, cippato",
-        "dimensioni": "26x13x8,5",
+        "status": "prototyping",
+        "materiali": "Portland cement, sand, water, wood chips",
+        "dimensioni": "26x13x8,5cm",
         "quantità": "",
         "tecnica_lavorazione": "",
         "energia_produzione": "",
@@ -254,11 +272,13 @@
          { "src": "img/progetti/10/Fi-d_0066_IMG_2453_selection01.jpg", "autore": "Photo:LucaCaciagli" }
       ],
       "dettagli": {
-        "design": "UmbertoFreddi, AlbertoStievanin",
+        "design": "LABOR with Umberto Freddi",
+        "progetto_esecutivo": "Umberto Freddi",
+        "produzione": "LABOR with Umberto Freddi",
         "anno": "2025",
         "status": "Produced for the set of the motion picture -Cantando danzavamo-\nCheremule,Sassari 15.-21.Marzo2025",
         "materiali": "pine wood, nylon",
-        "dimensioni": "500x210, 600x310, x2 530x490",
+        "dimensioni": "500x210cm, 600x310cm, x2 530x490cm",
         "quantità": "4",
         "tecnica_lavorazione": "90% manual, 10% power tools",
         "energia_produzione": "",
@@ -278,11 +298,13 @@
          { "src": "img/progetti/11/Fi-d_0076_493A0568_post.jpg", "autore": "Photo:AlbertoStievanin" }
       ],
       "dettagli": {
-        "design": "AlbertoStievanin",
+        "design": "LABOR",
+        "progetto_esecutivo": "LABOR",
+        "produzione": "LABOR",
         "anno": "2026",
         "status": "realized",
         "materiali": "pine timber profiles",
-        "dimensioni": "178x71x78",
+        "dimensioni": "178x71x78cm",
         "quantità": "1",
         "tecnica_lavorazione": "manual cut, screwer",
         "energia_produzione": "3.000 KJ",
