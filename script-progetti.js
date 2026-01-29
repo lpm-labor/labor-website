@@ -33,12 +33,14 @@ fetch("progetti.json")
 
 const labelMap = {
     design: "design",
+    progetto_esecutivo: "executive project",   // nuova voce
+    produzione: "production",                  // nuova voce
     anno: "year",
     status: "status",
     materiali: "materials",
     dimensioni: "dimensions",
     quantità: "production units",
-    tecnica_lavorazione: "processing",     // ⭐ aggiornato
+    tecnica_lavorazione: "processing",
     energia_produzione: "energy output",
     link: "link"
 };
@@ -49,6 +51,8 @@ const labelMap = {
 
 const schemaTabella = [
     { colonne:["design"] },
+    { colonne:["progetto_esecutivo"] },   // nuova riga
+    { colonne:["produzione"] },           // nuova riga
     { colonne:["anno","status"] },
     { colonne:["materiali"] },
     { colonne:["dimensioni","quantità"] },
