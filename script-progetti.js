@@ -51,14 +51,12 @@ const labelMap = {
 ============================================================ */
 
 const schemaTabella = [
-    { colonne:["design"] },
-    { colonne:["progetto_esecutivo"] },
-    { colonne:["produzione"] },
-    { colonne:["anno"] },
-    { colonne:["status"] },
+    { colonne:["design","progetto_esecutivo"] },   // riga 1
+    { colonne:["produzione","anno"] },            // riga 2
+    { colonne:["status"] },                       // riga 3
     { colonne:["materiali"] },
     { colonne:["dimensioni","quantità"] },
-    { colonne:["tecnica_lavorazione","retail_materials"] },  // ✅ due colonne affiancate
+    { colonne:["tecnica_lavorazione","retail_materials"] }, // due colonne affiancate
     { colonne:["energia_produzione"] },
     { colonne:["link"] }
 ];
