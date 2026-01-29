@@ -22,6 +22,7 @@
         "dimensioni": "60x160cm,35x140cm",
         "quantità": "6+3",
         "tecnica_lavorazione": "20% manual, 80% power tools",
+        "retail_materials": "50%",
         "energia_produzione": "—",
         "link": "https://www.innsitu.at/ausstellung/quantum-conditions/"
       }
@@ -51,6 +52,7 @@
         "dimensioni": "165x300x80cm, 215x150x45cm",
         "quantità": "1+1",
         "tecnica_lavorazione": "70% manual, 30% power tools",
+        "retail_materials": "99%",
         "energia_produzione": "-",
         "link": "https://www.saarlaendische-galerie.eu/veranstaltung/mertes/"
       }
