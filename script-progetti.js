@@ -41,7 +41,7 @@ const labelMap = {
     dimensioni: "dimensions",
     quantità: "production units",
     tecnica_lavorazione: "processing",
-    retail_materials: "% retail-available materials",  // nuova voce
+    retail_materials: "% off the shelf materials",  // nuova voce
     energia_produzione: "energy output",
     link: "link"
 };
