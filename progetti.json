@@ -21,7 +21,7 @@
         "materiali": "MDF, maple wood, museum glass AR70",
         "dimensioni": "60x160cm,35x140cm",
         "quantità": "6+3",
-        "tecnica_lavorazione": "20% manual, 80% power tools",
+        "tecnica_lavorazione": "58% manual, 42% power tools",
         "retail_materials": "50%",
         "energia_produzione": "11,80 kWh",
         "link": "https://www.innsitu.at/ausstellung/quantum-conditions/"
@@ -51,7 +51,7 @@
         "materiali": "Drywall Framing: U-Track, C-Stud, wood",
         "dimensioni": "165x300x80cm, 215x150x45cm",
         "quantità": "1+1",
-        "tecnica_lavorazione": "70% manual, 30% power tools",
+        "tecnica_lavorazione": "58% manual, 42% power tools",
         "retail_materials": "99%",
         "energia_produzione": "6,70 kWh",
         "link": "https://www.saarlaendische-galerie.eu/veranstaltung/mertes/"
@@ -79,7 +79,7 @@
         "materiali": "beech wood, polypropylene",
         "dimensioni": "50x60cm",
         "quantità": "10",
-        "tecnica_lavorazione": "80% manual, 20% power tools",
+        "tecnica_lavorazione": "86% manual, 14% power tools",
         "retail_materials": "50%",
         "energia_produzione": "9,00 kWh",
         "link": "https://arts.cern/exhibition/armin-linke-instruments-of-vision/"
@@ -142,9 +142,9 @@
         "materiali": "maple wood, museum glass AR70, multiplex",
         "dimensioni": "50x60cm",
         "quantità": "11",
-        "tecnica_lavorazione": "80% manual, 20% power tools",
+        "tecnica_lavorazione": "77% manual, 23% power tools",
         "retail_materials": "90%",
-        "energia_produzione": "20,7 kWh",
+        "energia_produzione": "20,65 kWh",
         "link": "https://www.khi.fi.it/de/aktuelles/ausstellungen/20251111-city-as-archive.php"
       }
     },
@@ -197,7 +197,7 @@
         "materiali": "pine timber and plywood panel, 76% from recycled wood",
         "dimensioni": "35x25x52cm",
         "quantità": "one-off",
-        "tecnica_lavorazione": "40% manual, 60% semi-manual",
+        "tecnica_lavorazione": "43% manual, 57% semi-manual",
         "retail_materials": "99%",
         "energia_produzione": "1,50 kWh",
         "link": ""
@@ -227,7 +227,7 @@
         "materiali": "pine timber, 98% from recycled wood",
         "dimensioni": "33x18x25cm",
         "quantità": "4",
-        "tecnica_lavorazione": "70% manual, 30% semi-manual",
+        "tecnica_lavorazione": "53% manual, 47% semi-manual",
         "retail_materials": "99%",
         "energia_produzione": "1,25 kWh",
         "link": ""
@@ -289,9 +289,9 @@
         "materiali": "pine wood, nylon",
         "dimensioni": "500x210cm, 600x310cm, x2 530x490cm",
         "quantità": "4",
-        "tecnica_lavorazione": "90% manual, 10% power tools",
+        "tecnica_lavorazione": "94% manual, 6% power tools",
         "retail_materials": "99%",
-        "energia_produzione": "13,60 kWh",
+        "energia_produzione": "16,00 kWh",
         "link": ""
       }
     },
@@ -316,9 +316,9 @@
         "materiali": "pine timber profiles",
         "dimensioni": "178x71x78cm",
         "quantità": "1",
-        "tecnica_lavorazione": "manual cut, screwer",
+        "tecnica_lavorazione": "80% manual, 20% power tools",
         "retail_materials": "99%",
-        "energia_produzione": "0,90 kWh",
+        "energia_produzione": "0,95 kWh",
         "link": ""
       }
     }
