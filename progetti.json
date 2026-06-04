@@ -144,7 +144,7 @@
         "quantità": "11",
         "tecnica_lavorazione": "80% manual, 20% power tools",
         "retail_materials": "90%",
-        "energia_produzione": "",
+        "energia_produzione": "20,7 kWh",
         "link": "https://www.khi.fi.it/de/aktuelles/ausstellungen/20251111-city-as-archive.php"
       }
     },
@@ -199,7 +199,7 @@
         "quantità": "one-off",
         "tecnica_lavorazione": "40% manual, 60% semi-manual",
         "retail_materials": "99%",
-        "energia_produzione": "4.250 KJ",
+        "energia_produzione": "1,50 kWh",
         "link": ""
       }
     },
@@ -229,7 +229,7 @@
         "quantità": "4",
         "tecnica_lavorazione": "70% manual, 30% semi-manual",
         "retail_materials": "99%",
-        "energia_produzione": "3.650 KJ",
+        "energia_produzione": "1,25 kWh",
         "link": ""
       }
     },
