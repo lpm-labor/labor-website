@@ -23,7 +23,7 @@
         "quantità": "6+3",
         "tecnica_lavorazione": "20% manual, 80% power tools",
         "retail_materials": "50%",
-        "energia_produzione": "—",
+        "energia_produzione": "11,80 kWh",
         "link": "https://www.innsitu.at/ausstellung/quantum-conditions/"
       }
     },
@@ -53,7 +53,7 @@
         "quantità": "1+1",
         "tecnica_lavorazione": "70% manual, 30% power tools",
         "retail_materials": "99%",
-        "energia_produzione": "-",
+        "energia_produzione": "6,70 kWh",
         "link": "https://www.saarlaendische-galerie.eu/veranstaltung/mertes/"
       }
     },
@@ -81,7 +81,7 @@
         "quantità": "10",
         "tecnica_lavorazione": "80% manual, 20% power tools",
         "retail_materials": "50%",
-        "energia_produzione": "",
+        "energia_produzione": "9,00 kWh",
         "link": "https://arts.cern/exhibition/armin-linke-instruments-of-vision/"
       }
     },
